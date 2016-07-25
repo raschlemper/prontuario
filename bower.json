@@ -1,0 +1,30 @@
+{
+  "name": "prontuario",
+  "authors": [
+    "rafael.schlemper <rafael.schlemper@gennera.com.br>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.6.3",
+    "simple-line-icons": "~2.3.2",
+    "animate.css": "~3.5.2",
+    "whirl": "~1.0.0",
+    "bootstrap": "~3.3.7",
+    "animo.js": "~1.0.3",
+    "jquery-slimscroll": "slimScroll#~1.3.8",
+    "screenfull": "~3.0.0",
+    "jquery": "~3.1.0",
+    "jquery.easing": "~1.3.1"
+  }
+}
