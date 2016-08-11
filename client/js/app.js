@@ -8,5 +8,6 @@ var app = angular.module('Prontuario', [
   'ngAnimate',
   'ui.router',
   'ui.bootstrap',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'appTable'
 ]);
