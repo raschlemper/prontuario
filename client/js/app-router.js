@@ -27,7 +27,7 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
       })
       .state('app.paciente.create', {
         url: '/create',
-        templateUrl: 'partials/app/paciente/pacientes-edit.html',
+        templateUrl: 'partials/app/paciente/paciente-edit.html',
         controller: 'PacienteEditController'
       });
       // .state('app.paciente.edit', {
