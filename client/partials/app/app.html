@@ -139,7 +139,20 @@
 
       </header>
 
-      <div>  
+      <div class="content-wrapper"> 
+
+         <!-- Create a directive to breadcrumb and page title -->
+         <h3>Pacientes  
+            <ol class="breadcrumb pull-right">
+               <li><a href="#">Home</a>
+               </li>
+               <li><a href="#">Elements</a>
+               </li>
+               <li class="active">Notifications</li>
+            </ol>
+            <span class="text-sm hidden-xs">A complete set of notification posibilities</span>
+         </h3>
+
          <div ui-view></div>
       </div> 
 

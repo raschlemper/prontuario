@@ -1,4 +1,4 @@
-<div class="content-wrapper"> 
+<!-- <div class="content-wrapper"> 
    <h3>Pacientes  
       <ol class="breadcrumb pull-right">
          <li><a href="#">Home</a>
@@ -8,7 +8,7 @@
          <li class="active">Notifications</li>
       </ol>
       <span class="text-sm hidden-xs">A complete set of notification posibilities</span>
-   </h3>
+   </h3> -->
    <div class="row">
       <div class="col-md-3">
          <div class="panel panel-default">
@@ -16,12 +16,21 @@
                <div class="pv-lg">
                   <img src="img/user/02.jpg" alt="Contact" class="center-block img-responsive img-circle img-thumbnail thumb96">
                </div>
-               <h3 class="m0 text-bold">Audrey Hunt</h3>
-               <div class="mv-lg">
+               <h3 class="m0 text-bold">{{ patient.name }}</h3>
+               <div class="panel b">
+                  <div class="list-group">
+                     <a href="#tabSetting1" data-toggle="tab" class="list-group-item">Profile</a>
+                     <a href="#tabSetting2" data-toggle="tab" class="list-group-item">Account</a>
+                     <a href="#tabSetting3" data-toggle="tab" class="list-group-item">Emails</a>
+                     <a href="#tabSetting4" data-toggle="tab" class="list-group-item">Notifications</a>
+                     <a href="#tabSetting5" data-toggle="tab" class="list-group-item">Applications</a>
+                  </div>
+               </div>
+               <!-- <div class="mv-lg">
                   <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
                </div>
                <div class="text-center"><a href="#" class="btn btn-primary">Send message</a>
-               </div>
+               </div> -->
             </div>
          </div>
          <!-- <div class="panel b">
@@ -37,33 +46,33 @@
       <div class="col-md-9">
          <div class="panel panel-default">
             <div class="panel-body">
-               <ul class="nav nav-tabs">
-                  <li role="paciente" class="tab-130 active">
+               <ul class="nav nav-tabs" role="tablist">
+                  <li role="patientTab" class="tab-130 active">
                      <a href="#identify" aria-controls="identify" role="tab" data-toggle="tab">Identificação</a>
                   </li>
-                  <li role="paciente" class="tab-130">
+                  <li role="patientTab" class="tab-130">
                      <a href="#address" aria-controls="address" role="tab" data-toggle="tab">Endereço</a>
                   </li>
-                  <li role="paciente" class="tab-130">
+                  <li role="patientTab" class="tab-130">
                      <a href="#family" aria-controls="family" role="tab" data-toggle="tab">Familiar</a>
                   </li>
-                  <li role="paciente" class="tab-130">
+                  <li role="patientTab" class="tab-130">
                      <a href="#education" aria-controls="education" role="tab" data-toggle="tab">Escolaridade</a>
                   </li>
-                  <li role="paciente" class="tab-130">
+                  <li role="patientTab" class="tab-130">
                      <a href="#occupation" aria-controls="occupation" role="tab" data-toggle="tab">Ocupação</a>
                   </li>
                </ul>
-               <div class="tab-content">
-                  <form action="" class="">
-                     <div id="identify" class="tab-pane active">
+               <form action="" class="">
+                  <div class="tab-content">
+                     <div id="identify" class="tab-pane active" role="tabpanel">
                         <div class="form-group">
                            <label>Nome</label>
-                           <input type="text" class="form-control" name="name" ng-model="paciente.name">
+                           <input type="text" class="form-control" name="name" ng-model="patient.name">
                         </div>
                         <div class="form-group" style="width: 250px;">
                            <label>Data Nascimento</label>
-                           <datepicker class="input-group date" name="dataNascimento" datepicker-model="paciente.dataNascimento"></datepicker>
+                           <datepicker class="input-group date" name="dataNascimento" datepicker-model="patient.dataNascimento"></datepicker>
                         </div>
                         <div class="form-group">
                            <label>Sexo</label><br>
@@ -73,34 +82,34 @@
                            </label>
                         </div>
                      </div>
-                     <div id="address" class="tab-pane">
+                     <div id="address" class="tab-pane" role="tabpanel">
                         <div class="form-group">
                            <label>Name</label>
                            <input type="text" class="form-control">
                         </div>
                      </div>
-                     <div id="family" class="tab-pane">
+                     <div id="family" class="tab-pane" role="tabpanel">
                         <div class="form-group">
                            <label>Name</label>
                            <input type="text" class="form-control">
                         </div>
                      </div>
-                     <div id="education" class="tab-pane">
+                     <div id="education" class="tab-pane" role="tabpanel">
                         <div class="form-group">
                            <label>Name</label>
                            <input type="text" class="form-control">
                         </div>
                      </div>
-                     <div id="occupation" class="tab-pane">
+                     <div id="occupation" class="tab-pane" role="tabpanel">
                         <div class="form-group">
                            <label>Name</label>
                            <input type="text" class="form-control">
                         </div>
                      </div>
-                  </form>
-               </div>
+                  </div>
+               </form>
             </div>
          </div>
       </div>
    </div>
-</div>
+<!-- </div> -->

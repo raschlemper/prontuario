@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PacienteEditController', ['$scope', 
+app.controller('PatientEditController', ['$scope', 
   function ($scope) {
 
   	var genres = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];

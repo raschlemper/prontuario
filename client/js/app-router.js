@@ -15,34 +15,34 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
       /**
        *    'Pacientes'
        */
-      .state('app.paciente', {
+      .state('app.patient', {
         abstract: true,
-        url: '/paciente',
+        url: '/patient',
         template: '<div ui-view></div>'
       })
-      .state('app.paciente.list', {
+      .state('app.patient.list', {
         url: '/',
-        templateUrl: 'partials/app/paciente/paciente.html',
-        controller: 'PacienteController'
+        templateUrl: 'partials/app/patient/patient.html',
+        controller: 'PatientController'
       })
-      .state('app.paciente.create', {
+      .state('app.patient.create', {
         url: '/create',
-        templateUrl: 'partials/app/paciente/paciente-edit.html',
-        controller: 'PacienteEditController'
+        templateUrl: 'partials/app/patient/patient-edit.html',
+        controller: 'PatientEditController'
       });
-      // .state('app.paciente.edit', {
+      // .state('app.patient.edit', {
       //   url: '/:id/edit',
-      //   templateUrl: 'partials/app/paciente/paciente-edit.html',
+      //   templateUrl: 'partials/app/patient/patient-edit.html',
       //   controller: 'PacienteEditController'
       // })
-      // .state('app.paciente.new', {
+      // .state('app.patient.new', {
       //   url: '/new',
-      //   templateUrl: 'partials/app/paciente/paciente-edit.html',
+      //   templateUrl: 'partials/app/patient/patient-edit.html',
       //   controller: 'PacienteEditController'
       // })
-      // .state('app.paciente.show', {
+      // .state('app.patient.show', {
       //   url: '/:id',
-      //   templateUrl: 'partials/app/paciente/paciente-show.html',
+      //   templateUrl: 'partials/app/patient/patient-show.html',
       //   controller: 'PacienteShowController'
       // });
 

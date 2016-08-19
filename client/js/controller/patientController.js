@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PacienteController', ['$scope', '$http',
+app.controller('PatientController', ['$scope', '$http',
   function ($scope, $http) {
 
 	var init = function () {
