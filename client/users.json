@@ -1,7 +1,7 @@
 [
   {
     "id":1,
-    "picture": "img/user/02.jpg",
+    "picture": "img/user/01.jpg",
     "username": "Sentre94",
     "name":"Eduarda Dias",
     "lastName":"Souza",
@@ -9,6 +9,7 @@
     "phone": "(21) 7067-2144"
   },{
     "id":2,
+    "picture": "img/user/02.jpg",
     "username": "Suptiele1966",
     "name":"Giovanna Pinto",
     "lastName":"Melo",
@@ -16,6 +17,7 @@
     "phone": "(51) 3735-5564"
   },{
     "id":3,
+    "picture": "img/user/03.jpg",
     "username": "Wealwasely",
     "name":"João Melo",
     "lastName":"Carvalho",
@@ -23,6 +25,7 @@
     "phone": "(75) 6018-7059"
   },{
     "id":4,
+    "picture": "img/user/04.jpg",
     "username": "Chammat",
     "name":"Vinicius Melo",
     "lastName":"Barbosa",
@@ -30,6 +33,7 @@
     "phone": "(21) 7704-9923"
   },{
     "id":5,
+    "picture": "img/user/05.jpg",
     "username": "Thrioned",
     "name":"Bruno Correia",
     "lastName":"Cardoso",

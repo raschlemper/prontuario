@@ -6831,3 +6831,8 @@ body .jvectormap-zoomout {
 .no-sort::after { display: none!important; }
 
 .no-sort { pointer-events: none!important; cursor: default!important; }
+
+.tab-130 {
+	width: 130px;
+	text-align: center;
+}
