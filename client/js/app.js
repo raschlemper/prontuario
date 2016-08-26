@@ -9,5 +9,7 @@ var app = angular.module('Prontuario', [
   'ui.router',
   'ui.bootstrap',
   'pascalprecht.translate',
+  'ui.mask',
+  'ui.utils.masks',
   'appTable'
 ]);

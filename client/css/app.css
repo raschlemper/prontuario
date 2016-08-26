@@ -95,7 +95,7 @@ hr {
 	border-bottom-color: #fff
 }
 .tab-content {
-	padding: 10px 20px;
+	padding: 20px;
 	border-style: solid;
 	border-width: 0 1px 1px;
 	border-color: #dde6e9
@@ -6372,6 +6372,10 @@ body .jvectormap-zoomout {
 	width: 128px !important;
 	height: 128px !important
 }
+.thumb200 {
+	width: 200px !important;
+	height: 200px !important
+}
 .align-middle {
 	vertical-align: middle
 }
@@ -6836,3 +6840,19 @@ body .jvectormap-zoomout {
 	width: 130px;
 	text-align: center;
 }
+
+.btn-line {
+	font-size: 16pt;
+    padding: 0px 10px;
+}
+
+.sub-menu {
+	position: fixed;
+    z-index: 120;
+    width: 100%;
+}
+
+.active-menu {
+	background-color: #f7f7f7;
+}
+

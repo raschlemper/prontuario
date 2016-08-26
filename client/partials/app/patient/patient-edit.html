@@ -1,115 +1,85 @@
-<!-- <div class="content-wrapper"> 
-   <h3>Pacientes  
-      <ol class="breadcrumb pull-right">
-         <li><a href="#">Home</a>
-         </li>
-         <li><a href="#">Elements</a>
-         </li>
-         <li class="active">Notifications</li>
-      </ol>
-      <span class="text-sm hidden-xs">A complete set of notification posibilities</span>
-   </h3> -->
-   <div class="row">
-      <div class="col-md-3">
-         <div class="panel panel-default">
-            <div class="panel-body text-center">
-               <div class="pv-lg">
-                  <img src="img/user/02.jpg" alt="Contact" class="center-block img-responsive img-circle img-thumbnail thumb96">
+<div class="row">
+   <div class="col-md-3">  
+      <div class="panel mb b active-menu" ng-class="{'active-menu': menu === 'geral'}">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-yellow-dark text-center">
+               <em class="fa fa-user fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable" ng-click="setMenu('geral')">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Dados Paciente</h4>
                </div>
-               <h3 class="m0 text-bold">{{ patient.name }}</h3>
-               <div class="panel b">
-                  <div class="list-group">
-                     <a href="#tabSetting1" data-toggle="tab" class="list-group-item">Profile</a>
-                     <a href="#tabSetting2" data-toggle="tab" class="list-group-item">Account</a>
-                     <a href="#tabSetting3" data-toggle="tab" class="list-group-item">Emails</a>
-                     <a href="#tabSetting4" data-toggle="tab" class="list-group-item">Notifications</a>
-                     <a href="#tabSetting5" data-toggle="tab" class="list-group-item">Applications</a>
-                  </div>
-               </div>
-               <!-- <div class="mv-lg">
-                  <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
-               </div>
-               <div class="text-center"><a href="#" class="btn btn-primary">Send message</a>
-               </div> -->
             </div>
          </div>
-         <!-- <div class="panel b">
-            <div class="list-group">
-               <a href="#tabSetting1" data-toggle="tab" class="list-group-item">Profile</a>
-               <a href="#tabSetting2" data-toggle="tab" class="list-group-item">Account</a>
-               <a href="#tabSetting3" data-toggle="tab" class="list-group-item">Emails</a>
-               <a href="#tabSetting4" data-toggle="tab" class="list-group-item">Notifications</a>
-               <a href="#tabSetting5" data-toggle="tab" class="list-group-item">Applications</a>
-            </div>
-         </div> -->
       </div>
-      <div class="col-md-9">
-         <div class="panel panel-default">
-            <div class="panel-body">
-               <ul class="nav nav-tabs" role="tablist">
-                  <li role="patientTab" class="tab-130 active">
-                     <a href="#identify" aria-controls="identify" role="tab" data-toggle="tab">Identificação</a>
-                  </li>
-                  <li role="patientTab" class="tab-130">
-                     <a href="#address" aria-controls="address" role="tab" data-toggle="tab">Endereço</a>
-                  </li>
-                  <li role="patientTab" class="tab-130">
-                     <a href="#family" aria-controls="family" role="tab" data-toggle="tab">Familiar</a>
-                  </li>
-                  <li role="patientTab" class="tab-130">
-                     <a href="#education" aria-controls="education" role="tab" data-toggle="tab">Escolaridade</a>
-                  </li>
-                  <li role="patientTab" class="tab-130">
-                     <a href="#occupation" aria-controls="occupation" role="tab" data-toggle="tab">Ocupação</a>
-                  </li>
-               </ul>
-               <form action="" class="">
-                  <div class="tab-content">
-                     <div id="identify" class="tab-pane active" role="tabpanel">
-                        <div class="form-group">
-                           <label>Nome</label>
-                           <input type="text" class="form-control" name="name" ng-model="patient.name">
-                        </div>
-                        <div class="form-group" style="width: 250px;">
-                           <label>Data Nascimento</label>
-                           <datepicker class="input-group date" name="dataNascimento" datepicker-model="patient.dataNascimento"></datepicker>
-                        </div>
-                        <div class="form-group">
-                           <label>Sexo</label><br>
-                           <label class="radio-inline c-radio" ng-repeat="genre in genres">
-                              <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="">
-                              <span class="fa fa-circle"></span>{{genre.label}}
-                           </label>
-                        </div>
-                     </div>
-                     <div id="address" class="tab-pane" role="tabpanel">
-                        <div class="form-group">
-                           <label>Name</label>
-                           <input type="text" class="form-control">
-                        </div>
-                     </div>
-                     <div id="family" class="tab-pane" role="tabpanel">
-                        <div class="form-group">
-                           <label>Name</label>
-                           <input type="text" class="form-control">
-                        </div>
-                     </div>
-                     <div id="education" class="tab-pane" role="tabpanel">
-                        <div class="form-group">
-                           <label>Name</label>
-                           <input type="text" class="form-control">
-                        </div>
-                     </div>
-                     <div id="occupation" class="tab-pane" role="tabpanel">
-                        <div class="form-group">
-                           <label>Name</label>
-                           <input type="text" class="form-control">
-                        </div>
-                     </div>
-                  </div>
-               </form>
+      <div class="panel mb b">
+         <div class="row row-table row-flush" ng-class="{'active-menu': menu === 'contact'}">
+            <div class="col-xs-3 bg-pink-light text-center">
+               <em class="fa fa-envelope-o fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable" ng-click="setMenu('contact')">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Contatos</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-green text-center">
+               <em class="fa fa-bookmark-o fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Endereço</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-purple-light text-center">
+               <em class="fa fa-group fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Familia</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-info text-center">
+               <em class="fa fa-graduation-cap fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Escolaridade</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-danger-light text-center">
+               <em class="fa fa-briefcase fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Profissional</h4>
+               </div>
             </div>
          </div>
       </div>
    </div>
-<!-- </div> -->
+   <div class="col-md-9">
+      <div class="panel panel-default">
+         <div class="panel-body">
+
+            <div ui-view></div>
+
+         </div>
+      </div>
+   </div>
+</div>
