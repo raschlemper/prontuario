@@ -27,7 +27,8 @@ app.controller('PatientEditController', ['$scope', '$state', 'CepService',
   	$scope.addEmail = function(email) {  
   		$scope.email = null;		
   		$scope.openEmail = false;
-  		$scope.emails.push(angular.copy(email));
+  		$scope.inserted = email;
+  		$scope.emails.push($scope.inserted);
   	};
 
 
