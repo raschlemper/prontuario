@@ -5895,6 +5895,12 @@ body .jvectormap-zoomout {
 .mb-lg {
 	margin-bottom: 15px !important
 }
+.n-mt-lg {
+	margin-top: -15px !important
+}
+.n-mt-20 {
+	margin-top: -20px;
+}
 .m-xl {
 	margin: 30px !important
 }
@@ -6854,5 +6860,16 @@ body .jvectormap-zoomout {
 
 .active-menu {
 	background-color: #f7f7f7;
+}
+
+.container-insert {
+	position: absolute;
+    width: 400px;
+    margin-left: -400px;
+    border-radius: 10px 0 10px 10px;
+    background-color: #fafbfc;
+    border: 1px solid #cfdbe2;
+    color: #929292 !important;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 

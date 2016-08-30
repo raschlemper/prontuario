@@ -14,6 +14,7 @@ app.controller('PatientEditController', ['$scope', '$state', 'CepService',
  	var init = function () {
  		$scope.menu = 'geral';
  		$scope.patient = {};
+ 		$scope.emails = [];
 		$scope.genre = $scope.genres[0]; 
 		$scope.schooling = $scope.educationLevels[0];
   	};
@@ -23,7 +24,9 @@ app.controller('PatientEditController', ['$scope', '$state', 'CepService',
   		$state.go("app.patient.edit." + menu);
   	};
 
-  	$scope.addEmail = function(email) {  		
+  	$scope.addEmail = function(email) {  
+  		$scope.email = null;		
+  		$scope.openEmail = false;
   		$scope.emails.push(angular.copy(email));
   	};
 
