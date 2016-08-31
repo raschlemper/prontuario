@@ -1,0 +1,53 @@
+<ul class="nav nav-tabs">
+   <li role="family" data-toggle="tab" class="tab-130 active"><a href="#parent">Pais</a></li>
+   <li role="family" data-toggle="tab" class="tab-130"><a href="#sibling">Irmãos</a></li>
+   <li role="family" data-toggle="tab" class="tab-130"><a href="#">Parentes</a></li>
+</ul>
+               
+<div class="tab-content">
+   <div class="tab-pane active" id="parent">
+
+      <div class="form-group mb-lg">
+         <label>Pai</label>
+         <input type="text" class="form-control" name="father" ng-model="patient.family[0].name">
+      </div>
+      <div class="form-group row mb-lg">
+         <div class="col-md-2">
+            <label>Idade</label>
+            <input type="text" class="form-control" name="complement" ng-model="patient.family[0].age">
+         </div>
+         <div class="col-md-4">
+            <label>Escolaridade</label>
+            <select class="form-control" name="schooling" ng-model="patient.family[0].schooling" 
+               ng-options="schooling.label for schooling in educationLevels"></select>
+         </div>
+         <div class="col-md-6">
+            <label>Ocupação</label>
+            <input type="text" class="form-control" name="occupation" ng-model="patient.family[0].occupation">
+         </div>
+      </div>
+      <hr>
+      <div class="form-group mb-lg">
+         <label>Mãe</label>
+         <input type="text" class="form-control" name="father" ng-model="patient.family[1].name">
+      </div>
+      <div class="form-group row mb-lg">
+         <div class="col-md-2">
+            <label>Idade</label>
+            <input type="text" class="form-control" name="complement" ng-model="patient.family[1].age">
+         </div>
+         <div class="col-md-4">
+            <label>Escolaridade</label>
+            <select class="form-control" name="schooling" ng-model="patient.family[1].schooling" 
+               ng-options="schooling.label for schooling in educationLevels"></select>
+         </div>
+         <div class="col-md-6">
+            <label>Ocupação</label>
+            <input type="text" class="form-control" name="occupation" ng-model="patient.family[1].occupation">
+         </div>
+      </div>
+
+   </div>  
+   <div class="tab-pane" id="sibling">
+   </div> 
+</div>

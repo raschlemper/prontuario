@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('PatientEditController', ['$scope', '$state', 'CepService',
-  function ($scope, $state, CepService) {
+app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'CepService',
+  function ($scope, $state, $stateParams, CepService) {
 
   	$scope.genres = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
   	$scope.educationLevels = [{ id: 0, label: '1º grau incompleto' }, 
@@ -12,28 +12,22 @@ app.controller('PatientEditController', ['$scope', '$state', 'CepService',
   	                          { id: 1, label: '3º grau completo' }];
 		
  	var init = function () {
- 		$scope.menu = 'geral';
+ 		$scope.menu = $stateParams.menu;
  		$scope.patient = {};
- 		$scope.emails = [];
 		$scope.genre = $scope.genres[0]; 
 		$scope.schooling = $scope.educationLevels[0];
   	};
 
   	$scope.setMenu = function(menu) {
   		$scope.menu = menu;
-  		$state.go("app.patient.edit." + menu);
+  		$state.go("app.patient.edit", {menu: menu});
   	};
 
-  	$scope.addEmail = function(email) {  
-  		$scope.email = null;		
-  		$scope.openEmail = false;
-  		$scope.inserted = email;
-  		$scope.emails.push($scope.inserted);
-  	};
+  	// GERAL /////
 
+  	// CONTACT /////
 
-
-
+  	// ADDRESS /////
 
   	$scope.searchZipCode = function(zipCode) {
         CepService.cep(zipCode)
@@ -47,19 +41,31 @@ app.controller('PatientEditController', ['$scope', '$state', 'CepService',
 
   	var setZipCode = function(zipCode) {
   		if(zipCode) {
-	        $scope.patient.address.zipCode = zipCode.cep;
-	        $scope.patient.address.city = zipCode.cidade;
-	        $scope.patient.address.state = zipCode.estado;
-	        $scope.patient.address.street = zipCode.logradouro;
-	        $scope.patient.address.district = zipCode.bairro;
+	        $scope.patient.address[0].zipCode = zipCode.cep;
+	        $scope.patient.address[0].city = zipCode.cidade;
+	        $scope.patient.address[0].state = zipCode.estado;
+	        $scope.patient.address[0].street = zipCode.logradouro;
+	        $scope.patient.address[0].district = zipCode.bairro;
 	    } else {
-            $scope.patient.address.zipCode = '';
-            $scope.patient.address.city = '';
-            $scope.patient.address.state = '';
-            $scope.patient.address.street = '';
-            $scope.patient.address.district = '';	    	
+            $scope.patient.address[0].zipCode = '';
+            $scope.patient.address[0].city = '';
+            $scope.patient.address[0].state = '';
+            $scope.patient.address[0].street = '';
+            $scope.patient.address[0].district = '';	    	
 	    }
   	};
+
+  	// FAMILY /////
+
+  	// GRADUATION /////
+
+  	// PROFESSIONAL /////
+
+
+
+
+
+
 
   	$scope.addSibling = function(sibling) {
   		if(!$scope.patient.family) { $scope.patient.family = {}; }

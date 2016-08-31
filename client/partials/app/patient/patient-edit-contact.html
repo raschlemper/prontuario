@@ -1,106 +1,25 @@
 <fieldset>
-   <legend>
-      Email
-      <div class="pull-right">
-         <button class="btn btn-default n-mt-lg" ng-click="openEmail = !openEmail">Adicionar</button>
-      </div>
-   </legend>
-      
-      
-   <div class="pull-right">
-   <div class="p-lg n-mt-lg bg-primary-dark slide-down container-insert" ng-show="openEmail" ng-class="animation" >
-      <div class="form-group mb-lg">
-         <label>Email</label>
-         <input type="text" class="form-control" name="url" ng-model="email.url" autocomplete="false">
-      </div>
-      <div class="form-group">
-         <div class="pull-right">
-            <button class="btn btn-default" ng-click="addEmail(email)">OK</button>
-         </div>
-      </div>
+   <legend>Email</legend> 
+   <div class="form-group mb-lg">
+      <label>Principal</label>
+      <input type="text" class="form-control" name="email1" ng-model="patient.email[0]">
    </div>
+   <div class="form-group mb-lg">
+      <label>Alternativo</label>
+      <input type="text" class="form-control" name="email2" ng-model="patient.email[1]">
    </div>
-
-   <div class="table-responsive" style="min-height: 100px;">
-      <table class="table table-striped">
-         <thead>
-            <tr>
-               <th class="col-md-1">#</th>
-               <th class="col-md-8">Email</th>
-               <th class="col-md-3"></th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr ng-repeat="email in emails track by $index">
-               <td>
-                  <label class="radio-inline c-radio">
-                     <input type="radio" name="i-radio" value="option{{$index + 1}}" ng-model="email.default">
-                     <span class="fa fa-circle"></span>
-                  </label>
-               </td>
-               <td><span editable-text="email.url" e-name="url" e-form="emailform">{{email.url || 'empty'}}</span></td>
-               <td>
-                  <form editable-form name="emailform" e-name="emailform" ng-show="emailform.$visible" class="form-buttons form-inline">
-                     <button type="submit" ng-disabled="emailform.$waiting" class="btn btn-primary">save</button>
-                     <button type="button" ng-disabled="emailform.$waiting" ng-click="emailform.$cancel()" class="btn btn-default">cancel</button>
-                  </form>
-                  <div class="buttons" ng-show="!emailform.$visible">
-                     <button class="btn btn-primary" ng-click="emailform.$show()">edit</button>
-                     <button class="btn btn-danger" ng-click="removeUser($index)">del</button>
-                  </div> 
-               </td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <!-- <div class="col-md-8">
-      <div class="form-group mb-lg">
-         <label>Email</label>
-         <input type="text" class="form-control" name="email" ng-model="patient.email">
-      </div>
-   </div>
-   <div class="col-md-2">
-      <button type="button" class="btn btn-danger btn-line" ng-click="delSibling(sibling)">
-         <i class="fa fa-trash"></i>
-      </button>
-   </div>
-   <div class="table-responsive">
-      <table class="table table-striped">
-         <thead>
-            <tr>
-               <th class="col-md-1">#</th>
-               <th>Email</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr ng-repeat="email in emails">
-               <td>${index}</td>
-               <td>email</td>
-            </tr>
-         </tbody>
-      </table>
-   </div> -->
 </fieldset>
 <fieldset>
-   <legend>Telefones</legend>
+   <legend>Telefone / Celular</legend>
    <div class="form-group row mb-lg">
-      <div class="col-md-4">
-         <label>Telefone</label>
-         <input type="text" class="form-control" name="telefone" ng-model="patient.telefone"
+      <div class="col-md-6">
+         <label>Principal</label>
+         <input type="text" class="form-control" name="phone1" ng-model="patient.phone[0]"
             ui-br-phone-number>
       </div>
-   </div>
-   <div class="form-group row mb-lg">
-      <div class="col-md-4">
-         <label>Celular #1</label>
-         <input type="text" class="form-control" name="celular1" ng-model="patient.celular1"
-            ui-br-phone-number>
-      </div>
-   </div>
-   <div class="form-group row mb-lg">
-      <div class="col-md-4">
-         <label>Celular #2</label>
-         <input type="text" class="form-control" name="celular2" ng-model="patient.celular2"
+      <div class="col-md-6">
+         <label>Alternativo</label>
+         <input type="text" class="form-control" name="phone2" ng-model="patient.phone[1]"
             ui-br-phone-number>
       </div>
    </div>

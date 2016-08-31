@@ -26,19 +26,37 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         controller: 'PatientController'
       })
       .state('app.patient.edit', {
-        url: '/edit',
-        templateUrl: 'partials/app/patient/patient-edit.html',
-        controller: 'PatientEditController'
-      })
-      .state('app.patient.edit.geral', {
-        url: '/geral',
-        templateUrl: 'partials/app/patient/patient-edit-geral.html',
-        controller: 'PatientEditController'
-      })
-      .state('app.patient.edit.contact', {
-        url: '/contact',
-        templateUrl: 'partials/app/patient/patient-edit-contact.html',
-        controller: 'PatientEditController'
+        url: '/edit/:menu',
+        views: {
+          '': {
+            templateUrl: 'partials/app/patient/patient-edit.html',
+            controller: 'PatientEditController'
+          },
+          'geral@app.patient.edit': {
+            templateUrl: 'partials/app/patient/patient-edit-geral.html',
+            controller: 'PatientEditController'
+          },
+          'contact@app.patient.edit': {
+            templateUrl: 'partials/app/patient/patient-edit-contact.html',
+            controller: 'PatientEditController'           
+          },
+          'address@app.patient.edit': {
+            templateUrl: 'partials/app/patient/patient-edit-address.html',
+            controller: 'PatientEditController'          
+          },
+          'family@app.patient.edit': {
+            templateUrl: 'partials/app/patient/patient-edit-family.html',
+            controller: 'PatientEditController'          
+          },
+          'graduation@app.patient.edit': {
+            templateUrl: 'partials/app/patient/patient-edit-graduation.html',
+            controller: 'PatientEditController'          
+          },
+          'professional@app.patient.edit': {
+            templateUrl: 'partials/app/patient/patient-edit-professional.html',
+            controller: 'PatientEditController'          
+          }
+        }
       });
       // .state('app.patient.edit', {
       //   url: '/:id/edit',
