@@ -1,21 +1,22 @@
 'use strict';
 
-app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'CepService',
-  function ($scope, $state, $stateParams, CepService) {
+app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'CepService',
+  function ($scope, $state, $stateParams, PatientService, CepService) {
 
   	$scope.genres = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
+  	$scope.maritalStatus = [{ id: 0, label: 'Solteiro(a)' }, { id: 1, label: 'Cadsado(a)' }, 
+  	                        { id: 2, label: 'Divorciado(a)' }, { id: 3, label: 'Viúvo(a)' }];
   	$scope.educationLevels = [{ id: 0, label: '1º grau incompleto' }, 
   	                          { id: 1, label: '1º grau completo' }, 
-  	                          { id: 1, label: '2º grau incompleto' }, 
-  	                          { id: 1, label: '2º grau completo' }, 
-  	                          { id: 1, label: '3º grau incompleto' }, 
-  	                          { id: 1, label: '3º grau completo' }];
+  	                          { id: 2, label: '2º grau incompleto' }, 
+  	                          { id: 3, label: '2º grau completo' }, 
+  	                          { id: 4, label: '3º grau incompleto' }, 
+  	                          { id: 5, label: '3º grau completo' }];
 		
  	var init = function () {
  		$scope.menu = $stateParams.menu;
- 		$scope.patient = {};
-		$scope.genre = $scope.genres[0]; 
-		$scope.schooling = $scope.educationLevels[0];
+ 		$scope.patient = $scope.patient || {};
+  		initFactory($scope.menu);
   	};
 
   	$scope.setMenu = function(menu) {
@@ -23,11 +24,31 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Ce
   		$state.go("app.patient.edit", {menu: menu});
   	};
 
+  	var initFactory = function(menu) {
+  		switch(menu) {
+		    case 'geral': initGeral(); break;
+		    case 'contact': initContact(); break;
+		    case 'address': initAddress(); break;
+		    case 'family': initFamily(); break;
+		    case 'graduation': initGraduation(); break;
+		    case 'professional': initProfessional(); break;
+		    default: initGeral();
+		}
+  	};
+
   	// GERAL /////
+
+  	var initGeral = function () { 
+		$scope.patient.genre = angular.copy($scope.genres[0]); 
+	};
 
   	// CONTACT /////
 
+  	var initContact = function () { };
+
   	// ADDRESS /////
+
+  	var initAddress = function () { };
 
   	$scope.searchZipCode = function(zipCode) {
         CepService.cep(zipCode)
@@ -57,27 +78,51 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Ce
 
   	// FAMILY /////
 
+  	var initFamily = function () { 
+  		$scope.patient.family = $scope.patient.family || {};
+  		$scope.patient.family.father = $scope.patient.family.father || {};
+  		$scope.patient.family.mother = $scope.patient.family.mother || {};
+  		$scope.patient.family.partner = $scope.patient.family.partner || {};
+  		$scope.patient.family.sublings = $scope.patient.family.sublings || [];
+  		$scope.patient.family.children = $scope.patient.family.children || [];
+		$scope.patient.family.father.schooling = angular.copy($scope.educationLevels[0]);
+		$scope.patient.family.mother.schooling = angular.copy($scope.educationLevels[0]);
+		$scope.patient.family.partner.schooling = angular.copy($scope.educationLevels[0]);
+		$scope.patient.family.partner.maritalStatus = angular.copy($scope.maritalStatus[0]);
+  		$scope.addSubling();
+  		$scope.addChild();
+  	};
+
+	$scope.addSubling = function() {
+    	$scope.patient.family.sublings.push(createFamily());
+	};
+
+	$scope.addChild = function() {
+    	$scope.patient.family.children.push(createFamily());
+	};
+
+	var createFamily = function() {
+		return { 'name': null, 'age': null };
+	};
+
   	// GRADUATION /////
+
+  	var initGraduation = function () { };
 
   	// PROFESSIONAL /////
 
+  	var initProfessional = function () { };
 
+  	// ACTION /////
 
-
-
-
-
-  	$scope.addSibling = function(sibling) {
-  		if(!$scope.patient.family) { $scope.patient.family = {}; }
-  		if(!$scope.patient.family.siblings) { $scope.patient.family.siblings = []; }
-  		$scope.patient.family.siblings.push(angular.copy(sibling));
-  	};
-
-  	$scope.delSibling = function(sibling) {
-  		var index = $scope.patient.family.siblings.indexOf(sibling);
-  		if (index > -1) {
-    		$scope.patient.family.siblings.splice(index, 1);
-		}
+  	$scope.save = function(form, patient) {  		
+        PatientService.save(patient)
+            .then(function(data) {  
+                console.log(data);
+            })
+            .catch(function(e) {
+                console.log(e);
+            });            
   	};
 
   	init();

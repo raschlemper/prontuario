@@ -1,7 +1,7 @@
 'use strict';
 
 var config = require('../../config/environment');
-var repository = require(config.resources.repositories + '/systemRepository');
+var repository = require(config.resources.repositories + '/patientRepository');
 
 module.exports = (function () {
 
@@ -13,12 +13,12 @@ module.exports = (function () {
     return repository.findById(id);
   };
 
-  var save = function (system) {
-    return repository.save(system);
+  var save = function (patient) {
+    return repository.save(patient);
   };
 
-  var update = function (id, system) {
-    return repository.update(system);
+  var update = function (id, patient) {
+    return repository.update(id, patient);
   };
 
   var remove = function (id) {

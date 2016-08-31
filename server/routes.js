@@ -8,7 +8,7 @@ module.exports = function (app) {
   // app.use('/auth', require('./auth/authRoute'));
 
   // app.all('/api/*', authController.isAuthenticated);
-  app.use('/api/system', require('./api/routes/systemRoute'));
+  app.use('/api/patient', require('./api/routes/patientRoute'));
 
   // Tratamento dos erros
   // app.use(errorHandler);

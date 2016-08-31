@@ -682,7 +682,7 @@ body, html {
 .layout-h .wrapper>footer {
 	margin: 0
 }
-.layout-h.layout-fixed .wrapper>.offsidebar, .layout-h.layout-fixed .wrapper>div {
+.layout-h.layout-fixed .wrapper>.offsidebar, .layout-h.layout-fixed .wrapper>section {
 	margin-top: 55px
 }
 .aside-float .wrapper {

@@ -1,15 +1,14 @@
 'use strict';
 
 var config = require('../../config/environment');
-var systemService = require(config.resources.services + '/systemService');
-var System = require(config.resources.models + '/systemModel');
+var patientService = require(config.resources.services + '/patientService');
+var System = require(config.resources.models + '/patientModel');
 
 module.exports = (function () {
   
   var findAll = function (req, res, next) {
-    systemService.findAll().then(function (systems) {
-      console.log(systems);
-      res.send(systems);
+    patientService.findAll().then(function (patients) {
+      res.send(patients);
     }, function(err) {
       console.log(err);
       next(err);
@@ -17,15 +16,15 @@ module.exports = (function () {
   };
 
   var findById = function (req, res, next) {
-    systemService.findById(req.params.id).then(function (system) {
-      res.send(system);
+    patientService.findById(req.params.id).then(function (patient) {
+      res.send(patient);
     }, function(err) {
       next(err);
     });
   };
 
   var save = function (req, res, next) {
-    systemService.save(req.body).then(function (save) {
+    patientService.save(req.body).then(function (save) {
       res.send(200);
     }, function(err) {
       next(err);
@@ -33,15 +32,15 @@ module.exports = (function () {
   };
 
   var update = function (req, res, next) {
-    systemService.update(req.params.id, req.body).then(function (update) {
-      res.status(200);
+    patientService.update(req.params.id, req.body).then(function (update) {
+      res.send(200);
     }, function(err) {
       next(err);
     });
   };
 
   var remove = function (req, res, next) {
-    systemService.remove(req.params.id).then(function (del) {
+    patientService.remove(req.params.id).then(function (del) {
       res.send(200);
     }, function(err) {
       next(err);

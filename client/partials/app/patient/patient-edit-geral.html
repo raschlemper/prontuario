@@ -30,7 +30,7 @@
             <div class="col-md-12">
                <label>Sexo</label><br>
                <label class="radio-inline c-radio" ng-repeat="genre in genres">
-                  <input type="radio" name="i-radio" value="option1" ng-model="patient.genre">
+                  <input type="radio" name="genre" value="{{genre.id}}" ng-model="patient.genre.id">
                   <span class="fa fa-circle"></span>{{genre.label}}
                </label>
             </div>
