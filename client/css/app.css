@@ -238,7 +238,7 @@ body, html {
 .wrapper.ng-leave {
 	display: none
 }
-.wrapper>.aside {
+.wrapper>.aside, .wrapper>div>div>.aside {
 	position: absolute;
 	width: 220px;
 	top: 0;
@@ -516,14 +516,15 @@ body, html {
 	width: 100%;
 	z-index: 121
 }*/
-.layout-fixed .wrapper>aside {
+.layout-fixed .wrapper>aside, .layout-fixed .wrapper>div>div>aside {
 	position: fixed
 }
-.layout-fixed .wrapper>.aside {
+.layout-fixed .wrapper>.aside, .layout-fixed .wrapper>div>div>.aside {
 	height: 1px;
 	min-height: 100%
 }
-.layout-fixed .wrapper>.aside>.aside-inner {
+.layout-fixed .wrapper>.aside>.aside-inner,
+.layout-fixed .wrapper>div>div>.aside>.aside-inner {
 	position: fixed;
 	top: 0;
 	bottom: 0
@@ -764,7 +765,7 @@ body, html {
 .aside-float.aside-toggled.layout-fs .wrapper>section>.content-wrapper {
 	padding: 0 0 0 20px
 }
-.wrapper>.aside {
+.wrapper>.aside, .wrapper>div>div>.aside {
 	-webkit-transition: width .2s cubic-bezier(.35, 0, .25, 1), translate .2s cubic-bezier(.35, 0, .25, 1);
 	transition: width .2s cubic-bezier(.35, 0, .25, 1), translate .2s cubic-bezier(.35, 0, .25, 1)
 }

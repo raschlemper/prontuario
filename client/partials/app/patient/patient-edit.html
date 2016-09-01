@@ -1,6 +1,6 @@
-<div class="row" style="margin-top: 70px;">
-   <div class="col-md-3">  
-      <div class="panel mb b" ng-class="{'active-menu': menu === 'geral'}">
+<!-- <div class="row" style="margin-top: 70px;">
+   <div class="col-md-3">   -->
+      <!-- <div class="panel mb b" ng-class="{'active-menu': menu === 'geral'}">
          <div class="row row-table row-flush">
             <div class="col-xs-3 bg-yellow-dark text-center">
                <em class="fa fa-user fa-2x"></em>
@@ -71,8 +71,33 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> -->
+      <aside class="aside">
+         <div class="aside-inner">
+            <nav class="sidebar show-scrollbar">
+               <ul class="nav">
+                  <li class="active">
+                     <a ng-href="" title="Dashboard">
+                        <em class="icon-speedometer"></em>
+                        <span class="ng-binding">Dashboard</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a ng-href="" title="Dashboard" class="">
+                        <em class="icon-speedometer"></em>
+                        <span class="ng-binding">Dashboard</span>
+                     </a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </aside>
    </div>
+   <section>
+      <div ui-view="{{menu}}" class="content-wrapper"></div>
+   </section>
+
+   <!-- 
    <div class="col-md-9">
       <div class="panel panel-default">
          <div class="panel-body p-xl">
@@ -94,4 +119,4 @@
          </div>
       </div>
    </div>
-</div>
+</div> -->
