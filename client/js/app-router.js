@@ -46,7 +46,7 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
           },
           'family@app.patient.edit': {
             templateUrl: 'partials/app/patient/patient-edit-family.html',
-            controller: 'PatientEditController'          
+            controller: 'PatientEditController'
           },
           'graduation@app.patient.edit': {
             templateUrl: 'partials/app/patient/patient-edit-graduation.html',

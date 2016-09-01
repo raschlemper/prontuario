@@ -1,6 +1,6 @@
 <!-- <div class="row" style="margin-top: 70px;">
-   <div class="col-md-3">   -->
-      <!-- <div class="panel mb b" ng-class="{'active-menu': menu === 'geral'}">
+   <div class="col-md-3"> 
+      <div class="panel mb b" ng-class="{'active-menu': menu === 'geral'}">
          <div class="row row-table row-flush">
             <div class="col-xs-3 bg-yellow-dark text-center">
                <em class="fa fa-user fa-2x"></em>
@@ -71,33 +71,8 @@
                </div>
             </div>
          </div>
-      </div> -->
-      <aside class="aside">
-         <div class="aside-inner">
-            <nav class="sidebar show-scrollbar">
-               <ul class="nav">
-                  <li class="active">
-                     <a ng-href="" title="Dashboard">
-                        <em class="icon-speedometer"></em>
-                        <span class="ng-binding">Dashboard</span>
-                     </a>
-                  </li>
-                  <li>
-                     <a ng-href="" title="Dashboard" class="">
-                        <em class="icon-speedometer"></em>
-                        <span class="ng-binding">Dashboard</span>
-                     </a>
-                  </li>
-               </ul>
-            </nav>
-         </div>
-      </aside>
-   </div>
-   <section>
-      <div ui-view="{{menu}}" class="content-wrapper"></div>
-   </section>
-
-   <!-- 
+      </div> 
+   </div>   
    <div class="col-md-9">
       <div class="panel panel-default">
          <div class="panel-body p-xl">
@@ -120,3 +95,71 @@
       </div>
    </div>
 </div> -->
+
+
+<aside class="aside">
+   <div class="aside-inner">
+      <nav class="sidebar show-scrollbar">
+         <ul class="nav">
+            <li class="nav-heading">
+               <span class="ng-binding">Paciente</span>
+            </li>
+            <li ng-class="{'active-menu': menu === 'geral'}">
+               <a ui-sref="app.patient.edit({ menu: 'geral' })" title="Dados do Paciente" class="">
+                  <em class="icon-user"></em>
+                  <span>Dados Paciente</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu': menu === 'contact'}">
+               <a ui-sref="app.patient.edit({ menu: 'contact' })" title="Contatos do Paciente" class="">
+                  <em class="fa fa-envelope-o"></em>
+                  <span>Contato</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu': menu === 'address'}">
+               <a ui-sref="app.patient.edit({ menu: 'address' })" title="Endereços do Paciente" class="">
+                  <em class="fa fa-bookmark-o"></em>
+                  <span>Endereço</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu': menu === 'family'}">
+               <a ui-sref="app.patient.edit({ menu: 'family' })" title="Familia do Paciente" class="">
+                  <em class="fa fa-circle-o-notch"></em>
+                  <span>Familiar</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu': menu === 'graduation'}">
+               <a ui-sref="app.patient.edit({ menu: 'graduation' })" title="Escolaridade do Paciente" class="">
+                  <em class="fa fa-graduation-cap"></em>
+                  <span>Escolaridade</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu': menu === 'professional'}">
+               <a ui-sref="app.patient.edit({ menu: 'professional' })" title="Dados Profissionais do Paciente" class="">
+                  <em class="fa fa-briefcase"></em>
+                  <span>Profissional</span>
+               </a>
+            </li>
+         </ul>
+      </nav>
+   </div>
+</aside>
+<section>
+   <div class="content-wrapper">
+      <div class="pull-right ng-scope">
+         <button type="button" class="btn btn-default btn-sm">Create project</button>
+      </div>
+      <h3><!-- Paciente -->
+         <ul class="breadcrumb">
+            <li><a ui-sref="app"><em class="fa fa-home"></em> Home</a></li>
+            <li><a ui-sref="app.patient">Paciente</a></li>
+            <li>{{label}}</li>
+         </ul>
+      </h3>   
+      <!-- <div class="panel b"> -->
+         <!-- <div class="panel-body p-xl"> -->
+            <div ui-view="{{menu}}"></div>
+         <!-- </div> -->
+      <!--  </div> -->   
+   </div>
+</section>

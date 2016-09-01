@@ -1,3 +1,6 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic);
+
 .glyphicon {
 	display: inline-block;
 	font: normal normal normal 14px/1 FontAwesome;
@@ -98,7 +101,8 @@ hr {
 	padding: 20px;
 	border-style: solid;
 	border-width: 0 1px 1px;
-	border-color: #dde6e9
+	border-color: #dde6e9;
+	background-color: #FFF;
 }
 .nav-pills+.tab-content {
 	border: 0;
@@ -249,13 +253,15 @@ body, html {
 	backface-visibility: hidden;
 	background-color: #fff
 }
-.wrapper>.aside .aside-inner {
+.wrapper>.aside .aside-inner,
+.wrapper>div>div>.aside .aside-inner {
 	padding-top: 110px;
 	height: 100%;
 	width: 220px;
 	overflow: hidden
 }
-.wrapper>.aside>.nav-floating {
+.wrapper>.aside>.nav-floating,
+.wrapper>div>div>.aside>.nav-floating {
 	left: inherit;
 	margin-left: 220px;
 	z-index: 1110;
@@ -265,7 +271,7 @@ body, html {
 .wrapper .dropdown-backdrop {
 	z-index: 109
 }
-.wrapper>section {
+.wrapper>section, .wrapper>div>div>section {
 	position: relative;
 	height: 100%;
 	margin-left: 0;
@@ -334,7 +340,7 @@ body, html {
 		margin: -20px;
 		margin-bottom: 20px;
 		padding: 20px;
-		padding-left: 60px;
+		/*padding-left: 60px;*/
 	}
 	.content-wrapper>.btn, .content-wrapper>button {
 		margin: 0
@@ -344,21 +350,24 @@ body, html {
 	body {
 		min-height: 100%
 	}
-	.wrapper>.aside .aside-inner {
+	.wrapper>.aside .aside-inner,
+	.wrapper>div>div>.aside .aside-inner {
 		padding-top: 55px
 	}
-	.wrapper>footer, .wrapper>section {
+	.wrapper>footer, .wrapper>section, .wrapper>div>div>section {
 		margin-left: 220px
 	}
-	.wrapper>section.has-sidebar-right {
+	.wrapper>section.has-sidebar-right,
+	.wrapper>div>div>section.has-sidebar-right {
 		margin-right: 240px
 	}
-	.wrapper>section.has-sidebar-right+.offsidebar {
+	.wrapper>section.has-sidebar-right+.offsidebar,
+	.wrapper>div>div>section.has-sidebar-right+.offsidebar {
 		z-index: 1
 	}
 }
 @media only screen and (max-width:767px) {
-	.wrapper>.aside {
+	.wrapper>.aside, .wrapper>div>div>.aside {
 		margin-left: -220px
 	}
 	.aside-toggled .wrapper>footer, .aside-toggled .wrapper>section {
@@ -507,10 +516,10 @@ body, html {
 	width: 100%;
 	z-index: 121
 }
-./*layout-fixed .content-wrapper {
+/*.layout-fixed .content-wrapper {
 	margin-top: 135px;
-}
-.layout-fixed .content-wrapper h3 {
+}*/
+/*.layout-fixed .content-wrapper h3 {
 	position: fixed;
 	margin-top: -105px;
 	width: 100%;
@@ -529,15 +538,18 @@ body, html {
 	top: 0;
 	bottom: 0
 }
-.layout-fixed .wrapper>section {
+.layout-fixed .wrapper>section,
+.layout-fixed .wrapper>div>div>section {
 	margin-top: 114px
 }
 @media only screen and (min-width:768px) {
-	.layout-fixed .wrapper>section {
+	.layout-fixed .wrapper>section,
+	.layout-fixed .wrapper>div>div>section {
 		margin-top: 55px
 	}
 }
-.layout-fixed .wrapper>.aside>.aside-inner, _:-ms-lang(x) {
+.layout-fixed .wrapper>.aside>.aside-inner, 
+.layout-fixed .wrapper>div>div>.aside>.aside-inner, _:-ms-lang(x) {
 	position: static !important
 }
 @media only screen and (min-width:992px) {
@@ -666,7 +678,7 @@ body, html {
 .scroll-y {
 	overflow-y: auto
 }
-.layout-h .wrapper>section {
+.layout-h .wrapper>section, .layout-h .wrapper>div>div>section {
 	max-width: 1140px;
 	margin-left: auto;
 	margin-right: auto
@@ -674,7 +686,7 @@ body, html {
 /*.layout-h .wrapper>section>.content-wrapper>h3 {
 	display: none
 }*/
-.layout-h .wrapper>section {
+.layout-h .wrapper>section, .layout-h .wrapper>div>div>section {
 	margin-top: 0
 }
 .layout-h .wrapper>.offsidebar {
@@ -683,7 +695,9 @@ body, html {
 .layout-h .wrapper>footer {
 	margin: 0
 }
-.layout-h.layout-fixed .wrapper>.offsidebar, .layout-h.layout-fixed .wrapper>section {
+.layout-h.layout-fixed .wrapper>.offsidebar, 
+.layout-h.layout-fixed .wrapper>section, 
+.layout-h.layout-fixed .wrapper>div>div>section {
 	margin-top: 55px
 }
 .aside-float .wrapper {
@@ -773,7 +787,7 @@ body, html {
 	-webkit-transition: width .2s cubic-bezier(.35, 0, .25, 1);
 	transition: width .2s cubic-bezier(.35, 0, .25, 1)
 }
-.wrapper>section {
+.wrapper>section, .wrapper>div>div>section {
 	-webkit-transition: margin-left .2s cubic-bezier(.35, 0, .25, 1);
 	transition: margin-left .2s cubic-bezier(.35, 0, .25, 1)
 }
@@ -1319,7 +1333,8 @@ body, html {
 }
 .content-heading>.breadcrumb, h3>.breadcrumb {
 	background: transparent;
-	font-size: 13px;
+	/*font-size: 13px;*/
+	font-size: 16px;
 	border: 0;
 	padding: 10px 10px 0 0;
 	margin-bottom: 0
@@ -6597,7 +6612,8 @@ body .jvectormap-zoomout {
 		width: 0 !important;
 		height: 0 !important
 	}
-	.content-wrapper, .wrapper, .wrapper>section {
+	.content-wrapper, .wrapper, .wrapper>section, 
+	.wrapper>div>div>section {
 		margin: 0 !important;
 		padding: 0 !important;
 		width: 100% !important

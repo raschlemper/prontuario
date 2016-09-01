@@ -39,16 +39,21 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
   	// GERAL /////
 
   	var initGeral = function () { 
+ 		$scope.label = 'Dados Paciente';
 		$scope.patient.genre = angular.copy($scope.genres[0]); 
 	};
 
   	// CONTACT /////
 
-  	var initContact = function () { };
+  	var initContact = function () { 
+ 		$scope.label = 'Contato';
+ 	};
 
   	// ADDRESS /////
 
-  	var initAddress = function () { };
+  	var initAddress = function () { 
+ 		$scope.label = 'Endereço';
+ 	};
 
   	$scope.searchZipCode = function(zipCode) {
         CepService.cep(zipCode)
@@ -79,6 +84,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
   	// FAMILY /////
 
   	var initFamily = function () { 
+ 		$scope.label = 'Familiar';
   		$scope.patient.family = $scope.patient.family || {};
   		$scope.patient.family.father = $scope.patient.family.father || {};
   		$scope.patient.family.mother = $scope.patient.family.mother || {};
@@ -107,11 +113,15 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
   	// GRADUATION /////
 
-  	var initGraduation = function () { };
+  	var initGraduation = function () {
+ 		$scope.label = 'Escolaridade';
+ 	};
 
   	// PROFESSIONAL /////
 
-  	var initProfessional = function () { };
+  	var initProfessional = function () { 
+ 		$scope.label = 'Profissional';
+ 	};
 
   	// ACTION /////
 
