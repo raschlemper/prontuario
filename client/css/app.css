@@ -365,6 +365,9 @@ body, html {
 	.wrapper>div>div>section.has-sidebar-right+.offsidebar {
 		z-index: 1
 	}
+	.wrapper>div>div>section.full {
+		margin-left: 0px
+	}
 }
 @media only screen and (max-width:767px) {
 	.wrapper>.aside, .wrapper>div>div>.aside {
@@ -783,32 +786,32 @@ body, html {
 	-webkit-transition: width .2s cubic-bezier(.35, 0, .25, 1), translate .2s cubic-bezier(.35, 0, .25, 1);
 	transition: width .2s cubic-bezier(.35, 0, .25, 1), translate .2s cubic-bezier(.35, 0, .25, 1)
 }
-.aside-inner, .navbar-header, .sidebar>.nav>li {
+/*.aside-inner, .navbar-header, .sidebar>.nav>li {
 	-webkit-transition: width .2s cubic-bezier(.35, 0, .25, 1);
 	transition: width .2s cubic-bezier(.35, 0, .25, 1)
-}
-.wrapper>section, .wrapper>div>div>section {
+}*/
+/*.wrapper>section, .wrapper>div>div>section {
 	-webkit-transition: margin-left .2s cubic-bezier(.35, 0, .25, 1);
 	transition: margin-left .2s cubic-bezier(.35, 0, .25, 1)
-}
-.sidebar>.nav .label {
+}*/
+/*.sidebar>.nav .label {
 	-webkit-animation: fadeInRight 1s;
 	animation: fadeInRight 1s;
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both
-}
-.aside-collapsed-text .sidebar>.nav .label, .aside-collapsed .sidebar>.nav .label {
+}*/
+/*.aside-collapsed-text .sidebar>.nav .label, .aside-collapsed .sidebar>.nav .label {
 	-webkit-animation: fadeIn 1s;
 	animation: fadeIn 1s
-}
-.sidebar .nav>li>a {
+}*/
+/*.sidebar .nav>li>a {
 	-webkit-animation: fadeInLeft .5s;
 	animation: fadeInLeft .5s
-}
-.navbar-brand .brand-logo, .sidebar>.nav>.nav-heading, .sidebar>.nav>li>a>span {
+}*/
+/*.navbar-brand .brand-logo, .sidebar>.nav>.nav-heading, .sidebar>.nav>li>a>span {
 	-webkit-animation: fadeIn 1s;
 	animation: fadeIn 1s
-}
+}*/
 .sidebar>.nav>.nav-heading, .sidebar li>.nav-item, .sidebar li>a {
 	white-space: nowrap
 }
@@ -1098,8 +1101,8 @@ body, html {
 }
 .sidebar>.nav>li {
 	border-left: 3px solid transparent;
-	-webkit-transition: border-left-color .4s ease;
-	transition: border-left-color .4s ease
+	/*-webkit-transition: border-left-color .4s ease;
+	transition: border-left-color .4s ease*/
 }
 .sidebar>.nav>li>.nav-item, .sidebar>.nav>li>a {
 	padding: 12px 24px;
@@ -1119,7 +1122,7 @@ body, html {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 1;
-	-webkit-font-smoothing: antialiased;
+	/*-webkit-font-smoothing: antialiased;*/
 	color: inherits
 }
 .sidebar>.nav>li.active, .sidebar>.nav>li.active .nav, .sidebar>.nav>li.active>.nav-item, .sidebar>.nav>li.active>a, .sidebar>.nav>li.open, .sidebar>.nav>li.open .nav, .sidebar>.nav>li.open>.nav-item, .sidebar>.nav>li.open>a {

@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('PatientController', ['$scope', '$http',
-  function ($scope, $http) {
+app.controller('PatientController', ['$scope', '$http', 'PatientService',
+  function ($scope, $http, PatientService) {
 
 	var init = function () {
 		initTable();
@@ -20,10 +20,14 @@ app.controller('PatientController', ['$scope', '$http',
 		];
   	};
 
-  	var getAll = function() {       
-		$http.get('../../users.json').success(function (data) {
-		  	$scope.users = data;
-		});
+  	var getAll = function() {   
+        PatientService.getAll()
+            .then(function(data) {
+            	$scope.users = data;
+            })
+            .catch(function(e) {
+            	console.log(null);
+            });    
   	}
 
   init();

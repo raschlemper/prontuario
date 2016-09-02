@@ -1,102 +1,3 @@
-<!-- <div class="row" style="margin-top: 70px;">
-   <div class="col-md-3"> 
-      <div class="panel mb b" ng-class="{'active-menu': menu === 'geral'}">
-         <div class="row row-table row-flush">
-            <div class="col-xs-3 bg-yellow-dark text-center">
-               <em class="fa fa-user fa-2x"></em>
-            </div>
-            <div class="col-xs-9 clickable" ng-click="setMenu('geral')">
-               <div class="panel-body text-center">
-                  <h4 class="mt0 mb0">Dados Paciente</h4>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="panel mb b">
-         <div class="row row-table row-flush" ng-class="{'active-menu': menu === 'contact'}">
-            <div class="col-xs-3 bg-pink-light text-center">
-               <em class="fa fa-envelope-o fa-2x"></em>
-            </div>
-            <div class="col-xs-9 clickable" ng-click="setMenu('contact')">
-               <div class="panel-body text-center">
-                  <h4 class="mt0 mb0">Contatos</h4>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="panel mb b">
-         <div class="row row-table row-flush" ng-class="{'active-menu': menu === 'address'}">
-            <div class="col-xs-3 bg-green text-center">
-               <em class="fa fa-bookmark-o fa-2x"></em>
-            </div>
-            <div class="col-xs-9 clickable" ng-click="setMenu('address')">
-               <div class="panel-body text-center">
-                  <h4 class="mt0 mb0">Endereço</h4>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="panel mb b">
-         <div class="row row-table row-flush" ng-class="{'active-menu': menu === 'family'}">
-            <div class="col-xs-3 bg-purple-light text-center">
-               <em class="fa fa-group fa-2x"></em>
-            </div>
-            <div class="col-xs-9 clickable" ng-click="setMenu('family')">
-               <div class="panel-body text-center">
-                  <h4 class="mt0 mb0">Familiar</h4>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="panel mb b">
-         <div class="row row-table row-flush" ng-class="{'active-menu': menu === 'graduation'}">
-            <div class="col-xs-3 bg-info text-center">
-               <em class="fa fa-graduation-cap fa-2x"></em>
-            </div>
-            <div class="col-xs-9 clickable" ng-click="setMenu('graduation')">
-               <div class="panel-body text-center">
-                  <h4 class="mt0 mb0">Escolaridade</h4>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="panel mb b">
-         <div class="row row-table row-flush" ng-class="{'active-menu': menu === 'professional'}">
-            <div class="col-xs-3 bg-danger-light text-center">
-               <em class="fa fa-briefcase fa-2x"></em>
-            </div>
-            <div class="col-xs-9 clickable" ng-click="setMenu('professional')">
-               <div class="panel-body text-center">
-                  <h4 class="mt0 mb0">Profissional</h4>
-               </div>
-            </div>
-         </div>
-      </div> 
-   </div>   
-   <div class="col-md-9">
-      <div class="panel panel-default">
-         <div class="panel-body p-xl">
-
-            <form name="patientForm" ng-submit="save(this, patient)">
-
-               <div ui-view="{{menu}}"></div>
-
-               <div class="clearfix">
-                  <div class="pull-right">
-                     <button type="submit" class="btn btn-primary m-r-10 m-t-10">
-                        <em class="fa fa-check fa-fw"></em>Salvar
-                     </button>
-                  </div>
-               </div>
-
-            </form>
-
-         </div>
-      </div>
-   </div>
-</div> -->
-
-
 <aside class="aside">
    <div class="aside-inner">
       <nav class="sidebar show-scrollbar">
@@ -104,37 +5,37 @@
             <li class="nav-heading">
                <span class="ng-binding">Paciente</span>
             </li>
-            <li ng-class="{'active-menu': menu === 'geral'}">
+            <li ng-class="{'active-menu active': menu === 'geral'}">
                <a ui-sref="app.patient.edit({ menu: 'geral' })" title="Dados do Paciente" class="">
                   <em class="icon-user"></em>
                   <span>Dados Paciente</span>
                </a>
             </li>
-            <li ng-class="{'active-menu': menu === 'contact'}">
+            <li ng-class="{'active-menu active': menu === 'contact'}">
                <a ui-sref="app.patient.edit({ menu: 'contact' })" title="Contatos do Paciente" class="">
                   <em class="fa fa-envelope-o"></em>
                   <span>Contato</span>
                </a>
             </li>
-            <li ng-class="{'active-menu': menu === 'address'}">
+            <li ng-class="{'active-menu active': menu === 'address'}">
                <a ui-sref="app.patient.edit({ menu: 'address' })" title="Endereços do Paciente" class="">
                   <em class="fa fa-bookmark-o"></em>
                   <span>Endereço</span>
                </a>
             </li>
-            <li ng-class="{'active-menu': menu === 'family'}">
+            <li ng-class="{'active-menu active': menu === 'family'}">
                <a ui-sref="app.patient.edit({ menu: 'family' })" title="Familia do Paciente" class="">
                   <em class="fa fa-circle-o-notch"></em>
                   <span>Familiar</span>
                </a>
             </li>
-            <li ng-class="{'active-menu': menu === 'graduation'}">
+            <li ng-class="{'active-menu active': menu === 'graduation'}">
                <a ui-sref="app.patient.edit({ menu: 'graduation' })" title="Escolaridade do Paciente" class="">
                   <em class="fa fa-graduation-cap"></em>
                   <span>Escolaridade</span>
                </a>
             </li>
-            <li ng-class="{'active-menu': menu === 'professional'}">
+            <li ng-class="{'active-menu active': menu === 'professional'}">
                <a ui-sref="app.patient.edit({ menu: 'professional' })" title="Dados Profissionais do Paciente" class="">
                   <em class="fa fa-briefcase"></em>
                   <span>Profissional</span>
@@ -146,20 +47,27 @@
 </aside>
 <section>
    <div class="content-wrapper">
-      <div class="pull-right ng-scope">
-         <button type="button" class="btn btn-default btn-sm">Create project</button>
-      </div>
-      <h3><!-- Paciente -->
+      <div class="pull-right">
+         <!-- <button type="button" class="btn btn-default btn-sm">Create project</button> -->
          <ul class="breadcrumb">
             <li><a ui-sref="app"><em class="fa fa-home"></em> Home</a></li>
             <li><a ui-sref="app.patient">Paciente</a></li>
             <li>{{label}}</li>
          </ul>
-      </h3>   
-      <!-- <div class="panel b"> -->
-         <!-- <div class="panel-body p-xl"> -->
+      </div>
+      <h3>Paciente</h3>   
+      <!-- <div class="panel b"> 
+         <div class="panel-body p-xl">  -->
+         <form name="patientForm" ng-submit="save(this, patient)">
+            <div class="pull-right">
+               <button type="submit" class="btn btn-primary btn-sm">
+                  <em class="fa fa-check fa-fw"></em>Salvar
+               </button>
+            </div>
+            <div class="clearfix"></div>
             <div ui-view="{{menu}}"></div>
-         <!-- </div> -->
-      <!--  </div> -->   
+         </form>
+        <!--  </div>
+      </div> -->
    </div>
 </section>

@@ -46,14 +46,14 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
   	// CONTACT /////
 
   	var initContact = function () { 
- 		$scope.label = 'Contato';
- 	};
+ 		 $scope.label = 'Contato';
+ 	  };
 
   	// ADDRESS /////
 
   	var initAddress = function () { 
- 		$scope.label = 'Endereço';
- 	};
+ 		 $scope.label = 'Endereço';
+ 	  };
 
   	$scope.searchZipCode = function(zipCode) {
         CepService.cep(zipCode)
