@@ -8,7 +8,6 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
 
     $stateProvider
       .state('app', {
-        abstract: true,
         templateUrl: 'partials/app/app.html'
       })
 
@@ -26,7 +25,7 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         controller: 'PatientController'
       })
       .state('app.patient.edit', {
-        url: '/edit/:menu',
+        url: '/edit/:menu/:id',
         views: {
           '': {
             templateUrl: 'partials/app/patient/patient-edit.html',

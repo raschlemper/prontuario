@@ -51,14 +51,14 @@
          <!-- <button type="button" class="btn btn-default btn-sm">Create project</button> -->
          <ul class="breadcrumb">
             <li><a ui-sref="app"><em class="fa fa-home"></em> Home</a></li>
-            <li><a ui-sref="app.patient">Paciente</a></li>
+            <li><a ui-sref="app.patient.list">Paciente</a></li>
             <li>{{label}}</li>
          </ul>
       </div>
       <h3>Paciente</h3>   
-      <!-- <div class="panel b"> 
-         <div class="panel-body p-xl">  -->
-         <form name="patientForm" ng-submit="save(this, patient)">
+      <div class="panel b"> 
+         <div class="panel-body p-xl"> 
+         <form name="patientForm" ng-submit="saveOrEdit(this, patient)">
             <div class="pull-right">
                <button type="submit" class="btn btn-primary btn-sm">
                   <em class="fa fa-check fa-fw"></em>Salvar
@@ -67,7 +67,7 @@
             <div class="clearfix"></div>
             <div ui-view="{{menu}}"></div>
          </form>
-        <!--  </div>
-      </div> -->
+        </div>
+      </div>
    </div>
 </section>

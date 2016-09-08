@@ -8,7 +8,8 @@ Promise.promisifyAll(mongoose);
 var Schema = mongoose.Schema;
 
 var PatientSchema = new Schema({
-  name: String
+  name: String,
+  emails: []
 });
 
 // PatientSchema.plugin(deepPopulate);

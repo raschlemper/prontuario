@@ -1,13 +1,59 @@
-<section class="full">
+<aside class="aside">
+   <div class="aside-inner">
+      <nav class="sidebar show-scrollbar">
+         <ul class="nav">
+            <li class="nav-heading">
+               <span class="ng-binding">Paciente</span>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'geral'}">
+               <a ui-sref="app.patient.list" title="Dados do Paciente" class="">
+                  <em class="icon-user"></em>
+                  <span>Pacientes</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'contact'}">
+               <a ui-sref="app.patient.edit({ menu: 'contact' })" title="Contatos do Paciente" class="">
+                  <em class="fa fa-calendar-o"></em>
+                  <span>Consultas</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'address'}">
+               <a ui-sref="app.patient.edit({ menu: 'address' })" title="Endereços do Paciente" class="">
+                  <em class="fa fa-money"></em>
+                  <span>Financeiro</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'family'}">
+               <a ui-sref="app.patient.edit({ menu: 'family' })" title="Familia do Paciente" class="">
+                  <em class="fa fa-suitcase"></em>
+                  <span>Convênios</span>
+               </a>
+            </li>
+         </ul>
+      </nav>
+   </div>
+</aside>
+<section>
    <div class="content-wrapper">
-      <h3>Pacientes
-         <small>Standard and custom elements for any form</small>
-      </h3>
+      <div class="pull-right">
+         <!-- <button type="button" class="btn btn-default btn-sm">Create project</button> -->
+         <ul class="breadcrumb">
+            <li><a ui-sref="app"><em class="fa fa-home"></em> Home</a></li>
+            <li>Pacientes</li>
+         </ul>
+      </div>
+      <h3>Pacientes</h3>
 
-      <div class="panel ">
-         <di class="panel-heading">Demo Table #1</div>
+      <div class="panel">
          <div class="panel-body table-responsive">
-            <app-table list="users" columns="columns"></app-table>
+            <div class="clearfix pb-lg">
+               <div class="pull-right">
+                  <a ui-sref="app.patient.edit({'menu': 'geral'})" class="btn btn-primary btn-sm">
+                     <em class="fa fa-plus fa-fw"></em>Adicionar
+                  </a>
+               </div>
+            </div>
+            <app-table list="users" columns="columns" events="events"></app-table>
          </div>
       </div>
    </div>

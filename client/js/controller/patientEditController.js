@@ -17,11 +17,13 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
  		$scope.menu = $stateParams.menu;
  		$scope.patient = $scope.patient || {};
   		initFactory($scope.menu);
+      getPatient($stateParams.id);
+      //TODO: Fazer a pesquisa do paciente antes do init
   	};
 
   	$scope.setMenu = function(menu) {
   		$scope.menu = menu;
-  		$state.go("app.patient.edit", {menu: menu});
+  		$state.go("app.patient.edit", {menu: menu, id: $stateParams.id});
   	};
 
   	var initFactory = function(menu) {
@@ -47,6 +49,9 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
   	var initContact = function () { 
  		 $scope.label = 'Contato';
+     $scope.patient.emails = ($scope.patient.emails && $scope.patient.emails.length) || [];
+     $scope.patient.phone = $scope.patient.phone || [];
+     // $scope.patient.emails[0] = "Rafael";
  	  };
 
   	// ADDRESS /////
@@ -125,7 +130,26 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
   	// ACTION /////
 
-  	$scope.save = function(form, patient) {  		
+    var getPatient = function(id) {  
+      if(!id) return;
+        PatientService.get(id)
+            .then(function(data) {
+              $scope.patient = data;
+            })
+            .catch(function(e) {
+              console.log(e);
+            });    
+    };
+
+    $scope.saveOrEdit = function(form, patient) {
+      if(patient._id) {
+        editPatient(patient._id, patient);
+      } else {
+        savePatient(patient);
+      }
+    };
+
+  	var savePatient = function(patient) {  		
         PatientService.save(patient)
             .then(function(data) {  
                 console.log(data);
@@ -134,6 +158,16 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
                 console.log(e);
             });            
   	};
+
+    var editPatient = function(id, patient) {      
+        PatientService.update(id, patient)
+            .then(function(data) {  
+                console.log(data);
+            })
+            .catch(function(e) {
+                console.log(e);
+            });            
+    };
 
   	init();
 

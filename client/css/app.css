@@ -1554,7 +1554,7 @@ body, html {
 }
 .panel .table {
 	margin-bottom: 0;
-	border: 0
+	/*border: 0*/
 }
 .panel.panel-transparent {
 	border: 0;
