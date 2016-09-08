@@ -26,6 +26,7 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
       })
       .state('app.patient.edit', {
         url: '/edit/:menu/:id',
+        params: { patient: null },
         views: {
           '': {
             templateUrl: 'partials/app/patient/patient-edit.html',
@@ -37,11 +38,11 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
           },
           'contact@app.patient.edit': {
             templateUrl: 'partials/app/patient/patient-edit-contact.html',
-            controller: 'PatientEditController'           
+            controller: 'PatientEditController'
           },
           'address@app.patient.edit': {
             templateUrl: 'partials/app/patient/patient-edit-address.html',
-            controller: 'PatientEditController'          
+            controller: 'PatientEditController'
           },
           'family@app.patient.edit': {
             templateUrl: 'partials/app/patient/patient-edit-family.html',
@@ -49,11 +50,11 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
           },
           'graduation@app.patient.edit': {
             templateUrl: 'partials/app/patient/patient-edit-graduation.html',
-            controller: 'PatientEditController'          
+            controller: 'PatientEditController'
           },
           'professional@app.patient.edit': {
             templateUrl: 'partials/app/patient/patient-edit-professional.html',
-            controller: 'PatientEditController'          
+            controller: 'PatientEditController'
           }
         }
       });

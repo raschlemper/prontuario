@@ -6,37 +6,37 @@
                <span class="ng-binding">Paciente</span>
             </li>
             <li ng-class="{'active-menu active': menu === 'geral'}">
-               <a ui-sref="app.patient.edit({ menu: 'geral' })" title="Dados do Paciente" class="">
+               <a title="Dados do Paciente" ng-click="setMenu('geral')">
                   <em class="icon-user"></em>
                   <span>Dados Paciente</span>
                </a>
             </li>
             <li ng-class="{'active-menu active': menu === 'contact'}">
-               <a ui-sref="app.patient.edit({ menu: 'contact' })" title="Contatos do Paciente" class="">
+               <a title="Contatos do Paciente" ng-click="setMenu('contact')">
                   <em class="fa fa-envelope-o"></em>
                   <span>Contato</span>
                </a>
             </li>
             <li ng-class="{'active-menu active': menu === 'address'}">
-               <a ui-sref="app.patient.edit({ menu: 'address' })" title="Endereços do Paciente" class="">
+               <a title="Endereços do Paciente" ng-click="setMenu('address')">
                   <em class="fa fa-bookmark-o"></em>
                   <span>Endereço</span>
                </a>
             </li>
             <li ng-class="{'active-menu active': menu === 'family'}">
-               <a ui-sref="app.patient.edit({ menu: 'family' })" title="Familia do Paciente" class="">
+               <a title="Familia do Paciente" ng-click="setMenu('family')">
                   <em class="fa fa-circle-o-notch"></em>
                   <span>Familiar</span>
                </a>
             </li>
             <li ng-class="{'active-menu active': menu === 'graduation'}">
-               <a ui-sref="app.patient.edit({ menu: 'graduation' })" title="Escolaridade do Paciente" class="">
+               <a title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
                   <em class="fa fa-graduation-cap"></em>
                   <span>Escolaridade</span>
                </a>
             </li>
             <li ng-class="{'active-menu active': menu === 'professional'}">
-               <a ui-sref="app.patient.edit({ menu: 'professional' })" title="Dados Profissionais do Paciente" class="">
+               <a title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
                   <em class="fa fa-briefcase"></em>
                   <span>Profissional</span>
                </a>
@@ -56,9 +56,9 @@
          </ul>
       </div>
       <h3>Paciente</h3>   
-      <div class="panel b"> 
-         <div class="panel-body p-xl"> 
-         <form name="patientForm" ng-submit="saveOrEdit(this, patient)">
+      <!-- <div class="panel b"> 
+         <div class="panel-body p-xl">  -->
+         <!-- <form name="patientForm" ng-submit="saveOrEdit(this, patient)"> -->
             <div class="pull-right">
                <button type="submit" class="btn btn-primary btn-sm">
                   <em class="fa fa-check fa-fw"></em>Salvar
@@ -66,8 +66,8 @@
             </div>
             <div class="clearfix"></div>
             <div ui-view="{{menu}}"></div>
-         </form>
-        </div>
-      </div>
+         <!-- </form> -->
+        <!-- </div>
+      </div> -->
    </div>
 </section>

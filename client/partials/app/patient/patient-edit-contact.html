@@ -1,26 +1,84 @@
-<fieldset>
-   <legend>Email</legend> 
-   <div class="form-group mb-lg">
-      <label>Principal</label>
-      <input type="text" class="form-control" name="emailPrincipal" ng-model="patient.emails[0]">
-   </div>
-   <div class="form-group mb-lg">
-      <label>Alternativo</label>
-      <input type="text" class="form-control" name="emailAlternativo" ng-model="patient.emails[1]">
-   </div>
-</fieldset>
-<fieldset>
-   <legend>Telefone / Celular</legend>
-   <div class="form-group row mb-lg">
-      <div class="col-md-6">
-         <label>Principal</label>
-         <input type="text" class="form-control" name="phone1" ng-model="patient.phone[0]"
-            ui-br-phone-number>
+<div class="row">
+   <div class="col-md-7"> 
+      <div class="panel">
+         <div class="panel-body">
+            <fieldset>
+               <legend>Email</legend>
+               <div class="list-group ng-scope">
+                  <div href="#" class="list-group-item">
+                     <table class="wd-wide">
+                        <tbody>
+                           <tr ng-repeat="email in patient.emails track by $index">
+                              <td class="wd-xxs">
+                                 <div class="ph text-center"><em class="fa fa-envelope-o fa-lg"></em></div>
+                              </td>
+                              <td>
+                                 <div class="ph">
+                                    <h4 class="text-muted">
+                                       <span editable-text="email" e-name="email" e-form="emailForm" e-required>
+                                          {{email || 'empty'}}
+                                       </span>
+                                    </h4>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="ph pull-right">
+                                    <form editable-form name="emailForm" ng-show="emailForm.$visible" class="form-buttons form-inline" shown="inserted == email">
+                                       <button type="submit" class="btn btn-primary btn-sm" ng-disabled="emailForm.$waiting">
+                                          <em class="fa fa-save"></em>
+                                       </button>
+                                       <button type="button" class="btn btn-default btn-sm" ng-disabled="emailForm.$waiting" ng-click="emailForm.$cancel()">
+                                          <em class="fa fa-close"></em>
+                                       </button>
+                                    </form>
+                                    <button type="button" class="btn btn-primary btn-sm" ng-show="!emailForm.$visible" ng-click="emailForm.$show()">
+                                       <em class="fa fa-edit"></em>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm" ng-show="!emailForm.$visible" ng-click="removeEmail(email)">
+                                       <em class="fa fa-trash"></em>
+                                    </button>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+
+
+
+
+               <!-- <div class="form-group mb-lg">
+                  <label>Principal</label>
+                  <input type="text" class="form-control" name="emailPrincipal" ng-model="patient.emails[0]">
+               </div>
+               <div class="form-group mb-lg">
+                  <label>Alternativo</label>
+                  <input type="text" class="form-control" name="emailAlternativo" ng-model="patient.emails[1]">
+               </div> -->
+            </fieldset>
+         </div>
       </div>
-      <div class="col-md-6">
-         <label>Alternativo</label>
-         <input type="text" class="form-control" name="phone2" ng-model="patient.phone[1]"
-            ui-br-phone-number>
+   </div>
+   <div class="col-md-5">
+      <div class="panel">
+         <div class="panel-body">
+            <fieldset>
+               <legend>Telefone / Celular</legend>
+               <div class="form-group row mb-lg">
+                  <div class="col-md-6">
+                     <label>Principal</label>
+                     <input type="text" class="form-control" name="phone1" ng-model="patient.phone[0]"
+                        ui-br-phone-number>
+                  </div>
+                  <div class="col-md-6">
+                     <label>Alternativo</label>
+                     <input type="text" class="form-control" name="phone2" ng-model="patient.phone[1]"
+                        ui-br-phone-number>
+                  </div>
+               </div>
+            </fieldset>
+         </div>
       </div>
    </div>
-</fieldset>
+</div>

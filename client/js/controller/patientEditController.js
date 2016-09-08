@@ -15,15 +15,15 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 		
  	var init = function () {
  		$scope.menu = $stateParams.menu;
- 		$scope.patient = $scope.patient || {};
-  		initFactory($scope.menu);
-      getPatient($stateParams.id);
-      //TODO: Fazer a pesquisa do paciente antes do init
-  	};
+ 		$scope.patient = $stateParams.patient || {};
+		initFactory($scope.menu);
+    getPatient($stateParams.id);
+    //TODO: Fazer a pesquisa do paciente antes do init
+	};
 
   	$scope.setMenu = function(menu) {
   		$scope.menu = menu;
-  		$state.go("app.patient.edit", {menu: menu, id: $stateParams.id});
+  		$state.go("app.patient.edit", {menu: menu, id: $stateParams.id, patient: $scope.patient});
   	};
 
   	var initFactory = function(menu) {
@@ -49,10 +49,14 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
   	var initContact = function () { 
  		 $scope.label = 'Contato';
-     $scope.patient.emails = ($scope.patient.emails && $scope.patient.emails.length) || [];
+     $scope.patient.emails = $scope.patient.emails || [];
      $scope.patient.phone = $scope.patient.phone || [];
-     // $scope.patient.emails[0] = "Rafael";
+    $scope.addEmail("raschlemper@gmail.com");
  	  };
+
+    $scope.addEmail = function(email) {      
+     $scope.patient.emails.push(email);
+    }
 
   	// ADDRESS /////
 
@@ -132,13 +136,13 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
     var getPatient = function(id) {  
       if(!id) return;
-        PatientService.get(id)
-            .then(function(data) {
-              $scope.patient = data;
-            })
-            .catch(function(e) {
-              console.log(e);
-            });    
+      PatientService.get(id)
+          .then(function(data) {
+            $scope.patient = data;
+          })
+          .catch(function(e) {
+            console.log(e);
+          });    
     };
 
     $scope.saveOrEdit = function(form, patient) {
