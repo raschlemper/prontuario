@@ -3,27 +3,35 @@
       <div class="panel">
          <div class="panel-body">
             <fieldset>
-               <legend>Email</legend>
+               <legend>Email
+                  <div class="pull-right">
+                     <button type="button" class="btn btn-primary btn-xs" ng-click="addEmail()">
+                        <em class="fa fa-plus fa-fw"></em>Adicionar
+                     </button>
+                  </div>
+               </legend>
                <div class="list-group ng-scope">
-                  <div href="#" class="list-group-item">
+                  <div href="#" class="list-group-item" ng-repeat="email in patient.emails track by email.id">
                      <table class="wd-wide">
                         <tbody>
-                           <tr ng-repeat="email in patient.emails track by $index">
+                           <tr>
                               <td class="wd-xxs">
-                                 <div class="ph text-center"><em class="fa fa-envelope-o fa-lg"></em></div>
+                                 <div class="ph text-center">
+                                    <em class="fa fa-envelope-o fa-lg"></em>
+                                 </div>
                               </td>
                               <td>
                                  <div class="ph">
                                     <h4 class="text-muted">
-                                       <span editable-text="email" e-name="email" e-form="emailForm" e-required>
-                                          {{email || 'empty'}}
+                                       <span editable-text="email.url" e-name="url" e-form="emailForm" e-required>
+                                          {{email.url || ''}}
                                        </span>
                                     </h4>
                                  </div>
                               </td>
                               <td>
                                  <div class="ph pull-right">
-                                    <form editable-form name="emailForm" ng-show="emailForm.$visible" class="form-buttons form-inline" shown="inserted == email">
+                                    <form editable-form name="emailForm" ng-show="emailForm.$visible" class="form-buttons form-inline" shown="insertedEmail == email">
                                        <button type="submit" class="btn btn-primary btn-sm" ng-disabled="emailForm.$waiting">
                                           <em class="fa fa-save"></em>
                                        </button>
@@ -34,7 +42,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" ng-show="!emailForm.$visible" ng-click="emailForm.$show()">
                                        <em class="fa fa-edit"></em>
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" ng-show="!emailForm.$visible" ng-click="removeEmail(email)">
+                                    <button type="button" class="btn btn-danger btn-sm" ng-show="!emailForm.$visible" ng-click="removeEmail($index)">
                                        <em class="fa fa-trash"></em>
                                     </button>
                                  </div>
@@ -44,10 +52,6 @@
                      </table>
                   </div>
                </div>
-
-
-
-
                <!-- <div class="form-group mb-lg">
                   <label>Principal</label>
                   <input type="text" class="form-control" name="emailPrincipal" ng-model="patient.emails[0]">
@@ -64,8 +68,56 @@
       <div class="panel">
          <div class="panel-body">
             <fieldset>
-               <legend>Telefone / Celular</legend>
-               <div class="form-group row mb-lg">
+               <legend>Telefone / Celular
+                  <div class="pull-right">
+                     <button type="button" class="btn btn-primary btn-xs" ng-click="addPhone()">
+                        <em class="fa fa-plus fa-fw"></em>Adicionar
+                     </button>
+                  </div>
+               </legend>
+               <div class="list-group ng-scope">
+                  <div href="#" class="list-group-item" ng-repeat="phone in patient.phones track by phone.id">
+                     <table class="wd-wide">
+                        <tbody>
+                           <tr>
+                              <td class="wd-xxs">
+                                 <div class="ph text-center">
+                                    <em class="fa fa-phone fa-lg"></em>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="ph">
+                                    <h4 class="text-muted">
+                                       <span editable-text="phone.number" e-name="number" e-form="phoneForm" e-required>
+                                          {{phone.number || ''}}
+                                       </span>
+                                    </h4>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="ph pull-right">
+                                    <form editable-form name="phoneForm" ng-show="phoneForm.$visible" class="form-buttons form-inline" shown="insertedPhone == phone">
+                                       <button type="submit" class="btn btn-primary btn-sm" ng-disabled="phoneForm.$waiting">
+                                          <em class="fa fa-save"></em>
+                                       </button>
+                                       <button type="button" class="btn btn-default btn-sm" ng-disabled="phoneForm.$waiting" ng-click="phoneForm.$cancel()">
+                                          <em class="fa fa-close"></em>
+                                       </button>
+                                    </form>
+                                    <button type="button" class="btn btn-primary btn-sm" ng-show="!phoneForm.$visible" ng-click="phoneForm.$show()">
+                                       <em class="fa fa-edit"></em>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm" ng-show="!phoneForm.$visible" ng-click="phoneForm($index)">
+                                       <em class="fa fa-trash"></em>
+                                    </button>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <!-- <div class="form-group row mb-lg">
                   <div class="col-md-6">
                      <label>Principal</label>
                      <input type="text" class="form-control" name="phone1" ng-model="patient.phone[0]"
@@ -76,7 +128,7 @@
                      <input type="text" class="form-control" name="phone2" ng-model="patient.phone[1]"
                         ui-br-phone-number>
                   </div>
-               </div>
+               </div> -->
             </fieldset>
          </div>
       </div>

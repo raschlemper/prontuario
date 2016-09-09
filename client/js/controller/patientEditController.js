@@ -48,15 +48,50 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
   	// CONTACT /////
 
   	var initContact = function () { 
- 		 $scope.label = 'Contato';
-     $scope.patient.emails = $scope.patient.emails || [];
-     $scope.patient.phone = $scope.patient.phone || [];
-    $scope.addEmail("raschlemper@gmail.com");
+      $scope.label = 'Contato';
+      $scope.patient.emails = $scope.patient.emails || [];
+      $scope.patient.phones = $scope.patient.phones || [];
+      addInitEmail();
+      addInitPhone();
  	  };
 
-    $scope.addEmail = function(email) {      
-     $scope.patient.emails.push(email);
-    }
+    var addInitEmail = function() {      
+      if(!$scope.patient.emails.length) {
+        $scope.addEmail();
+      }
+    };
+
+    $scope.addEmail = function() {  
+      $scope.insertedEmail = {
+        id: $scope.patient.emails.length + 1,
+        url: ''
+      };    
+      $scope.patient.emails.push($scope.insertedEmail);
+    };
+
+    $scope.removeEmail = function(index) {  
+      $scope.patient.emails.splice(index, 1);
+      // addInitEmail();
+    };
+
+    var addInitPhone = function() {      
+      if(!$scope.patient.phones.length) {
+        $scope.addPhone();
+      }
+    };
+
+    $scope.addPhone = function() {  
+      $scope.insertedPhone = {
+        id: $scope.patient.phones.length + 1,
+        number: ''
+      };    
+      $scope.patient.phones.push($scope.insertedPhone);
+    };
+
+    $scope.removePhone = function(index) {  
+      $scope.patient.phones.splice(index, 1);
+      // addInitPhone();
+    };
 
   	// ADDRESS /////
 

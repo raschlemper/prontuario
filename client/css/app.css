@@ -6893,3 +6893,6 @@ body .jvectormap-zoomout {
     box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
+.editable-text {
+	width: 100%;
+}
