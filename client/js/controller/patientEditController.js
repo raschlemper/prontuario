@@ -35,8 +35,12 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 		    case 'graduation': initGraduation(); break;
 		    case 'professional': initProfessional(); break;
 		    default: initGeral();
-		}
+		  }
   	};
+
+    var getLastIndex = function(list) {
+      return list.length - 1;
+    };
 
   	// GERAL /////
 
@@ -55,10 +59,18 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
       addInitPhone();
  	  };
 
-    var addInitEmail = function() {      
-      if(!$scope.patient.emails.length) {
+    var addInitEmail = function() {
+      var last = getLastEmail();
+      if(!last || !last.url) {
+        removeLastEmail();
         $scope.addEmail();
       }
+    };
+
+    var getLastEmail = function() {
+      if(!$scope.patient.emails || !$scope.patient.emails.length) return;
+      var lastIndex = getLastIndex($scope.patient.emails);
+      return $scope.patient.emails[lastIndex];
     };
 
     $scope.addEmail = function() {  
@@ -69,15 +81,27 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
       $scope.patient.emails.push($scope.insertedEmail);
     };
 
-    $scope.removeEmail = function(index) {  
-      $scope.patient.emails.splice(index, 1);
-      // addInitEmail();
+    var removeLastEmail = function() { 
+      var lastIndex = getLastIndex($scope.patient.emails);
+      if(lastIndex > -1) { $scope.removeEmail(lastIndex); }
     };
 
-    var addInitPhone = function() {      
-      if(!$scope.patient.phones.length) {
+    $scope.removeEmail = function(index) {  
+      $scope.patient.emails.splice(index, 1);
+    };
+
+    var addInitPhone = function() {  
+      var last = getLastPhone();
+      if(!last || !last.number) {
+        removeLastPhone();
         $scope.addPhone();
       }
+    };
+
+    var getLastPhone = function() {
+      if(!$scope.patient.phones || !$scope.patient.phones.length) return;
+      var lastIndex = getLastIndex($scope.patient.phones);
+      return $scope.patient.phones[lastIndex];
     };
 
     $scope.addPhone = function() {  
@@ -88,9 +112,13 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
       $scope.patient.phones.push($scope.insertedPhone);
     };
 
+    var removeLastPhone = function() { 
+      var lastIndex = getLastIndex($scope.patient.phones);
+      if(lastIndex > -1) { $scope.removePhone(lastIndex); }
+    };
+
     $scope.removePhone = function(index) {  
       $scope.patient.phones.splice(index, 1);
-      // addInitPhone();
     };
 
   	// ADDRESS /////
