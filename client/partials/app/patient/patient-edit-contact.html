@@ -23,7 +23,7 @@
                               <td>
                                  <div class="ph">
                                     <h4 class="text-muted">
-                                       <span editable-text="email.url" e-name="url" e-form="emailForm" e-required>
+                                       <span editable-text="email.url" e-name="url" e-form="emailForm" e-required e-type="email">
                                           {{email.url || ''}}
                                        </span>
                                     </h4>
@@ -88,8 +88,8 @@
                               <td>
                                  <div class="ph">
                                     <h4 class="text-muted">
-                                       <span editable-text="phone.number" e-name="number" e-form="phoneForm" e-required>
-                                          {{phone.number || ''}}
+                                       <span editable-text="phone.number" e-name="number" e-form="phoneForm" e-required e-ui-br-phone-number>
+                                          {{phone.number || '' | telefone}}
                                        </span>
                                     </h4>
                                  </div>
