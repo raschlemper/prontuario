@@ -1,0 +1,349 @@
+<div class="row">
+   <div class="col-md-3">
+      <div class="panel panel-default">
+         <div class="panel-body text-center">
+            <div class="pv-lg">
+               <img src="img/user/02.jpg" alt="Contact" class="center-block img-responsive img-circle img-thumbnail thumb96">
+            </div>
+            <h3 class="m0 text-bold">{{ patient.name || 'Nome do paciente' }}</h3>
+            <p>
+               {{ patient.email || '( Email )' }} <br> 
+               {{ patient.celular1 || patient.celular2 || patient.telefone || '( Telefone )' | telefone }}
+            </p>
+         </div>
+      </div>
+
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-yellow-dark text-center">
+               <em class="fa fa-user fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Dados Paciente</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-info text-center">
+               <em class="fa fa-calendar fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Consultas</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-green text-center">
+               <em class="fa fa-money fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Financeiro</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel mb b">
+         <div class="row row-table row-flush">
+            <div class="col-xs-3 bg-purple-light text-center">
+               <em class="fa fa-book fa-2x"></em>
+            </div>
+            <div class="col-xs-9 clickable">
+               <div class="panel-body text-center">
+                  <h4 class="mt0 mb0">Prontuário</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-9">
+      <div class="panel panel-default">
+         <div class="panel-body">
+            <ul class="nav nav-tabs">
+               <li class="tab-130 active" ng-class="{'active': tabPane === 'identify'}">
+                  <a ng-click="tabPane = 'identify'">Identificação</a>
+               </li>
+               <li class="tab-130" ng-class="{'active': tabPane === 'address'}">
+                  <a ng-click="tabPane = 'address'">Endereço</a>
+               </li>
+               <li class="tab-130" ng-class="{'active': tabPane === 'family'}">
+                  <a ng-click="tabPane = 'family'">Familia</a>
+               </li>
+               <li class="tab-130" ng-class="{'active': tabPane === 'parent'}">
+                  <a ng-click="tabPane = 'parent'">Parente</a>
+               </li>
+               <li class="tab-130" ng-class="{'active': tabPane === 'education'}">
+                  <a ng-click="tabPane = 'education'">Escolaridade</a>
+               </li>
+               <li class="tab-130" ng-class="{'active': tabPane === 'occupation'}">
+                  <a ng-click="tabPane = 'occupation'">Ocupação</a>
+               </li>
+            </ul>
+            <form action="" class="">
+               <div class="tab-content">
+                  <div class="tab-pane" ng-class="{'active': tabPane === 'identify'}">
+                     <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" name="name" ng-model="patient.name">
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-4">
+                           <label>Data Nascimento</label>
+                           <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
+                        </div>   
+                        <div class="col-md-4">
+                           <label>Idade</label>
+                           <input type="text" class="form-control" name="age" ng-model="patient.age">
+                        </div>
+                        <div class="col-md-4">
+                           <label>Sexo</label><br>
+                           <label class="radio-inline c-radio" ng-repeat="genre in genres">
+                              <input type="radio" name="i-radio" value="option1" ng-model="patient.genre">
+                              <span class="fa fa-circle"></span>{{genre.label}}
+                           </label>
+                        </div>
+                     </div>
+                     <hr>
+                     <div class="form-group">
+                        <label>Email #1</label>
+                        <input type="text" class="form-control" name="email" ng-model="patient.email1">
+                     </div>
+                     <div class="form-group">
+                        <label>Email #2</label>
+                        <input type="text" class="form-control" name="email" ng-model="patient.email2">
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-4">
+                           <label>Telefone</label>
+                           <input type="text" class="form-control" name="telefone" ng-model="patient.telefone"
+                              ui-br-phone-number>
+                        </div>
+                        <div class="col-md-4">
+                           <label>Celular #1</label>
+                           <input type="text" class="form-control" name="celular1" ng-model="patient.celular1"
+                              ui-br-phone-number>
+                        </div>
+                        <div class="col-md-4">
+                           <label>Celular #2</label>
+                           <input type="text" class="form-control" name="celular2" ng-model="patient.celular2"
+                              ui-br-phone-number>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane" ng-class="{'active': tabPane === 'address'}">
+                     <div class="form-group row">
+                        <div class="col-md-4">
+                           <label>Cep</label>
+                           <div class="input-group">
+                              <input type="text" autocomplete="off" class="form-control" name="zipCode" ng-model="patient.address.zipCode" ui-br-cep-mask>
+                              <span class="input-group-addon" title="Pesquisar CEP" ng-click="searchZipCode(patient.address.zipCode)">
+                                 <i class="fa fa-search"></i>
+                              </span>
+                           </div>   
+                        </div>
+                        <div class="col-md-6">
+                           <label>Cidade</label>
+                           <input type="text" class="form-control" name="city" ng-model="patient.address.city">
+                        </div>
+                        <div class="col-md-2">
+                           <label>UF</label>
+                           <input type="text" class="form-control" name="state" ng-model="patient.address.state">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-8">
+                           <label>Av. / Rua</label>
+                           <input type="text" class="form-control" name="street" ng-model="patient.address.street">
+                        </div>
+                        <div class="col-md-4">
+                           <label>Número</label>
+                           <input type="text" class="form-control" name="number" ng-model="patient.address.number">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-8">
+                           <label>Complemento</label>
+                           <input type="text" class="form-control" name="complement" ng-model="patient.address.complement">
+                        </div>
+                        <div class="col-md-4">
+                           <label>Bairro</label>
+                           <input type="text" class="form-control" name="district" ng-model="patient.address.district">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane" ng-class="{'active': tabPane === 'family'}">
+                     <div class="form-group">
+                        <label>Pai</label>
+                        <input type="text" class="form-control" name="father" ng-model="patient.family.father.name">
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-2">
+                           <label>Idade</label>
+                           <input type="text" class="form-control" name="complement" ng-model="patient.family.father.age">
+                        </div>
+                        <div class="col-md-4">
+                           <label>Escolaridade</label>
+                           <select class="form-control" name="schooling" ng-model="patient.family.father.schooling" 
+                              ng-options="schooling.label for schooling in educationLevels"></select>
+                        </div>
+                        <div class="col-md-6">
+                           <label>Ocupação</label>
+                           <input type="text" class="form-control" name="occupation" ng-model="patient.family.father.occupation">
+                        </div>
+                     </div>
+                     <hr>
+                     <div class="form-group">
+                        <label>Mãe</label>
+                        <input type="text" class="form-control" name="mother" ng-model="patient.family.mother.name">
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-2">
+                           <label>Idade</label>
+                           <input type="text" class="form-control" name="complement" ng-model="patient.family.mother.age">
+                        </div>
+                        <div class="col-md-4">
+                           <label>Escolaridade</label>
+                           <select class="form-control" name="schooling" ng-model="patient.family.mother.schooling" 
+                              ng-options="schooling.label for schooling in educationLevels"></select>
+                        </div>
+                        <div class="col-md-6">
+                           <label>Ocupação</label>
+                           <input type="text" class="form-control" name="occupation" ng-model="patient.family.mother.occupation">
+                        </div>
+                     </div>
+                     <hr>
+                     <div class="form-group row">
+                        <div class="col-md-8">
+                           <label>Irmão / Irmã</label>
+                        </div>
+                        <div class="col-md-2">
+                           <label>Idade</label>
+                        </div>
+                     </div>
+                     <div class="form-group row" ng-repeat="sibling in patient.family.siblings track by $index">
+                        <div class="col-md-8">
+                           <input type="text" class="form-control" name="name" ng-model="sibling.name">
+                        </div>
+                        <div class="col-md-2">
+                           <input type="text" class="form-control" name="age" ng-model="sibling.age">
+                        </div>
+                        <div class="col-md-2">
+                           <button type="button" class="btn btn-danger btn-line" ng-click="delSibling(sibling)">
+                              <i class="fa fa-trash"></i>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-8">
+                           <input type="text" class="form-control" name="age" ng-model="sibling.name">
+                        </div>
+                        <div class="col-md-2">
+                           <input type="text" class="form-control" name="age" ng-model="sibling.age">
+                        </div>
+                        <div class="col-md-2">
+                           <button type="button" class="btn btn-primary btn-line" ng-click="addSibling(sibling)">
+                              <i class="fa fa-plus-circle"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane" ng-class="{'active': tabPane === 'parent'}">
+                     <div class="form-group">
+                        <label>Pai</label>
+                        <input type="text" class="form-control" name="father" ng-model="patient.family.father.name">
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-2">
+                           <label>Idade</label>
+                           <input type="text" class="form-control" name="complement" ng-model="patient.family.father.age">
+                        </div>
+                        <div class="col-md-4">
+                           <label>Escolaridade</label>
+                           <select class="form-control" name="schooling" ng-model="patient.family.father.schooling" 
+                              ng-options="schooling.label for schooling in educationLevels"></select>
+                        </div>
+                        <div class="col-md-6">
+                           <label>Ocupação</label>
+                           <input type="text" class="form-control" name="occupation" ng-model="patient.family.father.occupation">
+                        </div>
+                     </div>
+                     <hr>
+                     <div class="form-group">
+                        <label>Mãe</label>
+                        <input type="text" class="form-control" name="mother" ng-model="patient.family.mother.name">
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-2">
+                           <label>Idade</label>
+                           <input type="text" class="form-control" name="complement" ng-model="patient.family.mother.age">
+                        </div>
+                        <div class="col-md-4">
+                           <label>Escolaridade</label>
+                           <select class="form-control" name="schooling" ng-model="patient.family.mother.schooling" 
+                              ng-options="schooling.label for schooling in educationLevels"></select>
+                        </div>
+                        <div class="col-md-6">
+                           <label>Ocupação</label>
+                           <input type="text" class="form-control" name="occupation" ng-model="patient.family.mother.occupation">
+                        </div>
+                     </div>
+                     <hr>
+                     <div class="form-group row">
+                        <div class="col-md-8">
+                           <label>Irmão / Irmã</label>
+                        </div>
+                        <div class="col-md-2">
+                           <label>Idade</label>
+                        </div>
+                     </div>
+                     <div class="form-group row" ng-repeat="sibling in patient.family.siblings track by $index">
+                        <div class="col-md-8">
+                           <input type="text" class="form-control" name="name" ng-model="sibling.name">
+                        </div>
+                        <div class="col-md-2">
+                           <input type="text" class="form-control" name="age" ng-model="sibling.age">
+                        </div>
+                        <div class="col-md-2">
+                           <button type="button" class="btn btn-danger btn-line" ng-click="delSibling(sibling)">
+                              <i class="fa fa-trash"></i>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-md-8">
+                           <input type="text" class="form-control" name="age" ng-model="sibling.name">
+                        </div>
+                        <div class="col-md-2">
+                           <input type="text" class="form-control" name="age" ng-model="sibling.age">
+                        </div>
+                        <div class="col-md-2">
+                           <button type="button" class="btn btn-primary btn-line" ng-click="addSibling(sibling)">
+                              <i class="fa fa-plus-circle"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane" ng-class="{'active': tabPane === 'education'}">
+                     <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="tab-pane" ng-class="{'active': tabPane === 'occupation'}">
+                     <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control">
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>

@@ -32,14 +32,14 @@ module.exports = function (app) {
   var env = app.get('env');
 
   if ('production' === env) {
-    app.use(favicon(path.join(config.root, 'client/dist/img/favicon.png')));
+    app.use(favicon(path.join(config.root, 'client/dist/images/favicon.png')));
     app.use(express.static(path.join(config.root, 'client/dist')));
     app.set('appPath', config.root + 'client/dist');
     app.use(logger('dev'));
   }
 
   if ('development' === env || 'test' === env) {
-    app.use(favicon(path.join(config.root, 'client/img/favicon.png')));
+    app.use(favicon(path.join(config.root, 'client/images/favicon.png')));
     app.use(express.static(path.join(config.root, 'client')));
     app.set('appPath', path.join(config.root, 'client'));
     app.use(logger('dev'));
