@@ -1,0 +1,40 @@
+<div class="row">
+   <div class="col-md-4"> 
+      <fieldset>
+         <legend>Foto</legend>
+         <div class="pv-lg">
+            <img src="img/user/02.jpg" alt="Contact" class="center-block img-responsive img-thumbnail thumb200">
+         </div>
+      </fieldset>
+   </div>
+   <div class="col-md-8">
+      <fieldset>
+         <legend>Identificação</legend>
+         <div class="form-group mb-lg">
+            <label>Nome</label>
+            <input type="text" class="form-control" name="name" ng-model="patient.name">
+         </div>
+         <div class="form-group row mb-lg">
+            <div class="col-md-5">
+               <label>Data Nascimento</label>
+               <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
+            </div>  
+         </div> 
+         <div class="form-group row mb-lg">
+            <div class="col-md-3">
+               <label>Idade</label>
+               <input type="text" class="form-control" name="age" ng-model="patient.age">
+            </div>
+         </div> 
+         <div class="form-group row mb-lg ">
+            <div class="col-md-12">
+               <label>Sexo</label><br>
+               <label class="radio-inline c-radio" ng-repeat="genre in genres">
+                  <input type="radio" name="genre" value="{{genre.id}}" ng-model="patient.genre.id">
+                  <span class="fa fa-circle"></span>{{genre.label}}
+               </label>
+            </div>
+         </div>  
+      </fieldset> 
+   </div>
+</div>

@@ -1,0 +1,73 @@
+<aside class="aside">
+   <div class="aside-inner">
+      <nav class="sidebar show-scrollbar">
+         <ul class="nav">
+            <li class="nav-heading">
+               <span class="ng-binding">Paciente</span>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'geral'}">
+               <a title="Dados do Paciente" ng-click="setMenu('geral')">
+                  <em class="icon-user"></em>
+                  <span>Dados Paciente</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'contact'}">
+               <a title="Contatos do Paciente" ng-click="setMenu('contact')">
+                  <em class="fa fa-envelope-o"></em>
+                  <span>Contato</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'address'}">
+               <a title="Endereços do Paciente" ng-click="setMenu('address')">
+                  <em class="fa fa-bookmark-o"></em>
+                  <span>Endereço</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'family'}">
+               <a title="Familia do Paciente" ng-click="setMenu('family')">
+                  <em class="fa fa-circle-o-notch"></em>
+                  <span>Familiar</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'graduation'}">
+               <a title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
+                  <em class="fa fa-graduation-cap"></em>
+                  <span>Escolaridade</span>
+               </a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'professional'}">
+               <a title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
+                  <em class="fa fa-briefcase"></em>
+                  <span>Profissional</span>
+               </a>
+            </li>
+         </ul>
+      </nav>
+   </div>
+</aside>
+<section>
+   <div class="content-wrapper">
+      <div class="pull-right">
+         <!-- <button type="button" class="btn btn-default btn-sm">Create project</button> -->
+         <ul class="breadcrumb">
+            <li><a ui-sref="app"><em class="fa fa-home"></em> Home</a></li>
+            <li><a ui-sref="app.patient.list">Paciente</a></li>
+            <li>{{label}}</li>
+         </ul>
+      </div>
+      <h3>Paciente</h3>   
+      <!-- <div class="panel b"> 
+         <div class="panel-body p-xl">  -->
+         <!-- <form name="patientForm" ng-submit="saveOrEdit(this, patient)"> -->
+            <div class="pull-right">
+               <button type="submit" class="btn btn-primary btn-sm">
+                  <em class="fa fa-check fa-fw"></em>Salvar
+               </button>
+            </div>
+            <div class="clearfix"></div>
+            <div ui-view="{{menu}}"></div>
+         <!-- </form> -->
+        <!-- </div>
+      </div> -->
+   </div>
+</section>
