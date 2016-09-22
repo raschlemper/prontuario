@@ -1,0 +1,26 @@
+<div class="row row-toolbar">
+
+   <div class="col-md-12">
+   
+      <div class="crumbs"> 
+   
+         <ul id="breadcrumbs" class="breadcrumb pull-left"> 
+            <li ng-repeat="item in breadcrumb"> 
+               <i class="{{ item.icon }}"></i> 
+               <a ui-sref="" ng-click="events.edit(item)">{{ item.label }}</a> 
+            </li> 
+         </ul> 
+   
+         <div class="pull-right button-action">
+            <button class="btn btn-primary" ui-sref="app.patient.edit({'menu': 'geral'})">
+               <i class="icon-signal"></i><span>Novo</span>
+            </button>
+         </div>
+   
+         <div class="clearfix"></div>
+   
+      </div> 
+   
+   </div>
+
+</div>
