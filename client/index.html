@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <base href="/new/">
+    <base href="/">
 
-    <title>Gentellela Alela! | </title>
+    <title>Prontuário</title>
 
     <!-- Bootstrap -->
     <link media="screen" charset="utf-8" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
@@ -36,20 +36,20 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li class="active">
-                    <a><i class="fa fa-home"></i> Home </a>
+                  <li ng-class="{active:$state.includes('app.home')}">
+                    <a ui-sref="app.patient.list"><i class="fa fa-home"></i> Home </a>
                   </li>
-                  <li>
-                    <a><i class="fa fa-user"></i> Paciente </a>
+                  <li ng-class="{active:$state.includes('app.patient')}">
+                    <a ui-sref="app.patient.list"><i class="fa fa-user"></i> Paciente </a>
                   </li>
-                  <li>
-                    <a><i class="fa fa-calendar "></i> Consultas </a>
+                  <li ng-class="{active:$state.includes('app.consultation')}">
+                    <a ui-sref="app.patient.list"><i class="fa fa-calendar "></i> Consultas </a>
                   </li>
-                  <li>
-                    <a><i class="fa fa-money"></i> Financeiro </a>
+                  <li ng-class="{active:$state.includes('app.financial')}">
+                    <a ui-sref="app.patient.list"><i class="fa fa-money"></i> Financeiro </a>
                   </li>
-                  <li>
-                    <a><i class="fa fa-suitcase"></i> Convênios </a>
+                  <li ng-class="{active:$state.includes('app.agreement')}">
+                    <a ui-sref="app.patient.list"><i class="fa fa-suitcase"></i> Convênios </a>
                   </li>
               </div>
             </div>
@@ -195,6 +195,7 @@
     <script type="text/javascript" charset="UTF-8" src="js/app.js"></script>
     <script type="text/javascript" charset="UTF-8" src="js/app-router.js"></script>
     <script type="text/javascript" charset="UTF-8" src="js/run/xeditable.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/run/activeMenu.js"></script>
 
     <script type="text/javascript" charset="UTF-8" src="js/filter/telefoneFilter.js"></script>
     <script type="text/javascript" charset="UTF-8" src="js/filter/userPictureFilter.js"></script>
