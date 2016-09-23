@@ -4136,7 +4136,7 @@ ul.notifications {
 
 /** /Dropzone.js **/
 
-/** Toolbar **/
+/** Breadcrumb **/
 .row-toolbar {
     border-bottom: 1px solid #D9DEE4;
     margin-right: -20px;
@@ -4144,7 +4144,6 @@ ul.notifications {
     padding-left: 10px;
     margin-bottom: 110px;
 }
-/** Breadcrumb **/
 .crumbs {
     margin: 0 -20px;
     /*height: 40px;*/
@@ -4216,4 +4215,7 @@ ul.notifications {
 
 .mb-0 {
   margin-bottom: 0px;
+}
+.mr-7 {
+  margin-right: 7px;
 }
