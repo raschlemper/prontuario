@@ -1,5 +1,7 @@
 <div class="pull-right button-action">
-   <button class="btn btn-primary" ng-click="config.events.create()">
+   <button class="btn btn-primary" 
+           ng-click="actions.create()"
+           ng-if="canAction('create')">
       <i class="fa fa-plus mr-7"></i><span>Novo</span>
    </button>
 </div>

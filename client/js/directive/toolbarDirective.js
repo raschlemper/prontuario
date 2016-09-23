@@ -6,12 +6,13 @@ app.directive('toolbar', [function () {
         templateUrl: 'js/directive/html/toolbar.html',
         scope: {
             breadcrumb: '=',
-            buttonGroup: '='
+            actions: '='
         },
         controller: ['$scope', function ($scope) {
 
             var init = function () {
-                
+                $scope.states = $scope.breadcrumb;
+                $scope.actions = $scope.actions;
             };
 
             init();

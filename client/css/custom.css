@@ -919,7 +919,7 @@ legend {
 
 .pagination.pagination-split li a {
   border-radius: 4px;
-  color: #768399;
+  /*color: #768399;*/
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px; }
 
@@ -4144,7 +4144,7 @@ ul.notifications {
     padding-left: 10px;
     margin-bottom: 110px;
 }
-.crumbs {
+.toolbar {
     margin: 0 -20px;
     /*height: 40px;*/
     background: #f9f9f9;
@@ -4153,28 +4153,29 @@ ul.notifications {
     position: fixed;
     left: 250px;
     right: 10px;
+    min-height: 55px;
     z-index: 999;
 }
-.crumbs .breadcrumb {
+.toolbar .breadcrumb {
     float: left;
     background-color: #f9f9f9;
     height: 0;
     margin-top: 8px;
 }
-.crumbs .breadcrumb li {
+.toolbar .breadcrumb li {
     float: left;
     font-size: 15px;
     padding-top: 0px;
     padding-right: 5px;
 }
-.crumbs .breadcrumb li i {
+.toolbar .breadcrumb li i {
     color: #6f6f6f;
     padding: 0 5px;
 }
-.crumbs .breadcrumb li a {
+.toolbar .breadcrumb li a {
     color: #555;
 }
-.crumbs .breadcrumb li.current a {
+.toolbar .breadcrumb li.current a {
     color: #949494!important;
 }
 .button-action {
