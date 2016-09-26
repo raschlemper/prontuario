@@ -4,5 +4,15 @@
            ng-if="canAction('create')">
       <i class="fa fa-plus mr-7"></i><span>Novo</span>
    </button>
+   <button class="btn btn-default" 
+           ng-click="actions.cancel()"
+           ng-if="canAction('cancel')">
+      <i class="fa fa-close mr-7"></i><span>Cancelar</span>
+   </button>
+   <button class="btn btn-primary" 
+           ng-click="actions.save()"
+           ng-if="canAction('save')">
+      <i class="fa fa-floppy-o mr-7"></i><span>Salvar</span>
+   </button>
 </div>
    

@@ -28,9 +28,7 @@ app.controller('PatientController', ['$scope', '$state', '$filter', 'PatientServ
 	$scope.toolbar = {
 		breadcrumb: [{ state: 'patient' }],
 		actions: {
-			create: function() {
-				goToEdit();
-			}
+			create: function() { goToEdit(); }
 		}
 	};
 
@@ -71,10 +69,10 @@ app.controller('PatientController', ['$scope', '$state', '$filter', 'PatientServ
 	var setLetter = function() {
 		$scope.letterSelected = $scope.letters[0];
 		$scope.searchBy($scope.letterSelected, $scope.name);		
-	}
+	};
 
 	var goToEdit = function() {
-		$state.go('app.patient.edit');
+		$state.go('app.patient.edit', { menu: 'geral' });
 	};
 
   	init();
