@@ -4223,3 +4223,19 @@ ul.notifications {
 .mr-7 {
   margin-right: 7px;
 }
+
+/* OVERRIDE */
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    /* border-top: none; */
+    border-right: 3px solid #E6E9ED;
+    border-left: 3px solid #E6E9ED;
+    /* border-bottom: none; */
+}

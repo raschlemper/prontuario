@@ -4,7 +4,7 @@
    <div class="col-md-12">
       <div class="page-title">
          <div class="title_left">
-            <h3>Pacientes</h3>
+            <h3>Paciente | <small> {{nome}}</small></h3>
          </div>
          <!-- <div class="title_right">
            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
@@ -16,64 +16,96 @@
    </div>
 </div>
 
-<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-3 col-sm-3 col-xs-12">
    <div class="x_panel">
       <div class="x_title">
-         <h2><i class="fa fa-user"></i> Paciente <small>Geral</small></h2>        
+         <h2><i class="fa fa-bars"></i> Menu </h2>        
          <div class="clearfix"></div>
       </div>
       <div class="x_content">
-         <div class="col-xs-2">
-            <ul class="nav nav-tabs tabs-left">
-               <li ng-class="{'active-menu active': menu === 'geral'}">
-                  <a title="Dados do Paciente" ng-click="setMenu('geral')">
-                     <em class="fa fa-user"></em>
-                     <span>Dados Paciente</span>
-                  </a>
-               </li>
-               <li ng-class="{'active-menu active': menu === 'contact'}">
-                  <a title="Contatos do Paciente" ng-click="setMenu('contact')">
-                     <em class="fa fa-envelope-o"></em>
-                     <span>Contato</span>
-                  </a>
-               </li>
-               <li ng-class="{'active-menu active': menu === 'address'}">
-                  <a title="Endereços do Paciente" ng-click="setMenu('address')">
-                     <em class="fa fa-bookmark-o"></em>
-                     <span>Endereço</span>
-                  </a>
-               </li>
-               <li ng-class="{'active-menu active': menu === 'family'}">
-                  <a title="Familia do Paciente" ng-click="setMenu('family')">
-                     <em class="fa fa-circle-o-notch"></em>
-                     <span>Familiar</span>
-                  </a>
-               </li>
-               <li ng-class="{'active-menu active': menu === 'graduation'}">
-                  <a title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
-                     <em class="fa fa-graduation-cap"></em>
-                     <span>Escolaridade</span>
-                  </a>
-               </li>
-               <li ng-class="{'active-menu active': menu === 'professional'}">
-                  <a title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
-                     <em class="fa fa-briefcase"></em>
-                     <span>Profissional</span>
-                  </a>
-               </li>
-            </ul>
+         <ul class="list-group">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+      </div>
+   </div>
+</div>
+
+<div class="col-md-9 col-sm-9 col-xs-12">
+   <div class="x_panel">
+      <div class="x_title">
+         <h2><i class="fa fa-user"></i> Paciente <small>Cadastrar</small></h2>        
+         <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+
+         <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+               <div class="x_title">
+                  <h4>Foto</h4>
+                   <div class="profile_img">
+                     <div id="crop-avatar">
+                       <!-- Current avatar -->
+                       <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                     </div>
+                   </div>
+            </div>
          </div>
 
-        <div class="col-xs-10">
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane active" id="home">              
-               <div ui-view="{{menu}}"></div>
-            </div>
-          </div>
-        </div>
+         <div class="col-md-9 col-sm-9 col-xs-12">
 
-        <div class="clearfix"></div>
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+               <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                  <li ng-class="{'active-menu active': menu === 'geral'}">
+                     <a title="Dados do Paciente" ng-click="setMenu('geral')">
+                        <em class="fa fa-user"></em>
+                        <span>Dados Paciente</span>
+                     </a>
+                  </li>
+                  <li ng-class="{'active-menu active': menu === 'contact'}">
+                     <a title="Contatos do Paciente" ng-click="setMenu('contact')">
+                        <em class="fa fa-envelope-o"></em>
+                        <span>Contato</span>
+                     </a>
+                  </li>
+                  <li ng-class="{'active-menu active': menu === 'address'}">
+                     <a title="Endereços do Paciente" ng-click="setMenu('address')">
+                        <em class="fa fa-bookmark-o"></em>
+                        <span>Endereço</span>
+                     </a>
+                  </li>
+                  <li ng-class="{'active-menu active': menu === 'family'}">
+                     <a title="Familia do Paciente" ng-click="setMenu('family')">
+                        <em class="fa fa-circle-o-notch"></em>
+                        <span>Familiar</span>
+                     </a>
+                  </li>
+                  <li ng-class="{'active-menu active': menu === 'graduation'}">
+                     <a title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
+                        <em class="fa fa-graduation-cap"></em>
+                        <span>Escolaridade</span>
+                     </a>
+                  </li>
+                  <li ng-class="{'active-menu active': menu === 'professional'}">
+                     <a title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
+                        <em class="fa fa-briefcase"></em>
+                        <span>Profissional</span>
+                     </a>
+                  </li>
+               </ul>
+               <div id="myTabContent" class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                        <div ui-view="{{menu}}"></div>
+                  </div>
+               </div>
+            </div>
+
+         </div>           
+
+         <div class="clearfix"></div>
 
       </div>
     </div>
