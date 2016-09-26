@@ -1,13 +1,13 @@
 'use strict';
 
-app.controller('PatientController', ['$scope', '$state', 'PatientService',
-  function ($scope, $state, PatientService) {
+app.controller('PatientController', ['$scope', '$state', '$filter', 'PatientService',
+  function ($scope, $state, $filter, PatientService) {
 
 	var init = function () {
 		getAll();
 	};
 
-	$scope.alphabet = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' ];
+	$scope.letters = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' ];
 
 	$scope.table = {
 		events: {
@@ -34,12 +34,27 @@ app.controller('PatientController', ['$scope', '$state', 'PatientService',
 		}
 	};
 
-	$scope.searchByAlphabet = function(letter) {
-		$scope.letterSelected = letter;
-		$scope.patientList = $scope.patients.filter(function(patient) {
-			return patient.name.startsWith(letter);
-		});
+	$scope.searchBy = function(letter, name) {
+		var patients = angular.copy($scope.patients);
+		if($scope.name) { patients = $scope.searchByName(patients, $scope.name); }
+		patients = $scope.searchByLetter(patients, letter);
+		$scope.patientList = patients;
 	};
+
+	$scope.searchByLetter = function(list, letter) {
+		$scope.letterSelected = letter;
+		if(!letter) { return list; }
+		else { 
+			return list.filter(function(patient) {
+				return patient.name.toLowerCase().startsWith(letter.toLowerCase());
+			});
+		};		
+	};
+
+	$scope.searchByName = function(list, name) {
+		return $filter('filter')(list, name);
+	};
+
 
 	var getAll = function() {   
       PatientService.getAll()
@@ -54,8 +69,8 @@ app.controller('PatientController', ['$scope', '$state', 'PatientService',
 	};
 
 	var setLetter = function() {
-		$scope.letterSelected = $scope.alphabet[0];
-		$scope.searchByAlphabet($scope.letterSelected);		
+		$scope.letterSelected = $scope.letters[0];
+		$scope.searchBy($scope.letterSelected, $scope.name);		
 	}
 
 	var goToEdit = function() {
