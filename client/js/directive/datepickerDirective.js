@@ -21,7 +21,8 @@ app.directive('datepicker', function() {
                 },    
                 $scope.name = attr.name;     
                 $scope.placeholder = attr.placeholder;
-            }       
+                $scope.datepickerModel = moment($scope.datepickerModel).toDate();
+            };      
             
             init();
         }

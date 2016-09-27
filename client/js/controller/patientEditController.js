@@ -3,7 +3,7 @@
 app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'CepService',
   function ($scope, $state, $stateParams, PatientService, CepService) {
 
-  	$scope.genres = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
+  	$scope.genders = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
   	$scope.maritalStatus = [{ id: 0, label: 'Solteiro(a)' }, { id: 1, label: 'Cadsado(a)' }, 
   	                        { id: 2, label: 'Divorciado(a)' }, { id: 3, label: 'Viúvo(a)' }];
   	$scope.educationLevels = [{ id: 0, label: '1º grau incompleto' }, 
@@ -13,20 +13,17 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
   	                          { id: 4, label: '3º grau incompleto' }, 
   	                          { id: 5, label: '3º grau completo' }];
 
-
-
   $scope.toolbar = {
     breadcrumb: [{ state: 'patient' }, { state: 'patientGeral' }],
     actions: {
       cancel: function() { goToList(); },
-      save: function() { saveOrEdit($scope.form, $scope.patient); }
+      save: function() { saveOrEdit(); }
     }
   };
 		
  	var init = function () {
  		$scope.menu = $stateParams.menu;
- 		$scope.patient = $stateParams.patient || {};   
-		initFactory($scope.menu);
+ 		$scope.patient = $stateParams.patient || {}; 
     getPatient($stateParams.id);
     //TODO: Fazer a pesquisa do paciente antes do init ???
 	};
@@ -40,6 +37,18 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
       $scope.toolbar.breadcrumb.pop();
       $scope.toolbar.breadcrumb.push({ state: breadcrumb });
     };
+
+    $scope.templateUrl = function() {
+      switch($scope.menu) {
+        case 'geral': return 'partials/app/patient/patient-edit-geral.html'; break;
+        case 'contact': return 'partials/app/patient/patient-edit-contact.html'; break;
+        case 'address': return 'partials/app/patient/patient-edit-address.html'; break;
+        case 'family': return 'partials/app/patient/patient-edit-family.html'; break;
+        case 'graduation': return 'partials/app/patient/patient-edit-graduation.html'; break;
+        case 'professional': return 'partials/app/patient/patient-edit-professional.html'; break;
+        default: return 'partials/app/patient/patient-edit-geral.html';
+      }      
+    }
 
   	var initFactory = function(menu) {
   		switch(menu) {
@@ -60,9 +69,9 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
   	// GERAL /////
 
   	var initGeral = function (menu) { 
- 		$scope.label = 'Dados Paciente';
+    $scope.label = 'Dados Paciente';
     setBreadcrumb('patientGeral');
-		$scope.patient.genre = angular.copy($scope.genres[0]); 
+		$scope.patient.gender = $scope.patient.gender || angular.copy($scope.genders[0]); 
 	};
 
   	// CONTACT /////
@@ -222,14 +231,17 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
       if(!id) return;
       PatientService.get(id)
           .then(function(data) {
-            $scope.patient = data;
+            $scope.patient = patientToShowHandler(data);              
+            initFactory($scope.menu);
           })
           .catch(function(e) {
             console.log(e);
           });    
     };
 
-    var saveOrEdit = function(form, patient) {
+    var saveOrEdit = function() {
+      //$scope.form, 
+      var patient = patientToSaveHandler($scope.patient);
       if(patient._id) {
         editPatient(patient._id, patient);
       } else {
@@ -256,6 +268,16 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
                 console.log(e);
             });            
     };
+
+    var patientToSaveHandler = function(patient) {
+      patient.gender = patient.gender.id;
+      return patient;
+    }
+
+    var patientToShowHandler = function(patient) {
+      patient.gender = $scope.genders[patient.gender];
+      return patient;
+    }
 
     var goToEdit = function() {
       $state.go('app.patient.list');

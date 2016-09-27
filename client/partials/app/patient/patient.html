@@ -38,7 +38,7 @@
 
         <hr/>
 
-        <div class="col-md-4 col-sm-4 col-xs-12 profile_details" ng-repeat="patient in patientList track by patient.id">
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details" ng-repeat="patient in patientList track by patient._id">
           <div class="well profile_view">
             <div class="col-sm-12">
               <h4 class="brief"><i>Digital Strategist</i></h4>
@@ -58,7 +58,7 @@
               <div class="col-xs-12 col-sm-6 emphasis">
                 <p class="ratings">Particular</p>
               </div>
-              <div class="col-xs-12 col-sm-6 text-right">
+              <div class="col-xs-12 col-sm-6 text-right" ui-sref="app.patient.edit({'menu': 'geral', 'id': patient._id})">
                 <button type="button" class="btn btn-primary btn-xs">
                   <i class="fa fa-user"> </i> Visualiar
                 </button>

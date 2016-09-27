@@ -840,8 +840,8 @@ h2 {
   overflow: hidden;
   white-space: nowrap; }
 
-.x_title h2 small {
-  margin-left: 10px; }
+/*.x_title h2 small {
+  margin-left: 10px; }*/
 
 .x_title span {
   color: #BDBDBD; }
@@ -3941,6 +3941,66 @@ ul.notifications {
   background: #34495E;
   color: #ECF0F1; }
 
+
+
+/*.uib-daypicker table tbody td {
+  background: #ECF0F1;
+  color: #34495E;
+  border: 1px solid #fff;
+  padding: 4px 7px; }
+
+.uib-daypicker table tbody td.active {
+  background: #536A7F;
+  color: #fff; }*/
+
+.uib-datepicker-popup {
+  z-index: 998 !important;
+  margin-top: -1px;
+}
+
+.uib-datepicker table thead tr th button,
+.uib-datepicker table tbody tr td button {
+    border-radius: 0 !important;
+    margin: 0px !important; 
+    background: #ECF0F1 !important;
+    color: #34495E;
+    border: 1px solid #fff;
+    padding: 3px 0px;
+    min-width: 40px; }
+
+.uib-datepicker table thead tr th button,
+.uib-datepicker table thead tr th button:hover {
+    padding: 10px 0px;
+    border: 0;
+}   
+
+.uib-datepicker table thead tr th button,
+.uib-datepicker table thead tr th button:hover,
+.uib-datepicker table tbody tr td button.active,
+.uib-datepicker table tbody tr td button.active:hover {
+    background: #34495E !important;
+    color: #ECF0F1 !important;
+    border-color: #34495E !important; 
+}   
+.uib-datepicker table tbody tr td button.active .text-info {
+    color: #ECF0F1;
+
+}
+
+.uib-daypicker table tbody tr td button {
+    min-width: 40px; }
+
+.uib-monthpicker table tbody tr td button {
+    min-width: 100px; }
+
+.uib-yearpicker table tbody tr td button {
+    min-width: 60px; }
+
+.input-group.date {
+      margin-bottom: 0;
+}
+
+
 .xdisplay_input {
   width: 240px;
   overflow: hidden;
@@ -4224,18 +4284,34 @@ ul.notifications {
   margin-right: 7px;
 }
 
-/* OVERRIDE */
+/* LIST MENU */
 
-.list-group-item {
+.list-group-item.menu {
     position: relative;
     display: block;
     padding: 10px 15px;
-    margin-bottom: -1px;
     background-color: #fff;
     border: 1px solid #ddd;
     margin-top: 5px;
-    /* border-top: none; */
     border-right: 3px solid #E6E9ED;
     border-left: 3px solid #E6E9ED;
-    /* border-bottom: none; */
+    border-radius: 0;
+}
+
+.list-group-item.menu:hover,
+.list-group-item.menu.active {
+    background-color: #2A3F54;
+    border: 1px solid #2A3F54;
+}
+
+.list-group-item.menu:hover a,
+.list-group-item.menu.active a {
+    color: #FFF;
+}
+
+.list-group-item.menu i {
+  margin-right: 10px;
+}
+.radio label:first-child, .checkbox label:first-child {
+    padding-left: 5px;
 }

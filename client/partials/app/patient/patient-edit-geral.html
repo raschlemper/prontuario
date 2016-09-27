@@ -8,33 +8,36 @@
       </fieldset>
    </div> -->
    <div class="col-md-12">
-      <fieldset>
-         <legend>Identificação</legend>
-         <div class="form-group mb-lg">
-            <label>Nome</label>
-            <input type="text" class="form-control" name="name" ng-model="patient.name">
+
+      <div class="form-group">
+         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nome</label>
+         <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text" class="form-control" id="name" name="name" ng-model="patient.name">
          </div>
-         <div class="form-group row mb-lg">
-            <div class="col-md-5">
-               <label>Data Nascimento</label>
-               <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
-            </div>  
-         </div> 
-         <div class="form-group row mb-lg">
-            <div class="col-md-3">
-               <label>Idade</label>
-               <input type="text" class="form-control" name="age" ng-model="patient.age">
-            </div>
-         </div> 
-         <div class="form-group row mb-lg ">
-            <div class="col-md-12">
-               <label>Sexo</label><br>
-               <label class="radio-inline c-radio" ng-repeat="genre in genres">
-                  <input type="radio" name="genre" value="{{genre.id}}" ng-model="patient.genre.id">
-                  <span class="fa fa-circle"></span>{{genre.label}}
+      </div>
+      <div class="form-group">
+         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthDate">Data Nascimento</label>
+         <div class="col-md-5 col-sm-5 col-xs-12">
+            <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
+         </div>
+      </div>
+      <div class="form-group">
+         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="age">Idade</label>
+         <div class="col-md-3 col-sm-3 col-xs-12">
+            <input type="text" class="form-control" id="age" name="age" ng-model="patient.age">
+         </div>
+      </div>
+      <div class="form-group">
+         <label class="control-label col-md-3 col-sm-3 col-xs-12">Sexo</label>
+         <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="radio">
+               <label ng-repeat="gender in genders">
+                  <input i-check type="radio" class="flat mr-7" name="gender" value="{{gender.id}}" checked="" ng-model="patient.gender.id"/>
+                  <span>{{gender.label}}</span>
                </label>
             </div>
-         </div>  
-      </fieldset> 
+         </div>
+      </div>
+
    </div>
 </div>

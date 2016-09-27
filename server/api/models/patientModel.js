@@ -9,6 +9,9 @@ var Schema = mongoose.Schema;
 
 var PatientSchema = new Schema({
   name: String,
+  birthDate: Date,
+  age: Number,
+  gender: Number,
   emails: []
 });
 

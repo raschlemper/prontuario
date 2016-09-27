@@ -26,37 +26,39 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
       })
       .state('app.patient.edit', {
         url: '/edit/:menu/:id',
-        params: { patient: null },
-        views: {
-          '': {
-            templateUrl: 'partials/app/patient/patient-edit.html',
-            controller: 'PatientEditController'
-          },
-          'geral@app.patient.edit': {
-            templateUrl: 'partials/app/patient/patient-edit-geral.html',
-            controller: 'PatientEditController'
-          },
-          'contact@app.patient.edit': {
-            templateUrl: 'partials/app/patient/patient-edit-contact.html',
-            controller: 'PatientEditController'
-          },
-          'address@app.patient.edit': {
-            templateUrl: 'partials/app/patient/patient-edit-address.html',
-            controller: 'PatientEditController'
-          },
-          'family@app.patient.edit': {
-            templateUrl: 'partials/app/patient/patient-edit-family.html',
-            controller: 'PatientEditController'
-          },
-          'graduation@app.patient.edit': {
-            templateUrl: 'partials/app/patient/patient-edit-graduation.html',
-            controller: 'PatientEditController'
-          },
-          'professional@app.patient.edit': {
-            templateUrl: 'partials/app/patient/patient-edit-professional.html',
-            controller: 'PatientEditController'
-          }
-        }
+        templateUrl: 'partials/app/patient/patient-edit.html',
+        controller: 'PatientEditController',
+        params: { patient: null }
+        // views: {
+        //   '': {
+        //     templateUrl: 'partials/app/patient/patient-edit.html',
+        //     controller: 'PatientEditController'
+        //   },
+        //   'geral@app.patient.edit': {
+        //     templateUrl: 'partials/app/patient/patient-edit-geral.html',
+        //     controller: 'PatientEditController'
+        //   },
+        //   'contact@app.patient.edit': {
+        //     templateUrl: 'partials/app/patient/patient-edit-contact.html',
+        //     controller: 'PatientEditController'
+        //   },
+        //   'address@app.patient.edit': {
+        //     templateUrl: 'partials/app/patient/patient-edit-address.html',
+        //     controller: 'PatientEditController'
+        //   },
+        //   'family@app.patient.edit': {
+        //     templateUrl: 'partials/app/patient/patient-edit-family.html',
+        //     controller: 'PatientEditController'
+        //   },
+        //   'graduation@app.patient.edit': {
+        //     templateUrl: 'partials/app/patient/patient-edit-graduation.html',
+        //     controller: 'PatientEditController'
+        //   },
+        //   'professional@app.patient.edit': {
+        //     templateUrl: 'partials/app/patient/patient-edit-professional.html',
+        //     controller: 'PatientEditController'
+        //   }
+        // }
       });
       // .state('app.patient.edit', {
       //   url: '/:id/edit',
