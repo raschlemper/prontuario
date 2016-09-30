@@ -12,6 +12,7 @@ app.directive('breadcrumb', [function () {
             var breadcrumbs = {
                 app: { label: 'Inicio', link: { status: 'app', args: null } },
                 patient: { label: 'Pacientes', link: { state: 'app.patient.list', args: null } },
+                patientPhoto: { label: 'Foto Paciente', link: { state: 'app.patient.edit', args: { menu: 'photo' } } },
                 patientGeral: { label: 'Dados Paciente', link: { state: 'app.patient.edit', args: { menu: 'geral' } } },
                 patientContact: { label: 'Contato', link: { state: 'app.patient.edit', args: { menu: 'contact' } } },
                 patientAddress: { label: 'Endereço', link: { state: 'app.patient.edit', args: { menu: 'address' } } },

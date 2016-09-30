@@ -3,6 +3,13 @@
 app.factory('PatientService', ['$http', 'PromiseService', 
     function($http, PromiseService) {
 
+    var getFormData = function(data, file) {        
+        var formData = new FormData();
+        formData.append('patient', data);
+        formData.append('file', file);   
+        return formData;   
+    }
+
     return {
 
         getAll: function() {
@@ -16,11 +23,13 @@ app.factory('PatientService', ['$http', 'PromiseService',
         },
 
         save: function(data) {
+            // var formData = getFormData(data, file);
             return PromiseService.execute(
                     $http.post("/api/patient/", data));
         },
 
-        update: function(idPatient, data) {
+        update: function(idPatient, data, file) {
+            // var formData = getFormData(data, file);
             return PromiseService.execute(
                     $http.put("/api/patient/" + idPatient, data));
         },

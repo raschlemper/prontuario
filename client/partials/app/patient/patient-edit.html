@@ -24,29 +24,33 @@
       </div>
       <div class="x_content">
          <ul class="list-group">
+            <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'photo'}"
+                title="Foto do Paciente" ng-click="setMenu('photo')">
+               <a><i class="fa fa-file-image-o text-center"></i><span>Foto</span></a>
+            </li>
             <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'geral'}"
                 title="Dados do Paciente" ng-click="setMenu('geral')">
-               <a><i class="fa fa-list fa"></i><span>Dados Paciente</span></a>
+               <a><i class="fa fa-list text-center"></i><span>Dados Paciente</span></a>
             </li>
             <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'contact'}"
                 title="Contatos do Paciente" ng-click="setMenu('contact')">
-               <a><i class="fa fa-envelope-o"></i><span>Contato</span></a>
+               <a><i class="fa fa-envelope-o text-center"></i><span>Contato</span></a>
             </li>
             <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'address'}"
                title="Endereços do Paciente" ng-click="setMenu('address')">
-               <a><i class="fa fa-bookmark-o"></i><span>Endereço</span></a>
+               <a><i class="fa fa-bookmark-o text-center"></i><span>Endereço</span></a>
             </li>
             <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'family'}"
                 title="Familia do Paciente" ng-click="setMenu('family')">
-               <a><i class="fa fa-circle-o-notch"></i><span>Familiar</span></a>
+               <a><i class="fa fa-circle-o-notch text-center"></i><span>Familiar</span></a>
             </li>
             <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'graduation'}"
                 title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
-               <a><i class="fa fa-graduation-cap"></i><span>Escolaridade</span></a>
+               <a><i class="fa fa-graduation-cap text-center"></i><span>Escolaridade</span></a>
             </li>
             <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'professional'}"
                 title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
-               <a><i class="fa fa-briefcase"></i><span>Profissional</span></a>
+               <a><i class="fa fa-briefcase text-center"></i><span>Profissional</span></a>
             </li>
          </ul>
       </div>

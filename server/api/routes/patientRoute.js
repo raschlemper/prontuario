@@ -2,6 +2,7 @@
 
 var config = require('../../config/environment');
 var patientController = require(config.resources.controllers + '/patientController');
+var fileController = require(config.resources.controllers + '/fileController');
 var express = require('express');
 var router = express.Router();
 
@@ -13,9 +14,9 @@ router.get('/', patientController.findAll);
 
 router.get('/:id', patientController.findById);
 
-router.post('/', patientController.save);
+router.post('/', fileController.patient, patientController.save);
 
-router.put('/:id', patientController.update);
+router.put('/:id', fileController.patient, patientController.update);
 
 router.delete('/:id', patientController.remove);
 

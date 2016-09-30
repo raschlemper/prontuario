@@ -4296,6 +4296,7 @@ ul.notifications {
     border-right: 3px solid #E6E9ED;
     border-left: 3px solid #E6E9ED;
     border-radius: 0;
+    cursor: pointer;
 }
 
 .list-group-item.menu:hover,
@@ -4311,6 +4312,7 @@ ul.notifications {
 
 .list-group-item.menu i {
   margin-right: 10px;
+  min-width: 20px;
 }
 .radio label:first-child, .checkbox label:first-child {
     padding-left: 5px;

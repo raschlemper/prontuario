@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'CepService',
-  function ($scope, $state, $stateParams, PatientService, CepService) {
+app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'FileService', 'CepService',
+  function ($scope, $state, $stateParams, PatientService, FileService, CepService) {
 
   	$scope.genders = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
   	$scope.maritalStatus = [{ id: 0, label: 'Solteiro(a)' }, { id: 1, label: 'Cadsado(a)' }, 
@@ -40,6 +40,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
     $scope.templateUrl = function() {
       switch($scope.menu) {
+        case 'photo': return 'partials/app/patient/patient-edit-photo.html'; break;
         case 'geral': return 'partials/app/patient/patient-edit-geral.html'; break;
         case 'contact': return 'partials/app/patient/patient-edit-contact.html'; break;
         case 'address': return 'partials/app/patient/patient-edit-address.html'; break;
@@ -52,6 +53,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
   	var initFactory = function(menu) {
   		switch(menu) {
+        case 'photo': initPhoto(menu, 'patientPhoto'); break;
 		    case 'geral': initGeral(menu, 'patientGeral'); break;
 		    case 'contact': initContact(menu, 'patientContact'); break;
 		    case 'address': initAddress(menu, 'patientAddress'); break;
@@ -64,6 +66,14 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
     var getLastIndex = function(list) {
       return list.length - 1;
+    };
+
+    // GERAL /////
+
+    var initPhoto = function (menu) { 
+      $scope.label = 'Foto Paciente';
+      setBreadcrumb('patientPhoto');
+      $scope.patient.gender = $scope.patient.gender || angular.copy($scope.genders[0]); 
     };
 
   	// GERAL /////
@@ -240,7 +250,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
     };
 
     var saveOrEdit = function() {
-      //$scope.form, 
+      uploadFilePatient($scope.anexoFile[0]);
       var patient = patientToSaveHandler($scope.patient);
       if(patient._id) {
         editPatient(patient._id, patient);
@@ -261,6 +271,16 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
 
     var editPatient = function(id, patient) {      
         PatientService.update(id, patient)
+            .then(function(data) {  
+                console.log(data);
+            })
+            .catch(function(e) {
+                console.log(e);
+            });            
+    };
+
+    $scope.uploadFilePatient = function(file) { 
+        FileService.patient(file[0])
             .then(function(data) {  
                 console.log(data);
             })

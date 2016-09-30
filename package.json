@@ -52,6 +52,7 @@
     "mocha": "^2.3.4",
     "mongoose": "^4.5.7",
     "morgan": "^1.6.1",
+    "multer": "^1.2.0",
     "node-excel-export": "^1.1.0",
     "pg": "^4.4.3",
     "phantomjs": "^1.9.19",
