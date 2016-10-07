@@ -14,7 +14,7 @@ app.factory('FileService', ['$http', 'PromiseService',
         patient: function(file) {
             var data = getFormData(file);
             return PromiseService.execute(
-                $http.post('/api/file/patient', data, { headers: { 'Content-Type': 'multipart/form-data' } }));
+                $http.post('/api/file/patient', data, { transformRequest: angular.identity, headers: { 'Content-Type': undefined } }));
         }
 
     }

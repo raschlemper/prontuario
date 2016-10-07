@@ -9,6 +9,6 @@ var router = express.Router();
  * /api/file
  */
 
-router.post('/patient', fileController.patient, fileController.sendResult);
+router.post('/patient', fileController.patient);
 
 module.exports = router;

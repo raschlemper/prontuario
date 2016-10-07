@@ -6,19 +6,20 @@ var fileService = require(config.resources.services + '/fileService');
 module.exports = (function () {
   
   var patient = function (req, res, next) {
-      var upload = fileService.patient();
-      console.log(upload);
-      upload.single('userPhoto')
-  };
-  
-  var sendResult = function (req, res, next) {
-        console.log('OK');
-        res.send(200);
+      var form = fileService.patient();
+      form.on('error', function(err) {
+        console.log('An error has occured: \n' + err);
+      });
+
+      form.on('end', function() {
+        res.end('success');
+      });
+      
+      form.parse(req);
   }
 
   return {
-    patient: patient,
-    sendResult: sendResult
+    patient: patient
   };
 
 })();

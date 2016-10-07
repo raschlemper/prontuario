@@ -1,14 +1,15 @@
 <div class="row">
 
    	<div class="col-md-4"> 
-		<div class="profile_img">
-			<div id="crop-avatar">				
-				<img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
-			</div>
-		</div>
-   	</div>
+   		<div class="profile_img">
+   			<div id="crop-avatar">				
+   				<img class="img-responsive avatar-view" ng-src="{{image_source}}" alt="Avatar" title="Change the avatar">
+   			</div>
+   		</div>
+         {{anexoFile[0].name}}
+      </div>
    	<div class="col-md-8"> 
-   		<input type="file" name="avatar" file-model="anexoFile"/><br/>
+   		<input type="file" name="avatar" file-model="anexoFile" onchange="angular.element(this).scope().getImage(this.files)"/><br/>
    		<input type="button" class="btn btn-default" value="Anexar" ng-click="uploadFilePatient(anexoFile)"/>
    	</div>
 

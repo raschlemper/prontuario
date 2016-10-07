@@ -289,6 +289,17 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
             });            
     };
 
+    $scope.getImage = function(file) { 
+      if (file[0]) {
+          var reader = new FileReader();
+          reader.onload = function(event) {
+            $scope.image_source = event.target.result
+            $scope.$apply();
+          }
+          reader.readAsDataURL(file[0]);
+      }
+    };
+
     var patientToSaveHandler = function(patient) {
       patient.gender = patient.gender.id;
       return patient;
@@ -302,6 +313,11 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
     var goToEdit = function() {
       $state.go('app.patient.list');
     };
+
+    // $scope.$watchCollection('anexoFile', function(newValue, oldValue) {
+    //   if(!newValue) return;
+    //   getImage(newValue);
+    // });
 
   	init();
 
