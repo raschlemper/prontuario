@@ -25,7 +25,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', '$h
  		$scope.menu = $stateParams.menu;
  		$scope.patient = $stateParams.patient || {}; 
     getPatient($stateParams.id);
-    getImageDefault();
+    getImage($stateParams.id);
     //TODO: Fazer a pesquisa do paciente antes do init ???
 	};
 
@@ -250,8 +250,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', '$h
           });    
     };
 
-    var saveOrEdit = function() {
-      uploadFilePatient($scope.anexoFile[0]);
+    var saveOrEdit = function() {      
       var patient = patientToSaveHandler($scope.patient);
       if(patient._id) {
         editPatient(patient._id, patient);
@@ -263,7 +262,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', '$h
   	var savePatient = function(patient) {  		
         PatientService.save(patient)
             .then(function(data) {  
-                console.log(data);
+                uploadFilePatient(data._id, $scope.patient.image);
             })
             .catch(function(e) {
                 console.log(e);
@@ -273,15 +272,15 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', '$h
     var editPatient = function(id, patient) {      
         PatientService.update(id, patient)
             .then(function(data) {  
-                console.log(data);
+                uploadFilePatient(id, $scope.patient.image);
             })
             .catch(function(e) {
                 console.log(e);
             });            
     };
 
-    $scope.uploadFilePatient = function(file) { 
-        FileService.patient(file[0])
+    var uploadFilePatient = function(name, file) { 
+        FileService.patient(name, file[0])
             .then(function(data) {  
                 console.log(data);
             })
@@ -295,35 +294,37 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', '$h
         angular.element("#imagePatient").trigger('click');
     };
 
-    $scope.getImage = function(file) { 
-      if (file[0]) {
-          getImage(file[0].name, file[0]);
-      }
+    $scope.getImageSelected = function(file) { 
+      if (file[0]) { getUrlImage(file[0].name, file[0]); }
+    };
+
+    var getImage = function(id) {
+      if(id) { getImagePatient(id); }
+      else { getImageDefault(); }
     };
 
     var getImageDefault = function() {
-      $http.get('api/file/patient/patient.png', 
-        { headers: {'Content-Type': 'image/png'}, responseType: 'blob' })
+      getImageFromServer('api/file/patient/patient.png');
+    };
+
+    var getImagePatient = function(id) {
+      getImageFromServer('api/file/patient/' + id + '.png');
+    };
+
+    var getImageFromServer = function(url) {
+      $http.get(url, { headers: {'Content-Type': 'image/png'}, responseType: 'blob' })
         .then(function(res) {
-          var blob = new Blob([res.data], {
-            type: 'image/png'
-          });
-          getImage('patient', blob);
+          getUrlImage('patient', imageToBlob(res.data));
         })
     };
 
-    var getImagePatient = function() {
-      $http.get('api/file/patient/personagem-eric-cartman.png', 
-        { headers: {'Content-Type': 'image/png'}, responseType: 'blob' })
-        .then(function(res) {
-          var blob = new Blob([res.data], {
-            type: 'image/png'
-          });
-          getImage('patient', blob);
-        })
-    };
+    var imageToBlob = function(img) {
+      return new Blob([img], {
+          type: 'image/png'
+        });          
+    }
 
-    var getImage = function(name, file) {
+    var getUrlImage = function(name, file) {
         var reader = new FileReader();
         reader.onload = function(event) {
           $scope.image = { 

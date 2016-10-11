@@ -24,16 +24,16 @@ module.exports = (function () {
   };
 
   var save = function (req, res, next) {
-    patientService.save(req.body).then(function (save) {
-      res.send(200);
+    patientService.save(req.body).then(function (patient) {
+      res.send(patient);
     }, function(err) {
       next(err);
     });
   };
 
   var update = function (req, res, next) {
-    patientService.update(req.params.id, req.body).then(function (update) {
-      res.send(200);
+    patientService.update(req.params.id, req.body).then(function (patient) {
+      res.send(patient);
     }, function(err) {
       next(err);
     });

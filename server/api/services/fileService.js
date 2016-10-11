@@ -11,7 +11,6 @@ module.exports = (function () {
      * Find image patient
      */
     var findPatient = function(name) {
-      console.log(name);
       var imageDir = path.join(config.resources.images, '/patient/', name);
       return fs.readFileAsync(imageDir);
     };
@@ -20,7 +19,7 @@ module.exports = (function () {
      * Create image patient
      */
     var savePatient = function(file) {
-      var imageDir = path.join(config.resources.images, '/patient', file.name);
+      var imageDir = path.join(config.resources.images, '/patient', file.name + '.png');
       fs.rename(file.path, imageDir);
     };
   

@@ -7,8 +7,8 @@
                <img class="img-responsive avatar-view" 
                     ng-click="openImageSelect($event)"
                     ng-src="{{image.source}}" alt="Avatar" title="Change the avatar">
-               <input type="file" id="imagePatient" name="avatar" file-model="anexoFile" 
-                  onchange="angular.element(this).scope().getImage(this.files)" style="display: none;"/>
+               <input type="file" id="imagePatient" name="avatar" file-model="patient.image" 
+                  onchange="angular.element(this).scope().getImageSelected(this.files)" style="display: none;"/>
             </div>
          </div>
          <div class="text-center">{{image.name}}</div>
