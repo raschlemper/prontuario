@@ -1,6 +1,20 @@
 <div class="row">
 
-   <div class="col-md-12">
+   <div class="col-md-4"> 
+      <div class="col-md-12" style="margin-bottom: 15px">
+         <div class="profile_img" style="margin-bottom: 10px">
+            <div>           
+               <img class="img-responsive avatar-view" 
+                    ng-click="openImageSelect($event)"
+                    ng-src="{{image.source}}" alt="Avatar" title="Change the avatar">
+               <input type="file" id="imagePatient" name="avatar" file-model="anexoFile" 
+                  onchange="angular.element(this).scope().getImage(this.files)" style="display: none;"/>
+            </div>
+         </div>
+         <div class="text-center">{{image.name}}</div>
+      </div>
+   </div>
+   <div class="col-md-8">
 
       <div class="form-group">
          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nome</label>

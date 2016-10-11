@@ -14,9 +14,9 @@ router.get('/', patientController.findAll);
 
 router.get('/:id', patientController.findById);
 
-router.post('/', fileController.patient, patientController.save);
+router.post('/', patientController.save);
 
-router.put('/:id', fileController.patient, patientController.update);
+router.put('/:id', patientController.update);
 
 router.delete('/:id', patientController.remove);
 

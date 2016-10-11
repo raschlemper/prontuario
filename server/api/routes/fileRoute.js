@@ -8,7 +8,7 @@ var router = express.Router();
 /**
  * /api/file
  */
-
-router.post('/patient', fileController.patient);
+router.get('/patient/:name', fileController.findPatient);
+router.post('/patient', fileController.savePatient);
 
 module.exports = router;

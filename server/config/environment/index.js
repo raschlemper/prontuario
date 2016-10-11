@@ -15,7 +15,8 @@ var config = {
     repositories: path.normalize(__dirname + '/../../../server/api/repositories'),
     models: path.normalize(__dirname + '/../../../server/api/models'),
     auth: path.normalize(__dirname + '/../../../server/auth'),
-    errors: path.normalize(__dirname + '/../../../server/errors')
+    errors: path.normalize(__dirname + '/../../../server/errors'),
+    images: path.normalize(__dirname + '/../../../images')
   },
   ip: process.env.IP || '127.0.0.1',
   port: process.env.PORT || 3000,

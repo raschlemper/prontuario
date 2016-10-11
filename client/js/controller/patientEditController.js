@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'FileService', 'CepService',
-  function ($scope, $state, $stateParams, PatientService, FileService, CepService) {
+app.controller('PatientEditController', ['$scope', '$state', '$stateParams', '$http', 'PatientService', 'FileService', 'CepService',
+  function ($scope, $state, $stateParams, $http, PatientService, FileService, CepService) {
 
   	$scope.genders = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
   	$scope.maritalStatus = [{ id: 0, label: 'Solteiro(a)' }, { id: 1, label: 'Cadsado(a)' }, 
@@ -25,6 +25,7 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
  		$scope.menu = $stateParams.menu;
  		$scope.patient = $stateParams.patient || {}; 
     getPatient($stateParams.id);
+    getImageDefault();
     //TODO: Fazer a pesquisa do paciente antes do init ???
 	};
 
@@ -289,15 +290,48 @@ app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'Pa
             });            
     };
 
+    $scope.openImageSelect = function(event) {
+        event.preventDefault();
+        angular.element("#imagePatient").trigger('click');
+    };
+
     $scope.getImage = function(file) { 
       if (file[0]) {
-          var reader = new FileReader();
-          reader.onload = function(event) {
-            $scope.image_source = event.target.result
-            $scope.$apply();
-          }
-          reader.readAsDataURL(file[0]);
+          getImage(file[0].name, file[0]);
       }
+    };
+
+    var getImageDefault = function() {
+      $http.get('api/file/patient/patient.png', 
+        { headers: {'Content-Type': 'image/png'}, responseType: 'blob' })
+        .then(function(res) {
+          var blob = new Blob([res.data], {
+            type: 'image/png'
+          });
+          getImage('patient', blob);
+        })
+    };
+
+    var getImagePatient = function() {
+      $http.get('api/file/patient/personagem-eric-cartman.png', 
+        { headers: {'Content-Type': 'image/png'}, responseType: 'blob' })
+        .then(function(res) {
+          var blob = new Blob([res.data], {
+            type: 'image/png'
+          });
+          getImage('patient', blob);
+        })
+    };
+
+    var getImage = function(name, file) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+          $scope.image = { 
+            source: event.target.result, 
+            name: name }
+          $scope.$apply();
+        }
+        reader.readAsDataURL(file);
     };
 
     var patientToSaveHandler = function(patient) {

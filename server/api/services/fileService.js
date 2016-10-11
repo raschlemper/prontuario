@@ -1,29 +1,32 @@
 'use strict';
 
+var config = require('../../config/environment');
 var path = require('path');
-var formidable = require('formidable');
-var fs = require('fs');
+var Promise = require("bluebird");
+var fs = Promise.promisifyAll(require("fs"));
 
 module.exports = (function () {
 
     /**
+     * Find image patient
+     */
+    var findPatient = function(name) {
+      console.log(name);
+      var imageDir = path.join(config.resources.images, '/patient/', name);
+      return fs.readFileAsync(imageDir);
+    };
+
+    /**
      * Create image patient
      */
-    var patient = function(req, res) {
-        var form = new formidable.IncomingForm();
-        form.multiples = true;
-        form.uploadDir = path.join(__dirname, '/uploads');
-
-        form.on('file', function(field, file) {
-          console.log(file);
-          fs.rename(file.path, path.join(form.uploadDir, file.name));
-        });       
-
-        return form;
+    var savePatient = function(file) {
+      var imageDir = path.join(config.resources.images, '/patient', file.name);
+      fs.rename(file.path, imageDir);
     };
   
     return {
-        patient: patient
+      findPatient: findPatient,
+      savePatient: savePatient
     };
 
 })();
