@@ -11,7 +11,7 @@ module.exports = (function () {
      * Find image patient
      */
     var findPatient = function(name) {
-      var imageDir = path.join(config.resources.images, '/patient/', name);
+      var imageDir = path.join(config.resources.images, '/patient/', name + '.png');
       return fs.readFileAsync(imageDir);
     };
 

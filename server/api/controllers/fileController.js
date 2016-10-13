@@ -10,11 +10,15 @@ module.exports = (function () {
   var findPatient = function (req, res, next) {
       fileService.findPatient(req.params.name)
         .then(function(content) {
+            console.log(req.params.name, content);
             res.writeHead(200, { 'Content-Type': 'image/png' });
             res.end(content, 'binary');
         }).error(function(err) {
-            res.writeHead(500);
-            res.end();
+            if(req.params.name == 'patient') {
+              next(err);
+            }
+            req.params.name = 'patient';
+            findPatient(req, res, next);
         });
   }
   

@@ -11,7 +11,13 @@ app.factory('FileService', ['$http', 'PromiseService',
 
     return {
 
-        patient: function(name, file) {
+        findPatient: function(name) {
+            return PromiseService.execute(
+                $http.get('/api/file/patient/' + name, 
+                    { headers: {'Content-Type': 'image/png'}, responseType: 'blob' }));
+        },
+
+        savePatient: function(name, file) {
             var data = getFormData(name, file);
             return PromiseService.execute(
                 $http.post('/api/file/patient', data, 
