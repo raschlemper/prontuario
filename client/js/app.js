@@ -11,6 +11,7 @@ var app = angular.module('Prontuario', [
   'pascalprecht.translate',
   'ui.mask',
   'ui.utils.masks',
+  'jlareau.pnotify',
   'xeditable',
   'appTable'
 ]);

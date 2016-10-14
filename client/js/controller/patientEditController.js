@@ -1,7 +1,7 @@
    'use strict';
 
-   app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'FileService', 'CepService',
-   function ($scope, $state, $stateParams, PatientService, FileService, CepService) {
+   app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'FileService', 'ImageService', 'CepService', 'NotifyService',
+   function ($scope, $state, $stateParams, PatientService, FileService, ImageService, CepService, NotifyService) {
 
       $scope.genders = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
     	$scope.maritalStatus = [{ id: 0, label: 'Solteiro(a)' }, { id: 1, label: 'Cadsado(a)' }, 
@@ -24,8 +24,13 @@
    	var init = function () {
    		$scope.menu = $stateParams.menu;
    		$scope.patient = $stateParams.patient || {}; 
-         getPatient($stateParams.id);
-         getImage($stateParams.id);
+         if($stateParams.id) {
+            getPatient($stateParams.id);
+            getImage($stateParams.id);         
+         } else {
+            initFactory($scope.menu);
+            getImage();
+         }
          //TODO: Fazer a pesquisa do paciente antes do init ???
    	};
 
@@ -252,23 +257,25 @@
 
     	var savePatient = function(patient) {  		
           PatientService.save(patient)
-              .then(function(data) {  
-                  $scope.patient = patientToShowHandler(data);  
+              .then(function(data) {   
                   uploadFilePatient(data._id, $scope.patient.image);
+                  $scope.patient = patientToShowHandler(data); 
+                  NotifyService.success('Paciente inserido com sucesso!');
               })
               .catch(function(e) {
-                  console.log(e);
+                  NotifyService.error('Problemas ao inserir o paciente!');
               });            
     	};
 
       var editPatient = function(id, patient) {      
           PatientService.update(id, patient)
-              .then(function(data) {  
-                  $scope.patient = patientToShowHandler(data);  
+              .then(function(data) {   
                   uploadFilePatient(id, $scope.patient.image);
+                  $scope.patient = patientToShowHandler(data); 
+                  NotifyService.success('Paciente alterado com sucesso!');
               })
               .catch(function(e) {
-                  console.log(e);
+                  NotifyService.error('Problemas ao alterar o paciente!');
               });            
       };
 
@@ -276,7 +283,7 @@
           if(!file || !file.length) { 
               initFactory($scope.menu);
           } else {
-              uploadFilePatient(name, file);
+              uploadFile(name, file);
           }         
       };
 
@@ -284,9 +291,10 @@
           FileService.savePatient(name, file[0])
               .then(function(data) {            
                   initFactory($scope.menu);
+                  NotifyService.success('Imagem inserida com sucesso!');
               })
               .catch(function(e) {
-                  console.log(e);
+                  NotifyService.error('Problemas ao inserir a imagem!');
               });            
       };
 
@@ -296,7 +304,7 @@
       };
 
       $scope.getImageSelected = function(file) { 
-        if (file[0]) { getUrlImage(file[0]); }
+        if (file[0]) { ImageService.getUrlImage(file[0], onloadImage); }
       };
 
       var getImage = function(id) {
@@ -315,29 +323,17 @@
       var getImageFromServer = function(name) {
           FileService.findPatient(name)
               .then(function(data) {  
-                  getUrlImage(imageToBlob(data));
+                  ImageService.getUrlImage(ImageService.imageToBlob(data), onloadImage);
               })
               .catch(function(e) {
                   console.log(e);
               }); 
       };
 
-      var imageToBlob = function(img) {
-        return new Blob([img], {
-            type: 'image/png'
-          });          
+      var onloadImage = function(event) {
+          $scope.image = { source: event.target.result }
+          $scope.$apply();
       }
-
-      var getUrlImage = function(file) {
-          var reader = new FileReader();
-          reader.onload = function(event) {
-            $scope.image = { 
-              source: event.target.result 
-            }
-            $scope.$apply();
-          }
-          reader.readAsDataURL(file);
-      };
 
       var patientToSaveHandler = function(patient) {
         patient.gender = $scope.patient.gender.selected;
