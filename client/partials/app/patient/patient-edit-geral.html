@@ -16,26 +16,26 @@
    <div class="col-md-9">
 
       <div class="form-group">
-         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nome</label>
-         <div class="col-md-9 col-sm-9 col-xs-12">
+         <div class="col-md-12 col-sm-12 col-xs-12">
+            <label>Nome</label>
             <input type="text" class="form-control" id="name" name="name" ng-model="patient.name">
          </div>
       </div>
       <div class="form-group">
-         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthDate">Data Nascimento</label>
-         <div class="col-md-5 col-sm-5 col-xs-12">
+         <div class="col-md-6 col-sm-6 col-xs-12">
+            <label>Data Nascimento</label>
             <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
          </div>
       </div>
       <div class="form-group">
-         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="age">Idade</label>
          <div class="col-md-3 col-sm-3 col-xs-12">
+            <label>Idade</label>
             <input type="text" class="form-control" id="age" name="age" ng-model="patient.age">
          </div>
       </div>
       <div class="form-group">
-         <label class="control-label col-md-3 col-sm-3 col-xs-12">Sexo</label>
-         <div class="col-md-9 col-sm-9 col-xs-12">
+         <div class="col-md-3 col-sm-3 col-xs-12">
+            <label>Sexo</label>
             <div class="radio">
                <label ng-repeat="gender in genders">
                   <input i-check type="radio" class="flat mr-7" name="gender" value="{{gender.id}}" ng-model="patient.gender.selected"/>

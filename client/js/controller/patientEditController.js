@@ -280,17 +280,14 @@
       };
 
       var uploadFilePatient = function(name, file) { 
-          if(!file || !file.length) { 
-              initFactory($scope.menu);
-          } else {
-              uploadFile(name, file);
-          }         
+          if(!file || !file.length) { init(); } 
+          else { uploadFile(name, file); }         
       };
 
       var uploadFile = function(name, file) { 
           FileService.savePatient(name, file[0])
               .then(function(data) {            
-                  initFactory($scope.menu);
+                  init();
                   NotifyService.success('Imagem inserida com sucesso!');
               })
               .catch(function(e) {
