@@ -1,0 +1,47 @@
+/* Overide */
+
+.container {
+    width: 100%;
+    padding: 0 30px;
+}
+
+.navbar-header {
+    width: 200px;
+}
+
+.navbar-header > a {
+    width: 100%;
+}
+
+
+
+/* Custom */
+.navbar-top {
+    background: #354051;
+    color: #FFF;
+}
+
+.navbar-top .navbar-brand {
+    color: #FFF;
+}
+
+.navbar-top .navbar-nav > li > a,
+.navbar-top .navbar-nav > .active > a {    
+    color: #A0ABBD;
+    padding-bottom: 18px;  
+}
+
+.navbar-top .navbar-nav > li > a:hover {
+    color: #FFF;
+    background: #2F3948 !important;
+}
+
+.navbar-top .navbar-nav > .active > a, 
+.navbar-top .navbar-nav > .active > a:hover, 
+.navbar-top .navbar-nav > .active > a:focus {
+    color: #FFF;
+    background: #2F3948 !important;
+    border-top: 3px solid #12A4F4;
+    padding-top: 12px;
+    padding-bottom: 18px;  
+}
