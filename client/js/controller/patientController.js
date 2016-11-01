@@ -72,7 +72,7 @@ app.controller('PatientController', ['$scope', '$state', '$filter', 'PatientServ
 	};
 
 	var goToCreate = function() {
-		$state.go('app.patient.edit', { menu: 'geral' });
+		$state.go('app.patient.create', { menu: 'geral' });
 	};
 
   	init();

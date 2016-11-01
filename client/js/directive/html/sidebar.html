@@ -1,0 +1,34 @@
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+  <div class="menu_section">
+    <!-- <h3>General</h3> -->
+    <ul class="nav side-menu">
+      <li ng-class="{active: state.includes('app.home')}">
+        <a ui-sref="app.patient.list"><i class="fa fa-home"></i> Home - {{state.params.menu}} </a>
+      </li>
+      <li ng-class="{active: state.includes('app.patient')}">
+        <a ui-sref="app.patient.list"><i class="fa fa-user"></i> Paciente </a>
+        <ul class="nav child_menu" ng-class="{'active': state.includes('app.patient.create') || state.includes('app.patient.edit')}">
+          <li ng-class="{'active': state.params.menu === 'geral'}"
+            title="Dados do Paciente" ng-click="menu.action('geral')">
+            <a>Dados Paciente</a>
+          </li>
+          <li><a href="typography.html">Typography</a></li>
+          <li><a href="icons.html">Icons</a></li>
+          <li><a href="glyphicons.html">Glyphicons</a></li>
+          <li><a href="widgets.html">Widgets</a></li>
+          <li><a href="invoice.html">Invoice</a></li>
+          <li><a href="inbox.html">Inbox</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+        </ul>
+      </li>
+      <li ng-class="{active: state.includes('app.consultation')}">
+        <a ui-sref="app.patient.list"><i class="fa fa-calendar "></i> Consultas </a>
+      </li>
+      <li ng-class="{active: state.includes('app.financial')}">
+        <a ui-sref="app.patient.list"><i class="fa fa-money"></i> Financeiro </a>
+      </li>
+      <li ng-class="{active: state.includes('app.agreement')}">
+        <a ui-sref="app.patient.list"><i class="fa fa-suitcase"></i> Convênios </a>
+      </li>
+  </div>
+</div>

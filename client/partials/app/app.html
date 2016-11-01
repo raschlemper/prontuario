@@ -1,45 +1,15 @@
+<div class="container body">
+  <div class="main_container">
 
+    <div style="margin-bottom: 55px;">
 
-
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title">
-              <a href="index.html" class="site_title"><i class="fa fa-cubes"></i> <span>Teste</span></a>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <br />
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li ng-class="{active:$state.includes('app.home')}">
-                    <a ui-sref="app.patient.list"><i class="fa fa-home"></i> Home </a>
-                  </li>
-                  <li ng-class="{active:$state.includes('app.patient')}">
-                    <a ui-sref="app.patient.list"><i class="fa fa-user"></i> Paciente </a>
-                  </li>
-                  <li ng-class="{active:$state.includes('app.consultation')}">
-                    <a ui-sref="app.patient.list"><i class="fa fa-calendar "></i> Consultas </a>
-                  </li>
-                  <li ng-class="{active:$state.includes('app.financial')}">
-                    <a ui-sref="app.patient.list"><i class="fa fa-money"></i> Financeiro </a>
-                  </li>
-                  <li ng-class="{active:$state.includes('app.agreement')}">
-                    <a ui-sref="app.patient.list"><i class="fa fa-suitcase"></i> Convênios </a>
-                  </li>
-              </div>
-            </div>
-            <!-- /sidebar menu -->
-          </div>
+      <div class="col-md-3 left_col scroll-view">
+        <div class="navbar nav_title">
+          <a href="index.html" class="site_title"><i class="fa fa-cubes"></i> <span>Teste</span></a>
         </div>
-
-        <!-- top navigation -->
+        <div class="clearfix"></div>      
+      </div> 
+     
         <div class="top_nav">
           <div class="nav_menu mb-0">
             <nav>
@@ -134,14 +104,14 @@
             </nav>
           </div>
         </div>
-        <!-- /top navigation -->
 
-        <!-- page content -->
-        <div class="right_col" role="main">
 
-              <div ui-view></div>
-
-        </div>
-        <!-- /page content -->
-      </div>
     </div>
+    <div>
+
+      <div ui-view></div>      
+      
+    </div>
+
+  </div>
+</div>
