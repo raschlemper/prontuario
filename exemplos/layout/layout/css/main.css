@@ -14,6 +14,17 @@
 }
 
 
+/* TAG */
+
+
+body {
+    background-color: #F9F9F9;
+}
+
+a, a:hover, a:active, a:focus {
+    color: #34495e;
+}
+
 
 /* Custom */
 .navbar-top {
@@ -25,23 +36,68 @@
     color: #FFF;
 }
 
-.navbar-top .navbar-nav > li > a,
-.navbar-top .navbar-nav > .active > a {    
+.navbar-top .navbar-nav > li > a {    
     color: #A0ABBD;
-    padding-bottom: 18px;  
 }
 
-.navbar-top .navbar-nav > li > a:hover {
+.navbar-top .navbar-nav > li > a:hover,
+.navbar-top .navbar-nav > li > a:focus,
+.navbar-top .navbar-nav > li > a:active {
     color: #FFF;
     background: #2F3948 !important;
 }
 
 .navbar-top .navbar-nav > .active > a, 
 .navbar-top .navbar-nav > .active > a:hover, 
+.navbar-top .navbar-nav > .active > a:focus, 
 .navbar-top .navbar-nav > .active > a:focus {
     color: #FFF;
     background: #2F3948 !important;
     border-top: 3px solid #12A4F4;
     padding-top: 12px;
     padding-bottom: 18px;  
+}
+
+
+
+
+
+
+.user-profile img {
+    margin-bottom: -6px;
+    margin-top: -6px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px; 
+}
+
+
+
+.page-wrapper {
+    margin: 50px 0 0 0;
+    padding: 0 30px;
+}
+
+.page-title {
+    margin: 30px 0;
+}
+
+.page-title h1 {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+.page-title small {
+    font-size: 18px;
+}
+
+.page-title .breadcrumb {
+    margin-bottom: 0;
+    background-color: #EEE;
+}
+.page-content {
+    border: 1px solid #A0ABBD;
+    min-height: 300px;
+    background: #FFF;
 }
