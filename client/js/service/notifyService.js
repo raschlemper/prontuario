@@ -20,7 +20,7 @@ app.factory('NotifyService', ['notificationService',
         success: function(text) {
             notification('Sucesso', text, 'success');
         },
-        erroe: function(text) {
+        error: function(text) {
             notification('Erro', text, 'error');
         }
 

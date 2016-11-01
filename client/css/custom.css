@@ -1951,7 +1951,7 @@ legend {
 
 .form-control-feedback.left {
   border-right: 1px solid #ccc;
-  left: 5px; }
+  left: 10px; }
 
 .form-control-feedback.right {
   border-left: 1px solid #ccc;
@@ -3962,7 +3962,7 @@ ul.notifications {
   color: #fff; }*/
 
 .uib-datepicker-popup {
-  z-index: 998 !important;
+  z-index: 999 !important;
   margin-top: -1px;
 }
 
