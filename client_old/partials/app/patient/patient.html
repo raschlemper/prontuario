@@ -1,0 +1,76 @@
+<toolbar breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Pacientes</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Pesquisar" ng-model="name" ng-change="searchBy(letterSelected, name)">
+            <span class="fa fa-search form-control-feedback left" aria-hidden="true"></span>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_content" style="min-height: 400px;">
+          <!-- <app-table list="users" columns="table.columns" events="table.events"></app-table> -->
+          
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <ul class="pagination pagination-split">
+              <li ng-repeat="letter in letters" ng-class="{'active': letter === letterSelected}">
+                <a href ng-click="searchBy(letter, name)">{{ letter }}</a>
+              </li>
+              <li ng-class="{'active': !letterSelected}" style="padding-left: 15px;">
+                <a href ng-click="searchBy(null, name)">Todos</a>
+              </li>
+            </ul>
+          </div>  
+        </div>
+
+        <hr/>
+
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details" ng-repeat="patient in patientList track by patient._id">
+          <div class="well profile_view">
+            <div class="col-sm-12">
+              <h4 class="brief"><i>Digital Strategist</i></h4>
+              <div class="left col-xs-7">
+                <h2>{{ patient.name }}</h2>
+                <p><strong>About: </strong> Web Designer / UI. </p>
+                <ul class="list-unstyled">
+                  <li><i class="fa fa-building"></i> Address: </li>
+                  <li><i class="fa fa-phone"></i> Phone #: </li>
+                </ul>
+              </div>
+              <div class="right col-xs-5 text-center">
+                <img src="images/user.png" alt="" class="img-circle img-responsive">
+              </div>
+            </div>
+            <div class="col-xs-12 bottom text-center">
+              <div class="col-xs-12 col-sm-6 emphasis">
+                <p class="ratings">Particular</p>
+              </div>
+              <div class="col-xs-12 col-sm-6 text-right" ui-sref="app.patient.edit({'menu': 'geral', 'id': patient._id})">
+                <button type="button" class="btn btn-primary btn-xs">
+                  <i class="fa fa-user"> </i> Visualiar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+  </div>
+
+</div>

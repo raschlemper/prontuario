@@ -5,6 +5,8 @@ app.directive('toolbar', [function () {
         restrict: 'E',
         templateUrl: 'js/directive/html/toolbar.html',
         scope: {
+            title: '@',
+            subtitle: '@',
             breadcrumb: '=',
             actions: '='
         },
