@@ -1,50 +1,6 @@
 <div class="row">
 
-   <div class="col-md-3"> 
-      <div class="col-md-12" style="margin-bottom: 15px">
-         <div class="profile_img" style="margin-bottom: 10px">
-            <div class="thumbnail">           
-               <img class="img-responsive avatar-view" 
-                    ng-click="openImageSelect($event)"
-                    ng-src="{{image.source}}" alt="Avatar" title="Change the avatar">
-               <input type="file" id="imagePatient" name="avatar" file-model="patient.image" 
-                  onchange="angular.element(this).scope().getImageSelected(this.files)" style="display: none;"/>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-md-9">
-
-      <div class="form-group">
-         <div class="col-md-12 col-sm-12 col-xs-12">
-            <label>Nome</label>
-            <input type="text" class="form-control" id="name" name="name" ng-model="patient.name">
-         </div>
-      </div>
-      <div class="form-group">
-         <div class="col-md-6 col-sm-6 col-xs-12">
-            <label>Data Nascimento</label>
-            <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
-         </div>
-      </div>
-      <div class="form-group">
-         <div class="col-md-3 col-sm-3 col-xs-12">
-            <label>Idade</label>
-            <input type="text" class="form-control" id="age" name="age" ng-model="patient.age">
-         </div>
-      </div>
-      <div class="form-group">
-         <div class="col-md-3 col-sm-3 col-xs-12">
-            <label>Sexo</label>
-            <div class="radio">
-               <label ng-repeat="gender in genders">
-                  <input i-check type="radio" class="flat mr-7" name="gender" value="{{gender.id}}" ng-model="patient.gender.selected"/>
-                  <span>{{gender.label}}</span>
-               </label>
-            </div>
-         </div>
-      </div>
-
-   </div>
+   
+   
    
 </div>
