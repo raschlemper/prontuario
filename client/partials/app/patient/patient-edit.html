@@ -1,56 +1,65 @@
-<toolbar title="Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
 
-<div class="page-content">
+  <div class="sidebar-menu">
 
-  <form name="patientForm" class="form-horizontal form-label-left">
-
-    <div class="row">
-      <div class="col-md-3"> 
-              <div class="thumbnail">           
-                 <img class="img-responsive contact-photo" 
-                      ng-click="openImageSelect($event)"
-                      ng-src="{{image.source}}" alt="Avatar" title="Change the avatar">
-                 <input type="file" id="imagePatient" name="avatar" file-model="patient.image" 
-                    onchange="angular.element(this).scope().getImageSelected(this.files)" style="display: none;"/>
-              </div>
+    <div class="sidebar-profile ng-scope">
+      <div class="avatar">
+          <img class="img-circle profile-image" ng-src="{{image.source}}">
       </div>
-
-      <div class="col-md-9 p-l-50">
-
-        <div class="form-group">
-           <div class="col-md-10 col-sm-10 col-xs-12">
-              <label>Nome</label>
-              <input type="text" class="form-control" id="name" name="name" ng-model="patient.name">
-           </div>
-        </div>
-        <div class="form-group">
-           <div class="col-md-3 col-sm-3 col-xs-12">
-              <label>Data Nascimento</label>
-              <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
-           </div>
-        </div>
-        <div class="form-group">
-           <div class="col-md-2 col-sm-2 col-xs-12">
-              <label>Idade</label>
-              <input type="text" class="form-control" id="age" name="age" ng-model="patient.age">
-           </div>
-        </div>
-        <div class="form-group">
-           <div class="col-md-3 col-sm-3 col-xs-12">
-              <label>Sexo</label>
-              <div class="radio">
-                 <label ng-repeat="gender in genders">
-                    <input i-check type="radio" name="gender" value="{{gender.id}}" ng-model="patient.gender.selected"/>
-                    <span class="m-r-15">{{gender.label}}</span>
-                 </label>
-              </div>
-           </div>
-        </div>
-
-     </div>
+      <div class="profile-body dropdown">
+          <h4>{{patient.name}}</h4>
+          <small class="title">Front-end Developer</small>
+      </div>
     </div>
-  
-  </form>     
+
+    <ul class="wraplist" style="height: auto;"> 
+      <li class="menusection">CADASTRO</li>
+      <li ng-class="{'active-menu active': menu === 'geral'}" title="Dados do Paciente" ng-click="setMenu('geral')"> 
+        <a href="index.html">
+          <i class="fa fa-list"></i>
+          <span class="title">Dados Paciente</span>
+        </a>
+      </li>
+      <li ng-class="{'active-menu active': menu === 'contact'}"> 
+        <a href="javascript:;">
+          <i class="fa fa-suitcase"></i>
+          <span class="title">Contatos</span>
+        </a>
+      </li>
+      <li class=""> 
+        <a href="javascript:;">
+          <i class="fa fa-columns"></i>
+          <span class="title">Layouts</span>
+        </a>
+      </li>
+      <li class="menusection">Applications</li>
+      <li class=""> 
+        <a href="ui-calendar.html">
+          <i class="fa fa-calendar"></i>
+          <span class="title">Calendar</span>
+        </a>
+      </li>
+      <li class=""> 
+        <a href="javascript:;">
+          <i class="fa fa-envelope"></i>
+          <span class="title">Mailbox</span>
+        </a>
+      </li>           
+    </ul>
+
+  </div>
+  <div class="content">     
+
+    <toolbar title="Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+
+    <div class="page-content">
+
+      <form name="patientForm" class="form-horizontal form-label-left">
+          <ng-include src="templateUrl()"></ng-include>
+      </form>   
+    </div>
+
+  </div>  
+    
 
   <!-- <div class="col-md-3 col-sm-3 col-xs-12">
      <div class="x_panel">
@@ -88,12 +97,3 @@
         </div>
      </div>
   </div> -->
-  
-  <div class="col-md-12 col-sm-12 col-xs-12">
-    <!-- <div ui-view="{{menu}}"></div> -->
-    
-       <ng-include src="templateUrl()"></ng-include>
-    <div class="clearfix"></div>
-  </div>
-
-</div>
