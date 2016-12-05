@@ -1,56 +1,102 @@
-<toolbar title="Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+<div class="row">
 
-<div class="page-content">
+  <div class="col-md-2 col-sm-2 col-xs-12 sidebar">
 
-  <form name="patientForm" class="form-horizontal form-label-left">
+    <ul class="nav nav-sidebar">
+      <li ng-class="{'active-menu active': menu === 'geral'}"
+          title="Dados do Paciente" ng-click="setMenu('geral')">
+         <a><i class="fa fa-list"></i><span>Dados Paciente</span></a>
+      </li>
+    </ul>
+    
 
-    <div class="row">
-      <div class="col-md-3"> 
-              <div class="thumbnail">           
-                 <img class="img-responsive contact-photo" 
-                      ng-click="openImageSelect($event)"
-                      ng-src="{{image.source}}" alt="Avatar" title="Change the avatar">
-                 <input type="file" id="imagePatient" name="avatar" file-model="patient.image" 
-                    onchange="angular.element(this).scope().getImageSelected(this.files)" style="display: none;"/>
-              </div>
-      </div>
+    <!-- <ul class="list-group">
+      <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'geral'}"
+          title="Dados do Paciente" ng-click="setMenu('geral')">
+         <a><i class="fa fa-list text-center"></i><span>Dados Paciente</span></a>
+      </li>
+      <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'contact'}"
+          title="Contatos do Paciente" ng-click="setMenu('contact')">
+         <a><i class="fa fa-envelope-o text-center"></i><span>Contato</span></a>
+      </li>
+      <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'address'}"
+         title="Endereços do Paciente" ng-click="setMenu('address')">
+         <a><i class="fa fa-bookmark-o text-center"></i><span>Endereço</span></a>
+      </li>
+      <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'family'}"
+          title="Familia do Paciente" ng-click="setMenu('family')">
+         <a><i class="fa fa-circle-o-notch text-center"></i><span>Familiar</span></a>
+      </li>
+      <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'graduation'}"
+          title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
+         <a><i class="fa fa-graduation-cap text-center"></i><span>Escolaridade</span></a>
+      </li>
+      <li class="list-group-item menu" ng-class="{'active-menu active': menu === 'professional'}"
+          title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
+         <a><i class="fa fa-briefcase text-center"></i><span>Profissional</span></a>
+      </li>
+    </ul> -->
+  </div>
 
-      <div class="col-md-9 p-l-50">
+  <div class="col-sm-offset-2 col-md-10 col-sm-10 col-xs-12 main">
 
-        <div class="form-group">
-           <div class="col-md-10 col-sm-10 col-xs-12">
-              <label>Nome</label>
-              <input type="text" class="form-control" id="name" name="name" ng-model="patient.name">
-           </div>
+    <toolbar title="Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+
+    <div class="page-content">
+
+      <form name="patientForm" class="form-horizontal form-label-left">
+
+        <div class="row">
+          <div class="col-md-3"> 
+            <div class="thumbnail">           
+               <img class="img-responsive contact-photo" 
+                    ng-click="openImageSelect($event)"
+                    ng-src="{{image.source}}" alt="Avatar" title="Change the avatar">
+               <input type="file" id="imagePatient" name="avatar" file-model="patient.image" 
+                  onchange="angular.element(this).scope().getImageSelected(this.files)" style="display: none;"/>
+            </div>
+          </div>
+
+          <div class="col-md-9 p-l-50">
+
+            <div class="form-group">
+               <div class="col-md-10 col-sm-10 col-xs-12">
+                  <label>Nome</label>
+                  <input type="text" class="form-control" id="name" name="name" ng-model="patient.name">
+               </div>
+            </div>
+            <div class="form-group">
+               <div class="col-md-3 col-sm-3 col-xs-12">
+                  <label>Data Nascimento</label>
+                  <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
+               </div>
+            </div>
+            <div class="form-group">
+               <div class="col-md-2 col-sm-2 col-xs-12">
+                  <label>Idade</label>
+                  <input type="text" class="form-control" id="age" name="age" ng-model="patient.age">
+               </div>
+            </div>
+            <div class="form-group">
+               <div class="col-md-3 col-sm-3 col-xs-12">
+                  <label>Sexo</label>
+                  <div class="radio">
+                     <label ng-repeat="gender in genders">
+                        <input i-check type="radio" name="gender" value="{{gender.id}}" ng-model="patient.gender.selected"/>
+                        <span class="m-r-15">{{gender.label}}</span>
+                     </label>
+                  </div>
+               </div>
+            </div>
+
+          </div>
         </div>
-        <div class="form-group">
-           <div class="col-md-3 col-sm-3 col-xs-12">
-              <label>Data Nascimento</label>
-              <datepicker class="input-group date" name="birthDate" datepicker-model="patient.birthDate"></datepicker>
-           </div>
-        </div>
-        <div class="form-group">
-           <div class="col-md-2 col-sm-2 col-xs-12">
-              <label>Idade</label>
-              <input type="text" class="form-control" id="age" name="age" ng-model="patient.age">
-           </div>
-        </div>
-        <div class="form-group">
-           <div class="col-md-3 col-sm-3 col-xs-12">
-              <label>Sexo</label>
-              <div class="radio">
-                 <label ng-repeat="gender in genders">
-                    <input i-check type="radio" name="gender" value="{{gender.id}}" ng-model="patient.gender.selected"/>
-                    <span class="m-r-15">{{gender.label}}</span>
-                 </label>
-              </div>
-           </div>
-        </div>
+      
+      </form>    
 
-     </div>
-    </div>
-  
-  </form>     
+    </div> 
+
+  </div>
 
   <!-- <div class="col-md-3 col-sm-3 col-xs-12">
      <div class="x_panel">
