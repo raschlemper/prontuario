@@ -98,6 +98,68 @@
 
   </div>
 
+  <div class="sidebar-menu">
+
+    <div class="sidebar-profile ng-scope">
+      <div class="avatar">
+          <img class="img-circle profile-image" ng-src="{{image.source}}">
+      </div>
+      <div class="profile-body dropdown">
+          <h4>{{patient.name}}</h4>
+          <small class="title">Front-end Developer</small>
+      </div>
+    </div>
+
+    <ul class="wraplist" style="height: auto;"> 
+      <li class="menusection">CADASTRO</li>
+      <li ng-class="{'active-menu active': menu === 'geral'}" title="Dados do Paciente" ng-click="setMenu('geral')"> 
+        <a href="index.html">
+          <i class="fa fa-list"></i>
+          <span class="title">Dados Paciente</span>
+        </a>
+      </li>
+      <li ng-class="{'active-menu active': menu === 'contact'}"> 
+        <a href="javascript:;">
+          <i class="fa fa-suitcase"></i>
+          <span class="title">Contatos</span>
+        </a>
+      </li>
+      <li class=""> 
+        <a href="javascript:;">
+          <i class="fa fa-columns"></i>
+          <span class="title">Layouts</span>
+        </a>
+      </li>
+      <li class="menusection">Applications</li>
+      <li class=""> 
+        <a href="ui-calendar.html">
+          <i class="fa fa-calendar"></i>
+          <span class="title">Calendar</span>
+        </a>
+      </li>
+      <li class=""> 
+        <a href="javascript:;">
+          <i class="fa fa-envelope"></i>
+          <span class="title">Mailbox</span>
+        </a>
+      </li>           
+    </ul>
+
+  </div>
+  <div class="content">     
+
+    <toolbar title="Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+
+    <div class="page-content">
+
+      <form name="patientForm" class="form-horizontal form-label-left">
+          <ng-include src="templateUrl()"></ng-include>
+      </form>   
+    </div>
+
+  </div>  
+    
+
   <!-- <div class="col-md-3 col-sm-3 col-xs-12">
      <div class="x_panel">
         <div class="x_title">
@@ -134,12 +196,3 @@
         </div>
      </div>
   </div> -->
-  
-  <div class="col-md-12 col-sm-12 col-xs-12">
-    <!-- <div ui-view="{{menu}}"></div> -->
-    
-       <ng-include src="templateUrl()"></ng-include>
-    <div class="clearfix"></div>
-  </div>
-
-</div>
