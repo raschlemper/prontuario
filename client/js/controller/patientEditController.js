@@ -75,7 +75,7 @@
     	// GERAL /////
 
     	var initGeral = function (menu) { 
-        $scope.label = 'Dados Paciente';
+        $scope.titlePanel = '<i class="fa fa-list"></i><strong>Cadastro Paciente</strong>';
         setBreadcrumb('patientGeral');
         $scope.patient.gender = $scope.patient.gender || angular.copy($scope.genders[0]); 
         $scope.patient.gender.selected = $scope.patient.gender.id;
