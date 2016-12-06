@@ -13,7 +13,7 @@ app.controller('AuthController', ['$rootScope', '$scope', '$state', '$stateParam
 	var getUrl = function(strategy) {
 		var url  = 'https://ras-administration.herokuapp.com/auth/login/';
 		    url += strategy + '/';
-		    url += '5845bdd14d2a8b0012af9ab8';
+		    url += AuthService.getSystem();
 		    url += '?target=' + getTarget();
 		return $sce.trustAsResourceUrl(url);
 	};

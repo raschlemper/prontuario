@@ -834,7 +834,7 @@ toolbar button {
   border: 1px solid #D34836;
 }
 .btn-google:before {
-  content: "\f09a";
+  content: "\f1a0";
   background: #C53D2B;
   margin: -1px;
 }

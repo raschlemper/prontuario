@@ -59,7 +59,7 @@ app.run(['$rootScope', '$state', '$location', '$localStorage', 'AuthService', 'R
 
     var authenticated = function(event, toState, toParams) {
         if(!RouteService.isPublic(toState.name)) {
-            AuthService.isAuthenticated(AuthService.getToken())
+            AuthService.isAuthenticated()
                 .then(function(data) {
                     $rootScope.user = data;
                     $rootScope.goTo(toState, toParams); 
