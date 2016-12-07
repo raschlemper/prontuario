@@ -50,7 +50,7 @@ app.run(['$rootScope', '$state', '$location', '$localStorage', 'AuthService', 'R
     };
 
     var removeToken = function(event, toState, toParams) {  
-        $location.search('token', null);
+        AuthService.createToken(null);
     };
 
     var removeError = function(event, toState, toParams) {  
