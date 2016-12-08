@@ -1,16 +1,14 @@
 {
-  "name": "admin",
+  "name": "protuario",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
   "engines": {
-    "node": "v4.2.3"
+    "node": "*",
+    "npm": "*"
   },
   "scripts": {
-    "start": "node server/server.js",
-    "test": "gulp test",
-    "dev": "NODE_ENV=development && node --debug server/server.js",
-    "prod": "NODE_ENV=production && node server/server.js"
+    "start": "node server/server.js"
   },
   "dependencies": {
     "angular-mocks": "^1.4.8",
