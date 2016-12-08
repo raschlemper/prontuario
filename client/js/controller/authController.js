@@ -11,7 +11,7 @@ app.controller('AuthController', ['$rootScope', '$scope', '$state', '$stateParam
 	};
 
 	var getUrl = function(strategy) {
-		var url  = 'https://prosoft-admin.herokuapp.com/auth/login/';
+		var url  = AuthService.getUrlAdmin();
 		    url += strategy + '/';
 		    url += AuthService.getSystem();
 		    url += '?target=' + getTarget();
