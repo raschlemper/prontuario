@@ -33,8 +33,8 @@ module.exports = function (app) {
 
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'client/images/favicon.png')));
-    app.use(express.static(path.join(config.root, 'client/dist')));
-    app.set('appPath', config.root + 'client/dist');
+    app.use(express.static(path.join(config.root, 'client')));
+    app.set('appPath', config.root + 'client');
     app.use(logger('dev'));
   }
 
