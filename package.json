@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "engines": {
     "node": "*",
-    "npm": "*"
+    "npm": "*",
+    "bower": "*"
   },
   "scripts": {
     "start": "node server/server.js"
