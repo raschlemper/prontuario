@@ -18,7 +18,7 @@ module.exports = {
     uri:    process.env.MONGOLAB_URI ||
             process.env.MONGOHQ_URL ||
             process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_APP_NAME ||
-            'mongodb://rafael:123456@ds161487.mlab.com:61487/prontuario'
+            'mongodb://rafael:123456@ds127978.mlab.com:27978/prontuario'
   }
   
 };
