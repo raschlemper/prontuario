@@ -11,7 +11,7 @@ app.controller('AuthController', ['$rootScope', '$scope', '$state', '$stateParam
 	};
 
 	var getUrl = function(strategy) {
-		var url  = AuthService.getUrlAdmin() + '/auth/';
+		var url  = AuthService.getUrlAdmin() + '/auth/login/';
 		    url += strategy + '/';
 		    url += AuthService.getSystem();
 		    url += '?target=' + getTarget();
