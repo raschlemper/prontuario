@@ -1041,6 +1041,42 @@ fieldset[disabled] .form-control {
 .help-block {
   color: #b0bcd4;
 }
+.input-col-12 {
+  width: 100%;
+}
+.input-col-11 {
+  width: 91.66666667%;
+}
+.input-col-10 {
+  width: 83.33333333%;
+}
+.input-col-9 {
+  width: 75%;
+}
+.input-col-8 {
+  width: 66.66666667%;
+}
+.input-col-7 {
+  width: 58.33333333%;
+}
+.input-col-6 {
+  width: 50%;
+}
+.input-col-5 {
+  width: 41.66666667%;
+}
+.input-col-4 {
+  width: 33.33333333%;
+}
+.input-col-3 {
+  width: 25%;
+}
+.input-col-2 {
+  width: 16.66666667%;
+}
+.input-col-1 {
+  width: 8.33333333%;
+}
 .input-group-addon {
   color: #b0bcd4;
   background-color: #f2f4f8;
@@ -1345,20 +1381,20 @@ body.modal-open,
   margin-bottom: 30px;
 }
 .panel .panel-heading {
-  line-height: 40px;
-  padding: 0 15px;
-  min-height: 40px;
+  line-height: 50px;
+  padding: 0 10px;
+  min-height: 50px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
   border-color: #e1e6ef;
 }
 .panel .panel-heading .panel-title {
-  line-height: 40px;
+  line-height: 50px;
 }
 .panel .panel-heading h2 {
   float: left;
-  padding: 10px 0px;
+  padding: 15px 0px;
   margin: 0px 0px 0px 10px;
   color: #374767;
 }
@@ -1371,6 +1407,12 @@ body.modal-open,
   text-align: center;
   margin: -10px 0px -10px -20px;
   font-size: 16px;
+}
+.panel .panel-heading div.input-group {
+  float: right;
+  padding: 8px 0px;
+  margin: 0px 0px 0px 10px;
+  color: #374767;
 }
 .panel .panel-heading .panel-actions {
   float: right;
