@@ -83,9 +83,8 @@ hr {
 .breadcrumb > .active {
   color: #c0cadd;
 }
-.small,
-small {
-  color: #c0cadd !important;
+.small, small {
+  color: #1985ac !important; /*#c0cadd !important;*/
 }
 .well {
   border: 1px solid #e1e6ef;
@@ -251,10 +250,13 @@ blockquote.pull-right {
   border-bottom: 1px solid #1985ac;
 }
 .navbar .navbar-brand img {
-  margin: -5px 10px 0 0;
-  height: 30px;
-  opacity: .5;
+  height: 45px;
+  margin: -5px 10px 0 -20px;
+  /*opacity: .5;*/
   display: inline;
+}
+.navbar .navbar-buttom {
+  margin-left: 16.15%;
 }
 .navbar .navbar-actions {
   margin-left: 16.15%;
@@ -458,17 +460,22 @@ blockquote.pull-right {
 .navbar .navbar-form {
   margin: 0;
 }
+.user-profile img {
+  margin-right: 10px;
+}
 /* Sidebar
 =================================================================== */
 .sidebar {
-  background: #384042;
+  background: #FFFFFF; /*#384042;*/
   color: #677679;
   position: relative;
 }
 .sidebar:before {
   position: absolute;
   content: '';
-  background: #384042;
+  
+  border-right: 1px solid #e1e6ef;
+  background: #FFFFFF; /*#384042;*/
   width: 100%;
   height: 10000px;
   left: 0;
@@ -496,7 +503,7 @@ blockquote.pull-right {
 .sidebar .nav-sidebar.title span:after {
   content: '';
   position: absolute;
-  background: #384042;
+  background: #FFFFFF; /*#384042;*/
   width: 120%;
   height: 100%;
   top: 0;
@@ -517,12 +524,12 @@ blockquote.pull-right {
 }
 .sidebar ul.nav.nav-sidebar li a.active,
 .sidebar ul.nav.nav-sidebar li a:hover {
-  background: #2c3334;
+  background: #e1e6ef; /*#2c3334;*/
   color: white;
 }
 .sidebar ul.nav.nav-sidebar li ul {
   display: none;
-  background: #2c3334;
+  background: #e1e6ef; /*#2c3334;*/
   list-style: none;
   padding: 5px 0 5px 25px;
 }
@@ -558,7 +565,7 @@ blockquote.pull-right {
 .sidebar.minified ul.nav.nav-sidebar > li > a .text {
   position: absolute;
   z-index: 1000;
-  background: #2c3334;
+  background: #e1e6ef; /*#2c3334;*/
   min-height: 40px;
   width: 200px;
   padding-left: 15px;
@@ -571,7 +578,7 @@ blockquote.pull-right {
   display: none !important;
 }
 .sidebar.minified ul.nav.nav-sidebar > li:hover {
-  background: #2c3334;
+  background: #e1e6ef; /*#2c3334;*/
 }
 .sidebar.minified ul.nav.nav-sidebar > li:hover > a {
   position: relative;
@@ -591,8 +598,9 @@ blockquote.pull-right {
   left: 60px;
   z-index: 1000;
   width: 200px;
-  border-left: 1px solid #2c3334;
-  background: #384042;
+  /*border-left: 1px solid #2c3334;*/
+  border-right: 1px solid #e1e6ef;
+  background: #FFFFFF; /*#384042;*/
   padding: 0;
   margin: 0;
 }
