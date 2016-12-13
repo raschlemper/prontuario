@@ -1,0 +1,34 @@
+{
+  "name": "appTable",
+  "authors": [
+    "Raschlemper <raschlemper@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/raschlemper/componentes",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "ui-bootstrap": "^2.0.1",
+    "font-awesome": "^4.6.3",
+    "angular-bootstrap": "^2.0.1"
+  },
+  "_release": "f399beac42",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f399beac422bd12d14d8a54b2f6a67d6bd20896e"
+  },
+  "_source": "git://github.com/raschlemper/componentes.git",
+  "_target": "*",
+  "_originalSource": "raschlemper/componentes"
+}
