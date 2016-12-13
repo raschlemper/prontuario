@@ -37,19 +37,25 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         url: '/',
         templateUrl: 'partials/app/patient/patient.html',
         controller: 'PatientController'
-      })
-      .state('app.patient.create', {
-        url: '/create/:menu',
-        templateUrl: 'partials/app/patient/patient-edit.html',
-        controller: 'PatientEditController',
-        params: { patient: null }
-      })
+      }) 
       .state('app.patient.edit', {
-        url: '/edit/:menu/:id',
+        url: '/edit/:id',
         templateUrl: 'partials/app/patient/patient-edit.html',
         controller: 'PatientEditController',
         params: { patient: null }
       })     
+      // .state('app.patient.create', {
+      //   url: '/create/:menu',
+      //   templateUrl: 'partials/app/patient/patient-edit.html',
+      //   controller: 'PatientEditController',
+      //   params: { patient: null }
+      // })
+      // .state('app.patient.edit', {
+      //   url: '/edit/:menu/:id',
+      //   templateUrl: 'partials/app/patient/patient-edit.html',
+      //   controller: 'PatientEditController',
+      //   params: { patient: null }
+      // }) 
 
       /*
        * Authentication

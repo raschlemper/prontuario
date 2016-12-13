@@ -11,6 +11,10 @@ app.factory('FileService', ['$http', 'PromiseService',
 
     return {
 
+        urlPacient: function(name) {
+            return '/api/file/patient/' + name;
+        },
+
         findPatient: function(name) {
             return PromiseService.execute(
                 $http.get('/api/file/patient/' + name, 
