@@ -1,5 +1,67 @@
 <div class=" col-md-12 col-sm-12 main">
 
+  <toolbar title="Cadastro Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+
+  <div class="row">
+
+    <div class="col-md-3 col-sm-2">
+    
+      <div class="panel panel-default"><div class="panel-body sidebar">
+
+          <div class="nav-sidebar title"><span>Dados Paciente</span></div>
+
+          <ul class="nav nav-sidebar">
+            <li ng-class="{'active-menu active': menu === 'geral'}"
+                title="Dados do Paciente" ng-click="setMenu('geral')">
+              <a><i class="fa fa-list"></i><span>Cadastro</span></a>
+            </li>            
+            <li ng-class="{'active-menu active': menu === 'contact'}"
+                title="Contatos do Paciente" ng-click="setMenu('contact')">
+               <a><i class="fa fa-envelope-o text-center"></i><span>Contato</span></a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'address'}"
+               title="Endereços do Paciente" ng-click="setMenu('address')">
+               <a><i class="fa fa-bookmark-o text-center"></i><span>Endereço</span></a>
+            </li>
+
+            <li ng-class="{'active-menu active': menu === 'family'}"
+                title="Familia do Paciente" ng-click="setMenu('family')">
+               <a><i class="fa fa-circle-o-notch text-center"></i><span>Familiar</span></a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'graduation'}"
+                title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
+               <a><i class="fa fa-graduation-cap text-center"></i><span>Escolaridade</span></a>
+            </li>
+            <li ng-class="{'active-menu active': menu === 'professional'}"
+                title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
+               <a><i class="fa fa-briefcase text-center"></i><span>Profissional</span></a>
+            </li>
+          </ul>   
+
+        </div>   
+
+      </div> 
+
+    </div>
+
+    <div class="col-md-9 col-sm-10">     
+
+      <div ui-view></div>
+
+    </div> 
+
+  </div>  
+
+
+</div>
+
+
+
+
+
+
+
+
   <!-- <div class="col-md-2 col-sm-1 sidebar">
 
     <div class="sidebar-collapse collapse">
@@ -44,78 +106,12 @@
     </ul> -->
   <!-- </div> -->
 
-  <toolbar title="" subtitle="" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+        <!-- <div class="panel-heading">
+          <h2 class=" text-center"><strong>Dados Paciente</strong></h2>
+        </div> -->
 
-  <div class="row">
+        
 
-    <div class="col-md-3 col-sm-2">
-    
-      <div class="panel panel-default">
-
-        <div class="panel-body sidebar">
-
-          <div class="nav-sidebar title"><span>Dados Paciente</span></div>
-
-          <ul class="nav nav-sidebar">
-            <li ng-class="{'active-menu active': menu === 'geral'}"
-                title="Dados do Paciente" ng-click="setMenu('geral')">
-              <a><i class="fa fa-list"></i><span>Cadastro</span></a>
-            </li>            
-            <li ng-class="{'active-menu active': menu === 'contact'}"
-                title="Contatos do Paciente" ng-click="setMenu('contact')">
-               <a><i class="fa fa-envelope-o text-center"></i><span>Contato</span></a>
-            </li>
-            <li ng-class="{'active-menu active': menu === 'address'}"
-               title="Endereços do Paciente" ng-click="setMenu('address')">
-               <a><i class="fa fa-bookmark-o text-center"></i><span>Endereço</span></a>
-            </li>
-
-            <li ng-class="{'active-menu active': menu === 'family'}"
-                title="Familia do Paciente" ng-click="setMenu('family')">
-               <a><i class="fa fa-circle-o-notch text-center"></i><span>Familiar</span></a>
-            </li>
-            <li ng-class="{'active-menu active': menu === 'graduation'}"
-                title="Escolaridade do Paciente" ng-click="setMenu('graduation')">
-               <a><i class="fa fa-graduation-cap text-center"></i><span>Escolaridade</span></a>
-            </li>
-            <li ng-class="{'active-menu active': menu === 'professional'}"
-                title="Dados Profissionais do Paciente" ng-click="setMenu('professional')">
-               <a><i class="fa fa-briefcase text-center"></i><span>Profissional</span></a>
-            </li>
-          </ul>   
-
-        </div>   
-
-      </div> 
-
-    </div>
-
-    <div class="col-md-9 col-sm-10">
-
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <h2 ng-bind-html="titlePanel"></h2>
-        </div>
-
-        <div class="panel-body">
-
-          <form name="patientForm" class="form-horizontal form-label-left">
-
-            <ng-include src="templateUrl()"></ng-include>
-          
-          </form>     
-
-        </div>   
-
-      </div> 
-
-    </div> 
-
-  </div>  
-
-</div>
-    
 
   <!-- <div class="col-md-3 col-sm-3 col-xs-12">
      <div class="x_panel">

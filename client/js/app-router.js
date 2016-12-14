@@ -39,10 +39,15 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         controller: 'PatientController'
       }) 
       .state('app.patient.edit', {
-        url: '/edit/:id',
+        abstract: true,
+        url: '/edit',
         templateUrl: 'partials/app/patient/patient-edit.html',
         controller: 'PatientEditController',
-        params: { patient: null }
+      }) 
+      .state('app.patient.edit.geral', {
+        url: '/geral/:id',
+        templateUrl: 'partials/app/patient/patient-edit-geral.html',
+        controller: 'PatientEditGeralController',
       })     
       // .state('app.patient.create', {
       //   url: '/create/:menu',
