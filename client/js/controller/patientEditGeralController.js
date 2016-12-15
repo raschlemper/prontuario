@@ -1,148 +1,69 @@
    'use strict';
 
-   app.controller('PatientEditGeralController', ['$scope', '$state', '$stateParams', 'PatientService', 'FileService', 'ImageService', 'CepService', 'NotifyService',
-   function ($scope, $state, $stateParams, PatientService, FileService, ImageService, CepService, NotifyService) {
+   app.controller('PatientEditGeralController', ['$scope', '$stateParams', 'FileService', 'ImageService',
+   function ($scope, $stateParams, FileService, ImageService) {
 
-    $scope.genders = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
-	
-   	var init = function () {
-   		$scope.patient = {}; 
-      if($stateParams.id) {
-        getPatient($stateParams.id);
-        getImage($stateParams.id);         
-      } else {
-        initGeral($scope.menu, 'patientGeral');
-        getImage();
-      }
-
+    var init = function () {
+      $scope.setBreadcrumb('patientGeral');
+      getPatient();
    	};
 
-  	var initGeral = function (menu) { 
-      setBreadcrumb('patientGeral');
+    var getPatient = function() {
+      if($scope.patient) { setGeral(); }
+      else {
+        $scope.getPatient()
+          .then(function(data) {
+            setGeral();
+            getImage();
+          })
+          .catch(function(e) {
+            console.log(e);
+          });    
+      }
+    }
+
+    var setGeral = function() {
       $scope.patient.gender = $scope.patient.gender || angular.copy($scope.genders[0]); 
-      $scope.patient.gender.selected = $scope.patient.gender.id;
+      $scope.patient.gender.selected = $scope.patient.gender.id;      
     };
 
-    	// ACTION /////
+    $scope.openImageSelect = function(event) {
+      event.preventDefault();
+      angular.element("#imagePatient").trigger('click');
+    };
 
-      var getPatient = function(id) {  
-        if(!id) return;
-        PatientService.get(id)
-            .then(function(data) {
-              $scope.patient = patientToShowHandler(data);              
-              initFactory($scope.menu);
-            })
-            .catch(function(e) {
-              console.log(e);
-            });    
-      };
+    $scope.getImageSelected = function(file) { 
+      if (file[0]) { ImageService.getUrlImage(file[0], onloadImage); }
+    };
 
-      var saveOrEdit = function() {      
-        var patient = patientToSaveHandler($scope.patient);
-        if(patient._id) {
-          editPatient(patient._id, patient);
-        } else {
-          savePatient(patient);
-        }
-      };
+    var getImage = function() {
+      if($stateParams.id) { getImagePatient($stateParams.id); }
+      else { getImageDefault(); }
+    };
 
-    	var savePatient = function(patient) {  		
-          PatientService.save(patient)
-              .then(function(data) {   
-                  uploadFilePatient(data._id, $scope.patient.image);
-                  $scope.patient = patientToShowHandler(data); 
-                  NotifyService.success('Paciente inserido com sucesso!');
-              })
-              .catch(function(e) {
-                  NotifyService.error('Problemas ao inserir o paciente!');
-              });            
-    	};
+    var getImageDefault = function() {
+      getImageFromServer('patient');
+    };
 
-      var editPatient = function(id, patient) {      
-          PatientService.update(id, patient)
-              .then(function(data) {   
-                  uploadFilePatient(id, $scope.patient.image);
-                  $scope.patient = patientToShowHandler(data); 
-                  NotifyService.success('Paciente alterado com sucesso!');
-              })
-              .catch(function(e) {
-                  NotifyService.error('Problemas ao alterar o paciente!');
-              });            
-      };
+    var getImagePatient = function(id) {
+      getImageFromServer(id);
+    };
 
-      var uploadFilePatient = function(name, file) { 
-          if(!file || !file.length) { init(); } 
-          else { uploadFile(name, file); }         
-      };
+    var getImageFromServer = function(name) {
+      FileService.findPatient(name)
+        .then(function(data) {  
+            ImageService.getUrlImage(ImageService.imageToBlob(data), onloadImage);
+        })
+        .catch(function(e) {
+            console.log(e);
+        }); 
+    };
 
-      var uploadFile = function(name, file) { 
-          FileService.savePatient(name, file[0])
-              .then(function(data) {            
-                  init();
-                  NotifyService.success('Imagem inserida com sucesso!');
-              })
-              .catch(function(e) {
-                  NotifyService.error('Problemas ao inserir a imagem!');
-              });            
-      };
+    var onloadImage = function(event) {
+      $scope.image = { source: event.target.result }
+      $scope.$apply();
+    }
 
-      $scope.openImageSelect = function(event) {
-          event.preventDefault();
-          angular.element("#imagePatient").trigger('click');
-      };
-
-      $scope.getImageSelected = function(file) { 
-        if (file[0]) { ImageService.getUrlImage(file[0], onloadImage); }
-      };
-
-      var getImage = function(id) {
-        if(id) { getImagePatient(id); }
-        else { getImageDefault(); }
-      };
-
-      var getImageDefault = function() {
-        getImageFromServer('patient');
-      };
-
-      var getImagePatient = function(id) {
-        getImageFromServer(id);
-      };
-
-      var getImageFromServer = function(name) {
-          FileService.findPatient(name)
-              .then(function(data) {  
-                  ImageService.getUrlImage(ImageService.imageToBlob(data), onloadImage);
-              })
-              .catch(function(e) {
-                  console.log(e);
-              }); 
-      };
-
-      var onloadImage = function(event) {
-          $scope.image = { source: event.target.result }
-          $scope.$apply();
-      }
-
-      var patientToSaveHandler = function(patient) {
-        patient.gender = $scope.patient.gender.selected;
-        return patient;
-      }
-
-      var patientToShowHandler = function(patient) {
-        patient.gender = $scope.genders[patient.gender];
-        patient.birthDate = moment(patient.birthDate).toDate()
-        return patient;
-      }
-
-      var goToEdit = function() {
-        $state.go('app.patient.list');
-      };
-
-      // $scope.$watchCollection('anexoFile', function(newValue, oldValue) {
-      //   if(!newValue) return;
-      //   getImage(newValue);
-      // });
-
-       	init();
+    init();
 
    }]);

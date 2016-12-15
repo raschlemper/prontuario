@@ -12,7 +12,8 @@ var PatientSchema = new Schema({
   birthDate: Date,
   age: Number,
   gender: Number,
-  emails: []
+  emails: [],
+  phones: [{ number: String, type: String }]
 });
 
 // PatientSchema.plugin(deepPopulate);
