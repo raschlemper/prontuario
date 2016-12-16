@@ -20,7 +20,7 @@
                <a><i class="fa fa-envelope-o text-center"></i><span>Contato</span></a>
             </li>
             <li ng-class="{'active-menu active': menu === 'address'}"
-               title="Endereços do Paciente" ng-click="setMenu('address')">
+               title="Endereços do Paciente" ui-sref="app.patient.edit.address({'id': patient._id})">
                <a><i class="fa fa-bookmark-o text-center"></i><span>Endereço</span></a>
             </li>
 

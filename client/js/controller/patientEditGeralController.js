@@ -9,12 +9,12 @@
    	};
 
     var getPatient = function() {
+      if(!$scope.image) { getImage(); }
       if($scope.patient) { setGeral(); }
       else {
         $scope.getPatient()
           .then(function(data) {
             setGeral();
-            getImage();
           })
           .catch(function(e) {
             console.log(e);

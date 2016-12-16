@@ -53,6 +53,11 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         url: '/contact',
         templateUrl: 'partials/app/patient/patient-edit-contact.html',
         controller: 'PatientEditContactController',
+      }) 
+      .state('app.patient.edit.address', {
+        url: '/address',
+        templateUrl: 'partials/app/patient/patient-edit-address.html',
+        controller: 'PatientEditAddressController',
       })     
       // .state('app.patient.create', {
       //   url: '/create/:menu',

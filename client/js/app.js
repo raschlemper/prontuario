@@ -12,5 +12,6 @@ var app = angular.module('Prontuario', [
   'ui.mask',
   'ui.utils.masks',
   'jlareau.pnotify',
-  'appTable'
+  'appTable',
+  'ngMask'
 ]);
