@@ -1,7 +1,7 @@
-   'use strict';
+  'use strict';
 
-   app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'FileService', 'ImageService', 'CepService', 'NotifyService',
-   function ($scope, $state, $stateParams, PatientService, FileService, ImageService, CepService, NotifyService) {
+  app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 'FileService', 'ImageService', 'CepService', 'NotifyService',
+  function ($scope, $state, $stateParams, PatientService, FileService, ImageService, CepService, NotifyService) {
 
       $scope.genders = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
     	$scope.maritalStatus = [{ id: 0, label: 'Solteiro(a)' }, { id: 1, label: 'Cadsado(a)' }, 

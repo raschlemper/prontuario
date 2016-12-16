@@ -58,7 +58,22 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         url: '/address',
         templateUrl: 'partials/app/patient/patient-edit-address.html',
         controller: 'PatientEditAddressController',
-      })     
+      })   
+      .state('app.patient.edit.family', {
+        url: '/family',
+        templateUrl: 'partials/app/patient/patient-edit-family.html',
+        controller: 'PatientEditFamilyController',
+      })    
+      .state('app.patient.edit.graduation', {
+        url: '/graduation',
+        templateUrl: 'partials/app/patient/patient-edit-graduation.html',
+        controller: 'PatientEditGraduationController',
+      })  
+      .state('app.patient.edit.professional', {
+        url: '/professional',
+        templateUrl: 'partials/app/patient/patient-edit-professional.html',
+        controller: 'PatientEditProfessionalController',
+      })  
       // .state('app.patient.create', {
       //   url: '/create/:menu',
       //   templateUrl: 'partials/app/patient/patient-edit.html',

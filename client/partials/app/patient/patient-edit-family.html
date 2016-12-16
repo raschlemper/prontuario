@@ -1,110 +1,211 @@
-<uib-tabset active="active">
-   <uib-tab index="0" heading="Composição" class="tab-130 bg-white">
-      <div class="form-group mb-lg">
-         <label>Pai</label>
-         <input type="text" class="form-control" name="nameFather" ng-model="patient.family.father.name">
-      </div>
-      <div class="form-group row mb-lg">
-         <div class="col-md-2">
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+
+    <h2><i class="fa fa-envelope-o"></i><strong>Familiar Paciente</strong></h2>
+    
+    <ul class="nav tab-menu nav-tabs" role="tablist" id="familyTab">
+      <li role="family" class="active">
+        <a no-scroll-tab href="#composition" aria-controls="composition" role="tab" data-toggle="tab">Composição</a>
+      </li>
+      <li role="family">
+        <a no-scroll-tab href="#identification" aria-controls="identification" role="tab" data-toggle="tab">Identificação</a>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="panel-body">  
+
+    <div class="tab-content" if="familyTabContent">
+
+      <div role="tabpanel" class="tab-pane active" id="composition">
+
+        <div class="form-group">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <label>Pai</label>
+            <input type="text" class="form-control" name="nameFather" ng-model="patient.family.father.name">
+          </div>
+        </div>
+
+        <div class="form-group row">
+
+          <div class="col-md-2 col-sm-2 col-xs-12">
             <label>Idade</label>
             <input type="text" class="form-control" name="ageFather" ng-model="patient.family.father.age">
-         </div>
-         <div class="col-md-4">
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <label>Escolaridade</label>
             <select class="form-control" name="schoolingFather" ng-model="patient.family.father.schooling" 
-               ng-options="schooling.label for schooling in educationLevels"></select>
-         </div>
-         <div class="col-md-6">
+                ng-options="schooling.label for schooling in educationLevels"></select>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <label>Ocupação</label>
             <input type="text" class="form-control" name="occupationFather" ng-model="patient.family.father.occupation">
-         </div>
-      </div>
-      <hr>
-      <div class="form-group mb-lg">
-         <label>Mãe</label>
-         <input type="text" class="form-control" name="nameMother" ng-model="patient.family.mother.name">
-      </div>
-      <div class="form-group row mb-lg">
-         <div class="col-md-2">
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <label>Mãe</label>
+            <input type="text" class="form-control" name="nameMother" ng-model="patient.family.mother.name">
+          </div>
+        </div>
+
+        <div class="form-group row">
+
+          <div class="col-md-2 col-sm-2 col-xs-12">
             <label>Idade</label>
             <input type="text" class="form-control" name="ageMother" ng-model="patient.family.mother.age">
-         </div>
-         <div class="col-md-4">
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <label>Escolaridade</label>
             <select class="form-control" name="schoolingMother" ng-model="patient.family.mother.schooling" 
-               ng-options="schooling.label for schooling in educationLevels"></select>
-         </div>
-         <div class="col-md-6">
+                ng-options="schooling.label for schooling in educationLevels"></select>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <label>Ocupação</label>
             <input type="text" class="form-control" name="occupationMother" ng-model="patient.family.mother.occupation">
-         </div>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="">
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th class="col-md-8">Irmão / Irmã</th>
+                  <th class="col-md-2">Idade</th>
+                  <th class="col-md-2"></th>
+                </tr>
+              </thead>  
+              <tbody>
+                <tr ng-repeat="subling in patient.family.sublings track by $index">
+                  <td class="editable">
+                    <span editable-text="subling.name" e-name="sublingName" e-form="rowform">
+                      {{ subling.name || 'empty' }}
+                    </span>
+                  </td>
+                  <td class="editable">
+                    <span editable-text="subling.age" e-name="sublingAge" e-form="rowform">
+                      {{ subling.age || 'empty' }}
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <form editable-form name="rowform" onbeforesave="editSubling($data)" ng-show="rowform.$visible" class="form-buttons form-inline">
+                      <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary btn-sm">
+                        <span class="btn-label"><i class="fa fa-check"></i></span>
+                      </button>
+                      <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default btn-sm">
+                        <span class="btn-label"><i class="fa fa-close"></i></span>
+                      </button>
+                    </form>
+
+                    <div class="buttons" ng-show="!rowform.$visible">                    
+                      <button type="button" class="btn btn-primary btn-sm" ng-click="rowform.$show()">
+                        <span class="btn-label"><i class="fa fa-pencil"></i></span>
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" ng-click="removeSubling($index)">
+                        <span class="btn-label"><i class="fa fa-trash"></i></span>
+                      </button>
+                    </div> 
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="text" class="form-control" name="nameSubling{{$index}}" ng-model="sublingNew.name"></td>
+                  <td><input type="text" class="form-control" name="ageSubling{{$index}}" ng-model="sublingNew.age"></td>
+                  <td class="text-center">
+                    <button type="button" class="btn btn-labeled btn-primary" ng-click="addSubling(sublingNew)">
+                      <span class="btn-label"><i class="fa fa-plus"></i></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+
       </div>
-      <hr>
-      <div class="form-group row mb-lg" ng-repeat="subling in patient.family.sublings track by $index">
-         <div class="col-md-10">
-            <label>Irmão / Irmã</label>
-            <input type="text" class="form-control" name="nameSubling{{$index}}" ng-model="subling.name">
-         </div>
-         <div class="col-md-2">
-            <label>Idade</label>
-            <input type="text" class="form-control" name="ageSubling{{$index}}" ng-model="subling.age">
-         </div>
-      </div>
-      <div class="form-group mb-lg">
-         <div class=" pull-right">
-            <button type="button" class="btn btn-labeled btn-primary" ng-click="addSubling()">
-               <span class="btn-label"><i class="fa fa-plus"></i></span>Adicionar
-            </button>
-         </div>
-      </div>
-      <div class="clearfix"></div>
-   </uib-tab>
-   <uib-tab index="1" heading="Identificação" class="tab-130">
-      <div class="form-group row mb-lg">
-         <div class="col-md-12">
+
+      <div role="tabpanel" class="tab-pane" id="identification">
+         
+        <div class="form-group">
+          <div class="col-md-12 col-sm-12 col-xs-12">
             <label>Estado Civil</label><br>
             <label class="radio-inline c-radio" ng-repeat="status in maritalStatus">
-               <input type="radio" name="maritalStatus" value="{{status.id}}" ng-model="patient.family.partner.maritalStatus.id">
-               <span class="fa fa-circle"></span>{{status.label}}
+              <input type="radio" name="maritalStatus" value="{{status.id}}" ng-model="patient.family.partner.maritalStatus.id">
+              <span class="fa fa-circle"></span>{{status.label}}
             </label>
-         </div>
-      </div>
-      <div class="form-group mb-lg">
-         <label>Cônjuge</label>
-         <input type="text" class="form-control" name="namePartner" ng-model="patient.family.partner.name">
-      </div>
-      <div class="form-group row mb-lg">
-         <div class="col-md-2">
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <label>Cônjuge</label>
+            <input type="text" class="form-control" name="namePartner" ng-model="patient.family.partner.name">
+          </div>
+        </div>
+
+         <div class="form-group row">
+
+          <div class="col-md-2 col-sm-2 col-xs-12">
             <label>Idade</label>
             <input type="text" class="form-control" name="agePartner" ng-model="patient.family.partner.age">
-         </div>
-         <div class="col-md-4">
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
             <label>Escolaridade</label>
             <select class="form-control" name="schoolingPartner" ng-model="patient.family.partner.schooling" 
-               ng-options="schooling.label for schooling in educationLevels"></select>
-         </div>
-         <div class="col-md-6">
+                ng-options="schooling.label for schooling in educationLevels"></select>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <label>Ocupação</label>
             <input type="text" class="form-control" name="occupationPartner" ng-model="patient.family.partner.occupation">
+          </div>
+
+        </div>
+
+         <!-- <hr>
+
+         <div class="form-group row" ng-repeat="child in patient.family.children track by $index">
+            <div class="col-md-10 col-sm-10 col-xs-12">
+               <label>Filho / Filha</label>
+               <input type="text" class="form-control" name="nameChild{{$index}}" ng-model="child.name">
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-12">
+               <label>Idade</label>
+               <input type="text" class="form-control" name="ageChild{{$index}}" ng-model="child.age">
+            </div>
          </div>
+
+         <div class="form-group">
+            <div class=" pull-right">
+               <button type="button" class="btn btn-labeled btn-primary" ng-click="addChild()">
+                  <span class="btn-label"><i class="fa fa-plus"></i></span>Adicionar
+               </button>
+            </div>
+         </div> -->
+
       </div>
-      <hr>
-      <div class="form-group row mb-lg" ng-repeat="child in patient.family.children track by $index">
-         <div class="col-md-10">
-            <label>Filho / Filha</label>
-            <input type="text" class="form-control" name="nameChild{{$index}}" ng-model="child.name">
-         </div>
-         <div class="col-md-2">
-            <label>Idade</label>
-            <input type="text" class="form-control" name="ageChild{{$index}}" ng-model="child.age">
-         </div>
-      </div>
-      <div class="form-group mb-lg">
-         <div class=" pull-right">
-            <button type="button" class="btn btn-labeled btn-primary" ng-click="addChild()">
-               <span class="btn-label"><i class="fa fa-plus"></i></span>Adicionar
-            </button>
-         </div>
-      </div>
-   </uib-tab>
-</uib-tabset>
+
+    </div>
+
+  </div>
+
+</div>

@@ -44,7 +44,7 @@
     "componentes": "raschlemper/componentes",
     "angular-ui-mask": "^1.8.7",
     "angular-input-masks": "^2.4.0",
-    "angular-xeditable": "^0.2.0",
+    "angular-xeditable": "^0.5.0",
     "iCheck": "icheck#^1.0.2",
     "moment": "^2.15.1",
     "angular-pnotify": "^0.1.2",
