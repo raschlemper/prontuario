@@ -1,11 +1,11 @@
 'use strict';
 
-app.controller('PatientCreateController', ['$scope', '$uibModalInstance', 'PatientService', 'NotifyService',
-  function ($scope, $uibModalInstance, PatientService, NotifyService) {
+app.controller('PatientCreateController', ['$scope', '$uibModalInstance', 'PatientService', 'PatientHandler',
+  'NotifyService',
+  function ($scope, $uibModalInstance, PatientService, PatientHandler, NotifyService) {
 	
-  $scope.genders = [{ id: 0, label: 'Masculino' }, { id: 1, label: 'Feminino' }];
-
   var init = function() {
+    $scope.patient = PatientHandler.create();
   };
 
   $scope.save = function(patient) {  
@@ -25,9 +25,8 @@ app.controller('PatientCreateController', ['$scope', '$uibModalInstance', 'Patie
   };
 
   var patientToSaveHandler = function(patient) {
-    patient.gender = $scope.patient.gender.selected;
-    return patient;
-  }
+    return PatientHandler.to(patient);;
+  };
 
   $scope.ok = function(pacient) {
     $uibModalInstance.close(pacient);

@@ -2,7 +2,7 @@
 
 app.factory('AddressHandler', [ function() {
 
-	var patient = {
+	var address = {
 		zipCode: null,
 		city: null,
 		state: null,
@@ -13,31 +13,36 @@ app.factory('AddressHandler', [ function() {
 		district: null
 	}
 
+	var create = function() {
+		return address;
+	}
+
 	var to = function(addressTo) {
-		patient.zipCode = addressTo.zipCode;
-		patient.city = addressTo.city;
-		patient.state = addressTo.state;
-		patient.country = addressTo.country;
-		patient.street = addressTo.street;
-		patient.number = addressTo.number;
-		patient.complement = addressTo.complement;
-		patient.district = addressTo.district;
-		return patient;
+		address.zipCode = addressTo.zipCode;
+		address.city = addressTo.city;
+		address.state = addressTo.state;
+		address.country = addressTo.country;
+		address.street = addressTo.street;
+		address.number = addressTo.number;
+		address.complement = addressTo.complement;
+		address.district = addressTo.district;
+		return address;
 	}
 
 	var from = function(addressFrom) {
-		patient.zipCode = addressFrom.zipCode;
-		patient.city = addressFrom.city;
-		patient.state = addressFrom.state;
-		patient.country = addressFrom.country;
-		patient.street = addressFrom.street;
-		patient.number = addressFrom.number;
-		patient.complement = addressFrom.complement;
-		patient.district = addressFrom.district;
-		return patient;
+		address.zipCode = addressFrom.zipCode;
+		address.city = addressFrom.city;
+		address.state = addressFrom.state;
+		address.country = addressFrom.country;
+		address.street = addressFrom.street;
+		address.number = addressFrom.number;
+		address.complement = addressFrom.complement;
+		address.district = addressFrom.district;
+		return address;
 	}
 
 	return {
+		create: create,
 		to: to,
 		from: from
 	}

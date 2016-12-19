@@ -2,24 +2,30 @@
 
 app.factory('PhoneHandler', [ function() {
 
-	var patient = {
+	var phone = {
 		number: null,
-  		type: null
+  	type: null
+	}
+
+	var create = function(type) {		
+    phone.type = type;
+		return phone;
 	}
 
 	var to = function(phoneTo) {
-		patient.number = phoneTo.number;
-		patient.type = phoneTo.type;
-		return patient;
+		phone.number = phoneTo.number;
+		phone.type = phoneTo.type;
+		return phone;
 	}
 
 	var from = function(phoneFrom) {
-		patient.number = phoneFrom.number;
-		patient.type = phoneFrom.type;
-		return patient;
+		phone.number = phoneFrom.number;
+		phone.type = phoneFrom.type;
+		return phone;
 	}
 
 	return {
+		create: create,
 		to: to,
 		from: from
 	}

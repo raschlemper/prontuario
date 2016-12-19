@@ -2,37 +2,15 @@
 
 var mongoose = require('mongoose');
 var Promise = require("bluebird");
+var PhoneSchema = require("./phoneSchema");
+var AddressSchema = require("./addressSchema");
+var FamilySchema = require("./familySchema");
+var GraduationSchema = require("./graduationSchema");
+var ProfessionalSchema = require("./professionalSchema");
 // var deepPopulate = require('mongoose-deep-populate');
 
 Promise.promisifyAll(mongoose);
 var Schema = mongoose.Schema;
-
-// TODO: Criar um modal para cada schema
-
-var PhoneSchema = new Schema({
-	number: String, 
-	type: String
-});
-
-var AddressSchema = new Schema({
-	zipCode: Number,
-	city: String,
-	state: String,
-	country: String,
-	street: String,
-	number: String,
-	complement: String,
-	district: String
-});
-
-var FamilySchema = new Schema({
-	name: String, 
-  age: Number, 
-  schooling: Number, 
-  maritalStatus: Number,
-  occupation: String,
-  type: String 
-});
 
 var PatientSchema = new Schema({
   name: String,
@@ -44,8 +22,14 @@ var PatientSchema = new Schema({
   address: [ AddressSchema ],
   family: {
   	father: FamilySchema,
-  	mother: FamilySchema
-  }
+  	mother: FamilySchema,
+    partner: FamilySchema,
+    sublings: [ FamilySchema ],
+    children: [ FamilySchema ]
+  },
+  graduations: [ GraduationSchema ],
+  professionals: [ ProfessionalSchema ]
+
 });
 
 // PatientSchema.plugin(deepPopulate);

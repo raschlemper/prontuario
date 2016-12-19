@@ -9,7 +9,20 @@ app.controller('PatientEditAddressController', ['$scope', 'CepService',
  	};
 
   var getPatient = function() {
-    $scope.getPatient();
+    if($scope.patient) { setAddress(); }
+    else {
+      $scope.getPatient()
+        .then(function(data) {
+          setAddress();
+        })
+        .catch(function(e) {
+          console.log(e);
+        }); 
+    }   
+  };
+
+  var setAddress = function() {
+    $scope.patient.address = $scope.patient.address || addAddress(null);
   };
 
   $scope.searchZipCode = function(zipCode) {
@@ -24,19 +37,23 @@ app.controller('PatientEditAddressController', ['$scope', 'CepService',
 
   var setZipCode = function(zipCode) {
     if(zipCode) {
-      $scope.patient.address[0].zipCode = zipCode.cep;
-      $scope.patient.address[0].city = zipCode.cidade;
-      $scope.patient.address[0].state = zipCode.estado;
-      $scope.patient.address[0].street = zipCode.logradouro;
-      $scope.patient.address[0].district = zipCode.bairro;
+      var address = {};
+      address.zipCode = zipCode.cep;
+      address.city = zipCode.cidade;
+      address.state = zipCode.estado;
+      address.street = zipCode.logradouro;
+      address.district = zipCode.bairro;
+      addAddress(address)
     } else {
-      $scope.patient.address[0].zipCode = '';
-      $scope.patient.address[0].city = '';
-      $scope.patient.address[0].state = '';
-      $scope.patient.address[0].street = '';
-      $scope.patient.address[0].district = '';        
+      addAddress(null);        
     }
     $scope.patient.address[0].country = 'Brasil';
+  };
+
+  var addAddress = function(address) {
+    if(!address) { address = AddressHandler.create(); }
+    $scope.patient.address = [];
+    $scope.patient.address.push(address);
   };
 
   init();

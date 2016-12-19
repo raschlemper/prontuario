@@ -20,10 +20,9 @@ app.controller('PatientEditGeralController', ['$scope', '$stateParams', 'FileSer
           console.log(e);
         });    
     }
-  }
+  };
 
   var setGeral = function() {
-    $scope.patient.gender = $scope.patient.gender || angular.copy($scope.genders[0]); 
     $scope.patient.gender.selected = $scope.patient.gender.id;      
   };
 
@@ -62,7 +61,7 @@ app.controller('PatientEditGeralController', ['$scope', '$stateParams', 'FileSer
   var onloadImage = function(event) {
     $scope.image = { source: event.target.result }
     $scope.$apply();
-  }
+  };
 
   init();
 

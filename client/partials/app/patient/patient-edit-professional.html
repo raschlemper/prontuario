@@ -1,19 +1,37 @@
-<fieldset>
-   <legend>Ocupação</legend> 
-   <div class="form-group mb-lg">
-      <label>Profissão</label>
-      <input type="text" class="form-control" name="profession" ng-model="patient.professional.profession">
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h2><i class="fa fa-envelope-o"></i><strong>Escolaridade Paciente</strong></h2>
+  </div>
+
+  <div class="panel-body">       
+
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12"> 
+         <label>Profissão</label>
+         <input type="text" class="form-control" name="profession" ng-model="patient.professional[0].profession">
+      </div>
    </div>
-   <div class="form-group mb-lg">
-      <label>Empresa</label>
-      <input type="text" class="form-control" name="company" ng-model="patient.professional.company">
+
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+         <label>Empresa</label>
+         <input type="text" class="form-control" name="company" ng-model="patient.professional[0].company">
+      </div>
    </div>
-   <div class="form-group mb-lg">
-      <label>Data inicio</label>
-      <input type="text" class="form-control" name="dateStart" ng-model="patient.professional.dateStart">
+
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+         <label>Data inicio</label>
+         <input type="text" class="form-control" name="dateStart" ng-model="patient.professional[0].dateStart">
+      </div>
    </div>
-   <div class="form-group mb-lg">
-      <label>Último emprego</label>
-      <input type="text" class="form-control" name="lastJob" ng-model="patient.professional.lastJob">
+
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+         <label>Último emprego</label>
+         <input type="text" class="form-control" name="lastJob" ng-model="patient.professional[0].lastJob">
+      </div>
    </div>
-</fieldset>
+   
+</div>

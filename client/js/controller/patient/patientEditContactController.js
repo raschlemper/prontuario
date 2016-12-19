@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('PatientEditContactController', ['$scope',
-  function ($scope) {
+app.controller('PatientEditContactController', ['$scope', 'PhoneHandler',
+  function ($scope, PhoneHandler) {
 
   var init = function () {
     $scope.setBreadcrumb('patientContact');
@@ -22,28 +22,21 @@ app.controller('PatientEditContactController', ['$scope',
   }
 
   var setContact = function() {
-    addEmail();
-    addPhone();
+    $scope.patient.emails = $scope.patient.emails || addEmail();
+    $scope.patient.phones = $scope.patient.phones || addPhone();
   };
 
   var addEmail = function() {
-    if($scope.patient.emails && $scope.patient.emails.length) return;
-    $scope.patient.emails[0] = $scope.patient.emails[0] || null;
-    $scope.patient.emails[1] = $scope.patient.emails[1] || null;
+    $scope.patient.emails = [];
+    $scope.patient.emails[0] = null;
+    $scope.patient.emails[1] = null;
   };
 
   var addPhone = function() {
-    if($scope.patient.phones && $scope.patient.phones.length) return;
-    $scope.patient.phones[0] = createPhone('telephone');
-    $scope.patient.phones[1] = createPhone('celular');
-    $scope.patient.phones[2] = createPhone('celular');
-  };
-
-  var createPhone = function(type) {
-    return { 
-      'number': null,
-      'type': type 
-    };
+    $scope.patient.phones = [];
+    $scope.patient.phones[0] = PhoneHandler.create('telephone');
+    $scope.patient.phones[1] = PhoneHandler.create('celular');
+    $scope.patient.phones[2] = PhoneHandler.create('celular');
   };
 
   init();

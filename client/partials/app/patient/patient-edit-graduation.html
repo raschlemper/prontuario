@@ -1,15 +1,32 @@
-<fieldset>
-   <legend>Escolaridade</legend> 
-   <div class="form-group mb-lg">
-      <label>Ensino Fundamental</label>
-      <input type="text" class="form-control" name="elementarySchool" ng-model="patient.graduation.elementarySchool">
-   </div>
-   <div class="form-group mb-lg">
-      <label>Ensino Médio</label>
-      <input type="text" class="form-control" name="highSchool" ng-model="patient.graduation.highSchool">
-   </div>
-   <div class="form-group mb-lg">
-      <label>Ensino Superior</label>
-      <input type="text" class="form-control" name="undergraduate" ng-model="patient.graduation.undergraduate">
-   </div>
-</fieldset>
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <h2><i class="fa fa-envelope-o"></i><strong>Escolaridade Paciente</strong></h2>
+  </div>
+
+  <div class="panel-body">         
+
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12"> 
+        <label>Ensino Fundamental</label>
+        <input type="text" class="form-control" name="elementarySchool" ng-model="patient.graduation[0].school">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12"> 
+        <label>Ensino Médio</label>
+        <input type="text" class="form-control" name="highSchool" ng-model="patient.graduation[1].school">
+      </div>
+    </div>         
+
+    <div class="form-group">
+      <div class="col-md-12 col-sm-12 col-xs-12"> 
+        <label>Ensino Superior</label>
+        <input type="text" class="form-control" name="undergraduate" ng-model="patient.graduation[2].school">
+      </div>
+    </div>
+
+  </div>
+
+</div>
