@@ -37,6 +37,7 @@ module.exports = (function () {
 
   var update = function (req, res, next) {
     var patient = new Patient(req.body);
+    console.log(patient);
     patientService.update(req.params.id, patient)
       .then(function (data) {
         res.send(patient);

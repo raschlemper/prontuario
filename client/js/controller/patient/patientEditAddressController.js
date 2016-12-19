@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('PatientEditAddressController', ['$scope',
-  function ($scope) {
+app.controller('PatientEditAddressController', ['$scope', 'CepService',
+  function ($scope, CepService) {
 
   var init = function () {
     $scope.setBreadcrumb('patientAddress');
@@ -36,6 +36,7 @@ app.controller('PatientEditAddressController', ['$scope',
       $scope.patient.address[0].street = '';
       $scope.patient.address[0].district = '';        
     }
+    $scope.patient.address[0].country = 'Brasil';
   };
 
   init();

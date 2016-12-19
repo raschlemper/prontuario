@@ -23,34 +23,16 @@ app.controller('PatientEditFamilyController', ['$scope',
 
   var setFamily = function() {
     $scope.patient.family = $scope.patient.family || {};
+    $scope.patient.family.father = $scope.patient.family.father || createFamily('father');    
+    $scope.patient.family.mother = $scope.patient.family.mother || createFamily('mother');  
+    $scope.patient.family.partner = $scope.patient.family.partner || createFamily('partner');
     $scope.patient.family.sublings = $scope.patient.family.sublings || [];
     $scope.patient.family.children = $scope.patient.family.children || [];
-    addFather();
-    addMother();
-    addPartner();
-  };
-
-  var addFather = function() {
-    if(!$scope.patient.family.father) return;
-    $scope.patient.family.father = 
-        createFamily('father', angular.copy($scope.educationLevels[0]), null);
-  };
-
-  var addMother = function() {
-    if(!$scope.patient.family.mother) return;
-    $scope.patient.family.mother = 
-        createFamily('mother', angular.copy($scope.educationLevels[0]), null);
-  };
-
-  var addPartner = function() {
-    if(!$scope.patient.family.partner) return;
-    $scope.patient.family.partner = 
-        createFamily('partner', angular.copy($scope.educationLevels[0]), angular.copy($scope.maritalStatus[0]));
   };
 
   $scope.addSubling = function(sublingNew) {
     if(!sublingNew || !sublingNew.name || !sublingNew.age) return;
-    var subling = createFamily('subling', null, null);
+    var subling = createFamily('subling');
     subling.name = sublingNew.name;
     subling.age = sublingNew.age;
     $scope.sublingNew = {};
@@ -75,12 +57,12 @@ app.controller('PatientEditFamilyController', ['$scope',
     $scope.patient.family.children.push(child);
   };
 
-  var createFamily = function(type, schooling, maritalStatus) {
+  var createFamily = function(type) {
     return { 
       'name': null, 
       'age': null, 
-      'schooling': schooling, 
-      'maritalStatus': maritalStatus,
+      'schooling': angular.copy($scope.educationLevels[0]), 
+      'maritalStatus': angular.copy($scope.maritalStatus[0]),
       'type': type 
     };
   };
