@@ -17,4 +17,5 @@ var AddressSchema = new Schema({
 	district: String
 });
 
-module.exports = mongoose.model('Address', AddressSchema);
+module.exports = AddressSchema;
+// module.exports = mongoose.model('Address', AddressSchema);

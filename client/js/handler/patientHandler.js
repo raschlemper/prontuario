@@ -5,25 +5,24 @@ app.factory('PatientHandler', [ 'PhoneHandler', 'AddressHandler', 'FamilyHandler
 	function(PhoneHandler, AddressHandler, FamilyHandler, GraduationHandler, ProfessionalHandler, LISTS) {
 
 	var genders = LISTS.genders;
-  
-	var patient = {
-		name: null,
-		birthDate: null,
-		age: null,
-		gender: getGender() || null,
-		emails: getEmails() || [],
-		phones: getPhones() || [],
-		address: getAddress() || [],
-		family: getFamily() || {},
-		graduations: getGraduations() || [],
-		professionals: getProfessionals() || []
-	}
 
 	var create = function() {
-		return patient;
+		return {
+			name: null,
+			birthDate: null,
+			age: null,
+			gender: getGender() || null,
+			emails: getEmails() || [],
+			phones: getPhones() || [],
+			address: getAddress() || [],
+			family: getFamily() || {},
+			graduations: getGraduations() || [],
+			professionals: getProfessionals() || []
+		};
 	}
 
 	var to = function(patientTo) {
+		var patient = create();
 		patient.name = patientTo.name;
 		patient.birthDate = patientTo.birthDate;
 		patient.age = patientTo.age;
@@ -36,6 +35,7 @@ app.factory('PatientHandler', [ 'PhoneHandler', 'AddressHandler', 'FamilyHandler
 	}
 
 	var from = function(patientFrom) {
+		var patient = create();
 		patient.name = patientFrom.name;
 		patient.birthDate = patientFrom.birthDate;
 		patient.age = patientFrom.age;
@@ -74,9 +74,9 @@ app.factory('PatientHandler', [ 'PhoneHandler', 'AddressHandler', 'FamilyHandler
 
 	var getFamily = function() {
 		var family = {};
-		family.father = FamilyHandler.create('father'));
-		family.mother = FamilyHandler.create('mother'));
-		family.partner = FamilyHandler.create('partner'));
+		family.father = FamilyHandler.create('father');
+		family.mother = FamilyHandler.create('mother');
+		family.partner = FamilyHandler.create('partner');
 		family.sublings = [];
 		family.children = [];
 		return family;

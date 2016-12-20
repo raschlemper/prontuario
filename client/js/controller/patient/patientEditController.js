@@ -1,8 +1,8 @@
 'use strict';
 
 app.controller('PatientEditController', ['$scope', '$state', '$stateParams', 'PatientService', 
-  'FileService', 'NotifyService', 'LISTS',
-  function ($scope, $state, $stateParams, PatientService, FileService, NotifyService, LISTS) {
+  'FileService', 'PatientHandler', 'NotifyService', 'LISTS',
+  function ($scope, $state, $stateParams, PatientService, FileService, PatientHandler, NotifyService, LISTS) {
 
   $scope.genders = LISTS.genders;
   $scope.maritalStatus = LISTS.maritalStatus;

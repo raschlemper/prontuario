@@ -11,4 +11,5 @@ var GraduationSchema = new Schema({
   type: String 
 });
 
-module.exports = mongoose.model('Graduation', GraduationSchema);
+module.exports = GraduationSchema;
+// module.exports = mongoose.model('Graduation', GraduationSchema);

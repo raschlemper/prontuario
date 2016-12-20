@@ -11,4 +11,5 @@ var PhoneSchema = new Schema({
 	type: String
 });
 
-module.exports = mongoose.model('Phone', PhoneSchema);
+module.exports = PhoneSchema;
+//module.exports = mongoose.model('Phone', PhoneSchema);

@@ -5,21 +5,19 @@ app.factory('FamilyHandler', [ 'LISTS', function(LISTS) {
   var maritalStatus = LISTS.maritalStatus;
   var educationLevels = LISTS.educationLevels;
 
-	var family = {
-		name: null, 
-		age: null, 
-		schooling: null, 
-		maritalStatus: null,
-		occupation: null,
-		type: null 
-	};
-
 	var create = function(type) {		
-    family.type = type;
-		return family;
+		return {
+			name: null, 
+			age: null, 
+			schooling: null, 
+			maritalStatus: null,
+			occupation: null,
+			type: type || null 
+		};
 	};
 
 	var to = function(familyTo) {
+		var family = create();
 		family.name = familyTo.name;
 		family.age = familyTo.age;
 		family.schooling = familyTo.schooling && familyTo.schooling.id;
@@ -30,6 +28,7 @@ app.factory('FamilyHandler', [ 'LISTS', function(LISTS) {
 	};
 
 	var from = function(familyFrom) {
+		var family = create();
 		family.name = familyFrom.name;
 		family.age = familyFrom.age;
 		family.schooling = educationLevels[familyFrom.schooling];

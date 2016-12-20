@@ -2,18 +2,17 @@
 
 app.factory('ProfessionalHandler', [ function() {
 
-	var professional = {
-		profession: null,
-		company: null,
-		dateStart: null,
-		lastJob: null
-	};
-
 	var create = function() {
-		return professional;
+		return {
+			profession: null,
+			company: null,
+			dateStart: null,
+			lastJob: null
+		};
 	};
 
 	var to = function(professionalTo) {
+		var professional = create();
 		professional.profession = professionalTo.profession;
 		professional.company = professionalTo.company;
 		professional.dateStart = professionalTo.dateStart;
@@ -22,6 +21,7 @@ app.factory('ProfessionalHandler', [ function() {
 	};
 
 	var from = function(professionalFrom) {
+		var professional = create();
 		professional.zipCode = professionalFrom.profession;
 		professional.city = professionalFrom.company;
 		professional.state = professionalFrom.dateStart;

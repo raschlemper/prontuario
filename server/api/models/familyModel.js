@@ -15,4 +15,5 @@ var FamilySchema = new Schema({
   type: String 
 });
 
-module.exports = mongoose.model('Family', FamilySchema);
+module.exports = FamilySchema;
+// module.exports = mongoose.model('Family', FamilySchema);

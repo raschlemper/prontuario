@@ -13,4 +13,5 @@ var ProfessionalSchema = new Schema({
   lastJob: String 
 });
 
-module.exports = mongoose.model('Professional', ProfessionalSchema);
+module.exports = ProfessionalSchema;
+// module.exports = mongoose.model('Professional', ProfessionalSchema);

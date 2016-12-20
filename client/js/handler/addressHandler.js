@@ -2,22 +2,21 @@
 
 app.factory('AddressHandler', [ function() {
 
-	var address = {
-		zipCode: null,
-		city: null,
-		state: null,
-		country: null,
-		street: null,
-		number: null,
-		complement: null,
-		district: null
-	}
-
 	var create = function() {
-		return address;
+		return {
+			zipCode: null,
+			city: null,
+			state: null,
+			country: null,
+			street: null,
+			number: null,
+			complement: null,
+			district: null
+		};
 	}
 
 	var to = function(addressTo) {
+		var address = create();
 		address.zipCode = addressTo.zipCode;
 		address.city = addressTo.city;
 		address.state = addressTo.state;
@@ -30,6 +29,7 @@ app.factory('AddressHandler', [ function() {
 	}
 
 	var from = function(addressFrom) {
+		var address = create();
 		address.zipCode = addressFrom.zipCode;
 		address.city = addressFrom.city;
 		address.state = addressFrom.state;
