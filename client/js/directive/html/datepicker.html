@@ -9,5 +9,7 @@
        close-text="{{datepicker.close}}"
        placeholder="{{placeholder}}"
        ng-blur="events.onblur()"
-       ng-model-options="{debounce: {'blur': 0}}"/>
+       ng-model-options="{debounce: {'blur': 0}}"
+       model-view-value="true"
+       ui-mask="99/99/9999"/>
 <span class="input-group-addon" ng-click="datepicker.open($event)"><i class="fa fa-calendar"></i></span>

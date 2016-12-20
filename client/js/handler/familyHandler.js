@@ -18,6 +18,7 @@ app.factory('FamilyHandler', [ 'LISTS', function(LISTS) {
 
 	var to = function(familyTo) {
 		var family = create();
+		if(!familyTo) return family;
 		family.name = familyTo.name;
 		family.age = familyTo.age;
 		family.schooling = familyTo.schooling && familyTo.schooling.id;
@@ -29,6 +30,7 @@ app.factory('FamilyHandler', [ 'LISTS', function(LISTS) {
 
 	var from = function(familyFrom) {
 		var family = create();
+		if(!familyFrom) return family;
 		family.name = familyFrom.name;
 		family.age = familyFrom.age;
 		family.schooling = educationLevels[familyFrom.schooling];

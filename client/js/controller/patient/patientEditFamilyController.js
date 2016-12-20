@@ -21,7 +21,7 @@ app.controller('PatientEditFamilyController', ['$scope', 'FamilyHandler', 'Notif
     }   
   };
 
-  var setFamily = function() {
+  var setFamily = function() {  
     $scope.patient.family = $scope.patient.family || {};
     $scope.patient.family.father = $scope.patient.family.father || FamilyHandler.create('father');    
     $scope.patient.family.mother = $scope.patient.family.mother || FamilyHandler.create('mother');  
@@ -42,12 +42,12 @@ app.controller('PatientEditFamilyController', ['$scope', 'FamilyHandler', 'Notif
   };
 
   // TODO: Verificar se existe a necessidade de usar o edit
-  $scope.editSubling = function(index, sublingEdit) {
-    if(!validateSubling(sublingEdit)) return;
-    var subling = $scope.patient.family.sublings[index];
-    subling.name = sublingEdit.name;
-    subling.age = sublingEdit.age;
-  };
+  // $scope.editSubling = function(index, sublingEdit) {
+  //   if(!validateSubling(sublingEdit)) return;
+  //   var subling = $scope.patient.family.sublings[index];
+  //   subling.name = sublingEdit.name;
+  //   subling.age = sublingEdit.age;
+  // };
 
   $scope.removeSubling = function(index) {
     if(!index) return;    
@@ -73,7 +73,7 @@ app.controller('PatientEditFamilyController', ['$scope', 'FamilyHandler', 'Notif
   // CHILDREN /////
 
   $scope.addChild = function(childNew) {
-    if(!validateChild(sublingNew)) return;
+    if(!validateChild(childNew)) return;
     var child = FamilyHandler.create('subling');
     child.name = childNew.name;
     child.age = childNew.age;
@@ -82,12 +82,12 @@ app.controller('PatientEditFamilyController', ['$scope', 'FamilyHandler', 'Notif
   };
 
   // TODO: Verificar se existe a necessidade de usar o edit
-  $scope.editChild = function(index, sublingEdit) {
-    if(!validateSubling(sublingEdit)) return;
-    var subling = $scope.patient.family.children[index];
-    subling.name = sublingEdit.name;
-    subling.age = sublingEdit.age;
-  };
+  // $scope.editChild = function(index, childEdit) {
+  //   if(!validateChild(childEdit)) return;
+  //   var child = $scope.patient.family.children[index];
+  //   child.name = childEdit.name;
+  //   child.age = childEdit.age;
+  // };
 
   $scope.removeChild = function(index) {
     if(!index) return;    

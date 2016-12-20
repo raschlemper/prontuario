@@ -13,6 +13,7 @@ app.factory('ProfessionalHandler', [ function() {
 
 	var to = function(professionalTo) {
 		var professional = create();
+		if(!professionalTo) return professional;
 		professional.profession = professionalTo.profession;
 		professional.company = professionalTo.company;
 		professional.dateStart = professionalTo.dateStart;
@@ -22,10 +23,11 @@ app.factory('ProfessionalHandler', [ function() {
 
 	var from = function(professionalFrom) {
 		var professional = create();
-		professional.zipCode = professionalFrom.profession;
-		professional.city = professionalFrom.company;
-		professional.state = professionalFrom.dateStart;
-		professional.country = professionalFrom.lastJob;
+		if(!professionalFrom) return professional;
+		professional.profession = professionalFrom.profession;
+		professional.company = professionalFrom.company;
+		professional.dateStart = moment(professionalFrom.dateStart).toDate();
+		professional.lastJob = professionalFrom.lastJob;
 		return professional;
 	};
 

@@ -16,7 +16,7 @@ app.constant('LISTS', {
               'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
 
   "maritalStatus": [{ id: 0, label: 'Solteiro(a)' }, 
-                    { id: 1, label: 'Cadsado(a)' }, 
+                    { id: 1, label: 'Casado(a)' }, 
                     { id: 2, label: 'Divorciado(a)' }, 
                     { id: 3, label: 'Viúvo(a)' }]
 

@@ -46,7 +46,7 @@
             <label>Sexo</label>
             <br/>
             <label class="radio-inline" ng-repeat="gender in genders">
-              <input type="radio" name="gender" value="{{gender.id}}" ng-model="patient.gender.selected"/>
+              <input type="radio" name="gender" value="{{gender.id}}" ng-model="patient.gender.id"/>
               <span>{{gender.label}}</span>
             </label>
           </div>

@@ -11,6 +11,7 @@ app.factory('GraduationHandler', [ function() {
 
 	var to = function(graduationTo) {
 		var graduation = create();
+		if(!graduationTo) return graduation;
 		graduation.school = graduationTo.school;
 		graduation.type = graduationTo.type;
 		return graduation;
@@ -18,6 +19,7 @@ app.factory('GraduationHandler', [ function() {
 
 	var from = function(graduationFrom) {
 		var graduation = create();
+		if(!graduationFrom) return graduation;
 		graduation.school = graduationFrom.school;
 		graduation.type = graduationFrom.type;
 		return graduation;

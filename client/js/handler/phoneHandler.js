@@ -11,6 +11,7 @@ app.factory('PhoneHandler', [ function() {
 
 	var to = function(phoneTo) {
 		var phone = create();
+		if(!phoneTo) return phone;
 		phone.number = phoneTo.number;
 		phone.type = phoneTo.type;
 		return phone;
@@ -18,6 +19,7 @@ app.factory('PhoneHandler', [ function() {
 
 	var from = function(phoneFrom) {
 		var phone = create();
+		if(!phoneFrom) return phone;
 		phone.number = phoneFrom.number;
 		phone.type = phoneFrom.type;
 		return phone;

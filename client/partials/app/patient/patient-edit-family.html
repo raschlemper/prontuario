@@ -2,7 +2,7 @@
 
   <div class="panel-heading">
 
-    <h2><i class="fa fa-envelope-o"></i><strong>Familiar Paciente</strong></h2>
+    <h2><i class="fa fa-circle-o-notch"></i><strong>Familiar Paciente</strong></h2>
     
     <ul class="nav tab-menu nav-tabs" role="tablist" id="familyTab">
       <li role="family" class="active">
@@ -103,7 +103,7 @@
                     </span>
                   </td>
                   <td class="text-center">
-                    <form editable-form name="rowform" onbeforesave="editSubling($index, $data)" ng-show="rowform.$visible" class="form-buttons form-inline">
+                    <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline">
                       <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary btn-sm">
                         <span class="btn-label"><i class="fa fa-check"></i></span>
                       </button>
@@ -148,7 +148,7 @@
             <label>Estado Civil</label>
             <br/>
             <label class="radio-inline" ng-repeat="status in maritalStatus">
-              <input type="radio" name="maritalStatus" value="{{status.id}}" ng-model="patient.family.partner.maritalStatus.id">
+              <input type="radio" name="maritalStatus" value="{{status.id}}" ng-model="patient.maritalStatus.id">
               <span>{{status.label}}</span>
             </label>
           </div>
@@ -207,7 +207,7 @@
                     </span>
                   </td>
                   <td class="text-center">
-                    <form editable-form name="rowform" onbeforesave="editChild($index, $data)" ng-show="rowform.$visible" class="form-buttons form-inline">
+                    <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline">
                       <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary btn-sm">
                         <span class="btn-label"><i class="fa fa-check"></i></span>
                       </button>

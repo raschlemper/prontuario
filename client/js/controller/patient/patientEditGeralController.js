@@ -22,8 +22,7 @@ app.controller('PatientEditGeralController', ['$scope', '$stateParams', 'FileSer
     }
   };
 
-  var setGeral = function() {
-    $scope.patient.gender.selected = $scope.patient.gender.id;      
+  var setGeral = function() {    
   };
 
   $scope.openImageSelect = function(event) {

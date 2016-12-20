@@ -17,6 +17,7 @@ app.factory('AddressHandler', [ function() {
 
 	var to = function(addressTo) {
 		var address = create();
+		if(!addressTo) return address;
 		address.zipCode = addressTo.zipCode;
 		address.city = addressTo.city;
 		address.state = addressTo.state;
@@ -30,6 +31,7 @@ app.factory('AddressHandler', [ function() {
 
 	var from = function(addressFrom) {
 		var address = create();
+		if(!addressFrom) return address;
 		address.zipCode = addressFrom.zipCode;
 		address.city = addressFrom.city;
 		address.state = addressFrom.state;

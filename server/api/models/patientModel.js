@@ -20,6 +20,7 @@ var PatientSchema = new Schema({
   birthDate: Date,
   age: Number,
   gender: Number,
+  maritalStatus: Number,
   emails: [],
   phones: [ PhoneSchema ],
   address: [ AddressSchema ],
