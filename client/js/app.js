@@ -12,6 +12,7 @@ var app = angular.module('Prontuario', [
   'ui.mask',
   'ui.utils.masks',
   'ngMask',
+  'mwl.calendar',
   'jlareau.pnotify',
   'xeditable',
   'appTable'

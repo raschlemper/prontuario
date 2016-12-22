@@ -1,0 +1,73 @@
+<div class=" col-md-12 col-sm-12 main">
+
+  <toolbar title="Pacientes" subtitle="" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+
+      <div class="col-md-8 col-sm-8 col-xs-12">
+        <h2><i class="fa fa-list"></i>Todos os Pacientes cadastrados no sistema</h2>
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-xs-12 text-right">
+        <div class="btn-group">
+          <button class="btn btn-primary" ng-model="calendarView" uib-btn-radio="'year'" ng-click="cellIsOpen = false">Year</button>
+          <button class="btn btn-primary" ng-model="calendarView" uib-btn-radio="'month'" ng-click="cellIsOpen = false">Month</button>
+          <button class="btn btn-primary" ng-model="calendarView" uib-btn-radio="'week'" ng-click="cellIsOpen = false">Week</button>
+          <button class="btn btn-primary" ng-model="calendarView" uib-btn-radio="'day'" ng-click="cellIsOpen = false">Day</button>
+          <!-- <button
+            class="btn btn-primary"
+            mwl-date-modifier
+            date="viewDate"
+            decrement="calendarView"
+            ng-click="cellIsOpen = false">
+            Previous
+          </button>
+          <button
+            class="btn btn-default"
+            mwl-date-modifier
+            date="viewDate"
+            set-to-today
+            ng-click="cellIsOpen = false">
+            Today
+          </button>
+          <button
+            class="btn btn-primary"
+            mwl-date-modifier
+            date="viewDate"
+            increment="calendarView"
+            ng-click="cellIsOpen = false">
+            Next
+          </button> -->
+        </div>
+      </div>
+
+      <!-- <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Digite o nome do paciente" ng-model="name" ng-change="searchBy(letterSelected, name)">
+          <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+          </span>
+        </div>
+      </div> -->
+
+    </div>
+
+    <div class="panel-body">
+
+      <mwl-calendar
+        view="calendarView"
+        view-date="viewDate"
+        events="events"
+        view-title="calendarTitle"
+        on-event-click="eventClicked(calendarEvent)"
+        on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+        cell-is-open="true">
+      </mwl-calendar>
+
+    <div class="clearfix"></div>
+
+  </div>
+
+</div>

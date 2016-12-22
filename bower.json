@@ -48,6 +48,7 @@
     "iCheck": "icheck#^1.0.2",
     "moment": "^2.15.1",
     "angular-pnotify": "^0.1.2",
-    "ngMask": "angular-mask#^3.1.1"
+    "ngMask": "angular-mask#^3.1.1",
+    "angular-bootstrap-calendar": "^0.27.4"
   }
 }

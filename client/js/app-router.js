@@ -74,18 +74,16 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         templateUrl: 'partials/app/patient/patient-edit-professional.html',
         controller: 'PatientEditProfessionalController',
       })  
-      // .state('app.patient.create', {
-      //   url: '/create/:menu',
-      //   templateUrl: 'partials/app/patient/patient-edit.html',
-      //   controller: 'PatientEditController',
-      //   params: { patient: null }
-      // })
-      // .state('app.patient.edit', {
-      //   url: '/edit/:menu/:id',
-      //   templateUrl: 'partials/app/patient/patient-edit.html',
-      //   controller: 'PatientEditController',
-      //   params: { patient: null }
-      // }) 
+      .state('app.calendar', {
+        abstract: true,
+        url: '/calendar',
+        template: '<div ui-view></div>'
+      }) 
+      .state('app.calendar.list', {
+        url: '/',
+        templateUrl: 'partials/app/calendar/calendar.html',
+        controller: 'CalendarController'
+      }) 
 
       /*
        * Authentication
