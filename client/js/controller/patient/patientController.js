@@ -1,8 +1,8 @@
 'use strict';
 
 app.controller('PatientController', ['$scope', '$state', '$filter', 'PatientService', 'FileService',
-	'ModalService', 'LISTS',
-  function ($scope, $state, $filter, PatientService, FileService, ModalService, LISTS) {
+	'ModalService', 'PatientHandler', 'LISTS',
+  function ($scope, $state, $filter, PatientService, FileService, ModalService, PatientHandler, LISTS) {
 
 	var init = function () {
 		getAll();
@@ -61,7 +61,7 @@ app.controller('PatientController', ['$scope', '$state', '$filter', 'PatientServ
 	var getAll = function() {   
       PatientService.getAll()
           .then(function(data) {
-          	$scope.patients = data;
+          	$scope.patients = createListPatients(data);
           	$scope.patientList = angular.copy($scope.patients);
           	setLetter();
           })
@@ -74,6 +74,18 @@ app.controller('PatientController', ['$scope', '$state', '$filter', 'PatientServ
 		$scope.letterSelected = null;//$scope.letters[0];
 		$scope.searchBy($scope.letterSelected, $scope.name);		
 	};
+
+	var createListPatients = function(patients) {
+		var list = [];
+		patients.map(function(patient) {
+			list.push(patientToShowHandler(patient));
+		});
+		return list;
+	};
+
+  	var patientToShowHandler = function(patient) {
+    	return PatientHandler.from(patient);
+  	};
 
 	var goToCreate = function() {
 		// $state.go('app.patient.create', { menu: 'geral' });

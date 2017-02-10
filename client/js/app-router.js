@@ -38,42 +38,25 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         templateUrl: 'partials/app/patient/patient.html',
         controller: 'PatientController'
       }) 
+      .state('app.patient.view', {
+        url: '/view/:id',
+        templateUrl: 'partials/app/patient/patient-view.html',
+        controller: 'PatientViewController'
+      }) 
       .state('app.patient.edit', {
         abstract: true,
-        url: '/edit/:id',
-        templateUrl: 'partials/app/patient/patient-edit.html',
-        controller: 'PatientEditController',
+        url: '/edit',
+        template: '<div ui-view></div>',
       }) 
-      .state('app.patient.edit.geral', {
-        url: '/geral',
-        templateUrl: 'partials/app/patient/patient-edit-geral.html',
-        controller: 'PatientEditGeralController',
-      }) 
-      .state('app.patient.edit.contact', {
-        url: '/contact',
-        templateUrl: 'partials/app/patient/patient-edit-contact.html',
-        controller: 'PatientEditContactController',
-      }) 
-      .state('app.patient.edit.address', {
-        url: '/address',
-        templateUrl: 'partials/app/patient/patient-edit-address.html',
-        controller: 'PatientEditAddressController',
-      })   
-      .state('app.patient.edit.family', {
-        url: '/family',
-        templateUrl: 'partials/app/patient/patient-edit-family.html',
-        controller: 'PatientEditFamilyController',
-      })    
-      .state('app.patient.edit.graduation', {
-        url: '/graduation',
-        templateUrl: 'partials/app/patient/patient-edit-graduation.html',
-        controller: 'PatientEditGraduationController',
+      .state('app.patient.edit.profile', {
+        url: '/profile/:id',
+        templateUrl: 'partials/app/patient/patient-edit-profile.html',
+        controller: 'PatientEditProfileController',
       })  
-      .state('app.patient.edit.professional', {
-        url: '/professional',
-        templateUrl: 'partials/app/patient/patient-edit-professional.html',
-        controller: 'PatientEditProfessionalController',
-      })  
+
+      /**
+       *    'Consultas'
+       */
       .state('app.calendar', {
         abstract: true,
         url: '/calendar',
@@ -84,6 +67,43 @@ app.config(['$stateProvider', '$httpProvider', '$urlRouterProvider', '$locationP
         templateUrl: 'partials/app/calendar/calendar.html',
         controller: 'CalendarController'
       }) 
+
+      // .state('app.patient.edit', {
+      //   abstract: true,
+      //   url: '/edit/:id',
+      //   templateUrl: 'partials/app/patient/patient-edit.html',
+      //   controller: 'PatientEditController',
+      // }) 
+      // .state('app.patient.edit.geral', {
+      //   url: '/geral',
+      //   templateUrl: 'partials/app/patient/patient-edit-geral.html',
+      //   controller: 'PatientEditGeralController',
+      // }) 
+      // .state('app.patient.edit.contact', {
+      //   url: '/contact',
+      //   templateUrl: 'partials/app/patient/patient-edit-contact.html',
+      //   controller: 'PatientEditContactController',
+      // }) 
+      // .state('app.patient.edit.address', {
+      //   url: '/address',
+      //   templateUrl: 'partials/app/patient/patient-edit-address.html',
+      //   controller: 'PatientEditAddressController',
+      // })   
+      // .state('app.patient.edit.family', {
+      //   url: '/family',
+      //   templateUrl: 'partials/app/patient/patient-edit-family.html',
+      //   controller: 'PatientEditFamilyController',
+      // })    
+      // .state('app.patient.edit.graduation', {
+      //   url: '/graduation',
+      //   templateUrl: 'partials/app/patient/patient-edit-graduation.html',
+      //   controller: 'PatientEditGraduationController',
+      // })  
+      // .state('app.patient.edit.professional', {
+      //   url: '/professional',
+      //   templateUrl: 'partials/app/patient/patient-edit-professional.html',
+      //   controller: 'PatientEditProfessionalController',
+      // }) 
 
       /*
        * Authentication

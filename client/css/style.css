@@ -71,6 +71,9 @@ hr {
   padding-left: 90px;
   margin-left: -60px;
 }
+.main .page-header {
+  margin-top: 20px;
+}
 .breadcrumb {
   background: white;
   -webkit-border-radius: 0px;
@@ -646,7 +649,7 @@ toolbar button {
 /* Panel
 =================================================================== */
 .panel-body {
-    padding: 30px 15px;
+    padding: 30px;
 }
 /* Buttons
 =================================================================== */
@@ -897,6 +900,10 @@ toolbar button {
   border: none;
   float: right;
   margin-right: 5px;
+}
+.panel-heading .nav-tabs li {
+  width: 100px;
+  text-align: center;
 }
 .panel-heading .nav-tabs li a {
   background: transparent;
@@ -5448,6 +5455,9 @@ div.DTFC_LeftFootWrapper table {
 }
 /* Page: Invoice
 =================================================================== */
+.profile .profile-sidebar p {
+  font-size: 11pt;
+}
 .profile h3 {
   padding: 0 5px;
 }
@@ -5455,7 +5465,7 @@ ul.profile-details {
   margin-top: 10px;
   padding: 0 5px;
   list-style: none;
-  color: #9faecb;
+  /*color: #9faecb;*/
 }
 ul.profile-details li {
   position: relative;
@@ -5463,13 +5473,13 @@ ul.profile-details li {
   padding-left: 22px;
 }
 ul.profile-details li div {
-  color: #c0cadd;
+  color: #A9A9A9;
 }
 ul.profile-details li div i {
   position: absolute;
   top: 4px;
   left: -5px;
-  color: #c0cadd;
+  color: #A9A9A9;
   width: 20px;
   text-align: center;
 }

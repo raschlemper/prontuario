@@ -37,14 +37,14 @@
 
     <!-- <hr/> -->
 
-      <div class="col-md-3 col-sm-3 col-xs-12" ng-repeat="patient in patientList track by patient._id">
+      <div class="col-md-3 col-sm-3 col-xs-12" ng-repeat="patient in patientList track by patient.id">
 
         <div class="contact-box">
           <!-- <a class="contact-box-edit" ui-sref="app.patient.edit({'menu': 'geral', 'id': patient._id})">
             <i class="fa fa-pencil-square-o"></i>
           </a> -->
-          <a ui-sref="app.patient.create">
-            <img alt="image" ng-src="{{getImage(patient._id)}}" class="img-circle" />
+          <a ui-sref="app.patient.view({'id': patient.id})">
+            <img alt="image" ng-src="{{getImage(patient.id)}}" class="img-circle" />
             <h3 style="min-height: 34px">
               <strong>{{ patient.name }}</strong>
             </h3>
@@ -56,9 +56,24 @@
               </address> -->
           </a>
           <div class="contact-box-footer">
-            <div class="btn-group">
-              <button type="button" class="btn btn-default" ui-sref="app.patient.edit.geral({'id': patient._id})">
+            <!-- <div class="btn-group">
+              <button type="button" class="btn btn-default" ui-sref="app.patient.edit.profile({'id': patient.id})">
                   <i class="fa fa-pencil-square-o"></i> Editar
+              </button>
+            </div> -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ui-sref="app.patient.edit.profile({'id': patient.id})" title="Entrevista Clinica">
+                  <i class="fa fa-pencil-square-o"></i> Anamenese
+              </button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ui-sref="app.patient.edit.profile({'id': patient.id})" title="Prontuário Descritivo">
+                  <i class="fa fa-pencil-square-o"></i> Consulta
+              </button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ui-sref="app.patient.edit.profile({'id': patient.id})" title="Honorários">
+                  <i class="fa fa-pencil-square-o"></i> Financeiro
               </button>
             </div>
           </div>

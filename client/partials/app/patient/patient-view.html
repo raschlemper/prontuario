@@ -1,60 +1,58 @@
 <div class=" col-md-12 col-sm-12 main">
 
-  <toolbar title="Cadastro Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
-
+  <!-- <toolbar title="Cadastro Paciente | " subtitle="{{patient.name}}" breadcrumb="toolbar.breadcrumb" actions="toolbar.actions"></toolbar>
+ -->
   <div class="panel panel-default">
 
-    <div class="panel-heading">
-      <h2><i class="fa fa-list"></i><strong>Cadastro Paciente</strong></h2>
-    </div>
+    <!-- <div class="panel-heading">
+      <h2><i class="fa fa-user"></i><strong>{{ patient.name }}</strong></h2>
+    </div> -->
 
-    <div class="panel-body">
+    <div class="panel-body profile">
 
       <div class="row">
 
-        <div class="col-md-2 col-sm-3 sidebar">
+        <div class="col-md-3 col-sm-3 profile-sidebar">
 
-          <div class="nav-sidebar title"><span>Dados Paciente</span></div>
+          <div class="thumbnail">
+            <img alt="image" ng-src="{{getImage(patient.id)}}" />
+          </div> 
 
-          <ul class="nav nav-sidebar">
-            <li ng-class="{'active-menu active': menu === 'geral'}"
-                title="Dados do Paciente" ui-sref="app.patient.edit.geral({'id': patient.id})">
-              <a><i class="fa fa-list"></i><span>Cadastro</span></a>
-            </li>            
-            <li ng-class="{'active-menu active': menu === 'contact'}"
-                title="Contatos do Paciente" ui-sref="app.patient.edit.contact({'id': patient.id})">
-               <a><i class="fa fa-envelope-o text-center"></i><span>Contato</span></a>
-            </li>
-            <li ng-class="{'active-menu active': menu === 'address'}"
-               title="Endereços do Paciente" ui-sref="app.patient.edit.address({'id': patient.id})">
-               <a><i class="fa fa-bookmark-o text-center"></i><span>Endereço</span></a>
-            </li>
+          <h2 class="text-center"><strong>{{ patient.name }}</strong></h2> 
+          <h4 class="text-center" ng-if="patient.age">{{ patient.age }} anos</h4>
 
-            <li ng-class="{'active-menu active': menu === 'family'}"
-                title="Familia do Paciente" ui-sref="app.patient.edit.family({'id': patient.id})">
-               <a><i class="fa fa-circle-o-notch text-center"></i><span>Familiar</span></a>
+          <hr>
+
+          <h4><strong>Contatos</strong></h4>
+
+          <ul class="profile-details">
+            <li ng-if="patient.phones[0].number">
+              <div><i class="fa fa-phone"></i> Telefone</div>
+              {{ patient.phones[0].number }}
             </li>
-            <li ng-class="{'active-menu active': menu === 'graduation'}"
-                title="Escolaridade do Paciente" ui-sref="app.patient.edit.graduation({'id': patient.id})">
-               <a><i class="fa fa-graduation-cap text-center"></i><span>Escolaridade</span></a>
+            <li ng-if="patient.phones[1].number || patient.phones[2].number">
+              <div><i class="fa fa-tablet"></i> Celular</div>
+              <span ng-if="patient.phones[1].number">{{ patient.phones[1].number }}</span><br/>
+              <span ng-if="patient.phones[2].number">{{ patient.phones[2].number }}</span>
             </li>
-            <li ng-class="{'active-menu active': menu === 'professional'}"
-                title="Dados Profissionais do Paciente" ui-sref="app.patient.edit.professional({'id': patient.id})">
-               <a><i class="fa fa-briefcase text-center"></i><span>Profissional</span></a>
+            <li ng-if="patient.emails[0] || patient.emails[1]">
+              <div><i class="fa fa-envelope"></i> E-mail</div>
+              <span ng-if="patient.emails[0]">{{ patient.emails[0] }}</span><br/>
+              <span ng-if="patient.emails[1]">{{ patient.emails[1] }}</span>
             </li>
-          </ul>   
+            <li ng-if="patient.address[0].street || patient.address[0].number || patient.address[0].district || patient.address[0].city || patient.address[0].state">
+              <div><i class="fa fa-map-marker"></i> Endereço</div>
+              {{ patient.address[0].street }}, {{ patient.address[0].number }}<br>
+              {{ patient.address[0].district }}<br>
+              {{ patient.address[0].city }}, {{ patient.address[0].state }}
+            </li>
+          </ul>
 
         </div>  
 
-        <div class="col-md-10 col-sm-9"> 
+        <div class="col-md-9 col-sm-9"> 
 
-         <!--  <form name="patientForm" class="form-horizontal form-label-left">     -->
-         
-          <div class="form-horizontal form-label-left">
-            <div ui-view></div>
-          </div>
-
-          <!-- </form>  --> 
+          <div class="page-header"><h1>Ficha Anamenese</h1></div> 
 
         </div>  
 
